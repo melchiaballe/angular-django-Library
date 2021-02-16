@@ -1,0 +1,7 @@
+You’re almost there, {{ full_name }}!
+
+We know our registration process takes a few minutes, we hope it’ll be worth your while...
+
+Ready to start your experience with us? Confirm your registration with the link below.
+
+{{ token }}

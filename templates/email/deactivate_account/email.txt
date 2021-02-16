@@ -1,0 +1,5 @@
+Howdy, {{ full_name }}!
+
+Your request to deactivate your account has been received and your personal data will be deleted within 48 hours.
+
+If you did not initiate this request please send an email to support@signalsbench.com

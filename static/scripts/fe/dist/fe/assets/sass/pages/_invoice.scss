@@ -1,0 +1,32 @@
+.panel {
+    font-weight: 300;
+    
+    &--white {
+        background-color: #ffffff;
+        @extend .panel;
+    }
+
+    &-label {
+    
+        font-size: torem(13);
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.33;
+        letter-spacing: normal;
+        text-align: left;
+        color: #778ca2;
+    }
+
+
+
+
+    &__header {
+        padding: torem(18) torem(27);
+        border-bottom: 1px solid #f2f4f6;
+    }
+
+    &__content {
+        padding: torem(28);
+    }
+}

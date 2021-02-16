@@ -1,0 +1,26 @@
+.page-wrapper{
+	@include flexbox();
+	height: 100%;
+	main{
+		width: 100%;
+		position: relative;
+		
+	}
+}
+
+footer{
+	padding-left: torem(30);
+	padding-right: torem(30);
+	position: absolute;
+	bottom: torem(10);
+	width: 100%;
+	background: #f7fafb;
+	a{
+		color: $text--blue-grey;
+	}
+	.navbar{
+		a{
+			padding-left: torem(50);
+		}
+	}
+}

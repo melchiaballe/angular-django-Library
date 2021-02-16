@@ -1,0 +1,162 @@
+//overriding default bootstrap table
+table {
+    background: $white;
+
+    thead {
+        tr {
+            th {
+                border: none !important;
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+
+                &:first-child {
+                    padding-left: torem(30);
+                }
+
+                a {
+                    padding-top: torem(20);
+                    padding-bottom: torem(20);
+                    position: relative;
+                    display: inline-block;
+                    color: $text--secondary;
+                    font-weight: 500;
+
+                    &:hover {
+                        color: $text--primary;
+                    }
+
+
+                }
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            padding-left: torem(30);
+            padding-right: torem(30);
+
+           
+
+            * {
+                margin-bottom: 0;
+            }
+
+            td {
+                padding-top: torem(20) !important;
+                padding-bottom: torem(20) !important;
+                border-color: $border-light !important;
+
+                &.positive {
+                    * {
+                        color: $text-positive;
+                    }
+                }
+
+                &:first-child {
+                    padding-left: torem(30);
+                }
+
+                &.negative {
+                    * {
+                        color: $text-negative;
+                    }
+                }
+
+                .text-cutoff {
+                    position: relative;
+
+                    p {
+                        white-space: nowrap;
+                        max-width: torem(90);
+                        overflow-x: hidden;
+                    }
+
+                    .full-text {
+                        background: $white;
+                        box-shadow: 0 2px 16px 0 rgba(153, 155, 168, 0.12);
+                        display: none;
+                        max-width: torem(200);
+                        padding: torem(20);
+                        position: absolute;
+                        right: torem(-130);
+                        top: torem(-17);
+                        min-width: torem(180);
+
+                        p {
+                            white-space: inherit;
+                            overflow: auto;
+                            max-width: 100%;
+                        }
+
+                        &:before {
+                            content: "";
+                            background: $white;
+                            width: torem(20);
+                            height: torem(20);
+                            position: absolute;
+                            left: -10px;
+                            transform: rotate(45deg);
+
+                        }
+
+                    }
+
+                    &:hover {
+                        .full-text {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.no-border {}
+
+    &.panel-table {
+        td,th {
+            &:first-child {
+                padding-left: 0;
+            }
+        }
+        thead{
+            th{
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+
+.dashboard--table {
+    table {
+        margin-top: torem(10);
+    }
+}
+
+.table-paginated {
+    .table {
+        max-height: torem(664);
+    }
+
+    .load-more {
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), #ffffff);
+        height: torem(82);
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        padding-top: torem(20);
+    }
+}
+
+
+//table sm
+
+.table-sm {
+    td {
+        padding-top: torem(8) !important;
+        padding-bottom: torem(8) !important;
+    }
+}

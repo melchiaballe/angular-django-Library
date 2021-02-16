@@ -1,0 +1,137 @@
+<div class="dashboard--panel">
+  <div class="row">
+      <div class="col-md-8">
+          <div class="panel--white">
+              <div class="panel__header">
+                <div class="panel-label"><i class="fa fa-newspaper-o m-1"></i>Profile</div>
+              </div>
+              <div class="panel__content">
+                  <form [formGroup]="form.form" (ngSubmit)="onSubmit(form.form)" class="form" enctype="multipart/form-data">
+                    <div [hidden]="!this.editSuccessMessage" class="alert alert-success"><p>You have successfully updated your info!</p></div>
+                    <div *ngIf="!this.ProfNoChanges" class="alert alert-info"><p>No Changes!</p></div>
+                    <div class="row">
+                        <div class="col mb-5">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" formControlName="first_name"  placeholder="First name">
+                            <span [hidden]="form.valid('first_name')" class="text-danger"><p><small>This field is required.</small></p></span>
+                            <label>Username</label>
+                            <input type="text" class="form-control" formControlName="username" (input)="usernameInputChange($event.target.value)" placeholder="Username" disabled>
+                            <small class='text-muted'>Please note that you cannot change your username after sign up.</small><br><br>
+
+                            <div [ngSwitch]="switchExpression" class="password-field">
+                                <!-- CHANGE PASSWORD FORM -->
+                                <div *ngSwitchCase="'change_password'">
+                                    <form [formGroup]="edit_password_form.form" (ngSubmit)="onEditPasswordSubmit(edit_password_form.form)">
+                                        <p>Change Password</p>
+                                        <span *ngIf="passwordHasError" class="text-danger">{{ edit_password_form.err }}</span>
+                                        <div class="form-group">
+                                            <label>Old Password</label>
+                                            <input type="password" formControlName="old_password" (input)="passwordInputChange($event.target.value)" class="form-control">
+                                            <span *ngIf="edit_password_form.hasError('old_password', 'required')" class="text-danger"><small>This field is required</small></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>New Password</label>
+                                            <input type="password" formControlName="new_password" (input)="passwordInputChange($event.target.value)" class="form-control">
+                                            <span *ngIf="edit_password_form.hasError('new_password', 'required')" class="text-danger"><p><small>This field is required</small></p></span>
+                                            <span *ngIf="edit_password_form.hasError('new_password', 'minlength')" class="text-danger"><p><small>Password should consist of 8 characters</small></p></span>
+                                            <span *ngIf="edit_password_form.hasError('new_password', 'pattern')" class="text-danger"><p><small>Password must contain a number and symbol (#$@!%&*?_)</small></p></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Confirm Password</label>
+                                            <input type="password" formControlName="confirm_new_password" (input)="passwordInputChange($event.target.value)" class="form-control">
+                                            <span *ngIf="edit_password_form.hasError('confirm_new_password', 'required')" class="text-danger"><p><small>This field is required</small></p></span>
+                                            <span *ngIf="edit_password_form.hasError('confirm_new_password', 'minlength')" class="text-danger"><p><small>Password should consist of 8 characters.</small></p></span>
+                                            <span *ngIf="edit_password_form.hasError('confirm_new_password', 'pattern')" class="text-danger"><p><small>Password must contain a number and symbol (#$@!%&*?_)</small></p></span>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <button (click)="cancelPasswordEvent()" class="btn-sm btn-light">Cancel</button>
+                                            <button class="btn-sm btn-primary" [disabled]="this.passbtn_disable">Update Password</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- CHANGE/CREATE PASSWORD -- SUCCESS -->
+                                <div *ngSwitchCase="'success'">
+                                  <p>Congratulations! You’ve successfully updated your password.</p>
+                                  <div class="text-right">
+                                      <a href="" (click)="changePassClick($event)" class="text-right bold changePw">Change Password</a>
+                                  </div>
+                                </div>
+
+                                <div *ngSwitchDefault>
+                                    <!-- PASSWORD ALREADY CREATED -->
+                                    <div class="text-left">
+                                        <a href="" (click)="changePassClick($event)" class="bold changePw">Change Password</a>
+                                    </div>
+                                    <!-- CPASSWORD ALREADY CREATED-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" formControlName="last_name" placeholder="Last name">
+                            <span [hidden]="form.valid('last_name')" class="text-danger"><p><small>This field is required.</small></p></span>
+                            <label>Color</label>
+                            <select class="form-control" formControlName="color" name="color" id="color">
+                              <option value="pink"><p>Pink</p></option>
+                              <option value="success"><p>Green</p></option>
+                              <option value="primary"><p>Blue</p></option>
+                              <option value="orange"><p>Orange</p></option>
+                              <option value="red"><p>Red</p></option>
+                            </select>
+
+                            <label>E-mail</label>
+
+                            <div [ngSwitch]="switchExpression" class="email-field">
+                                <div *ngSwitchDefault>
+                                  <div>
+                                    <div class="bold mt-2"><p>{{ form.form.value.email }} <a href="" (click)="changeEmailClick($event)" class="text-right bold text-muted"><small>Change Email</small></a></p></div>
+                                  </div>
+                                </div>
+
+
+                                <div *ngSwitchCase="'change_email'">
+                                  <div class="bold mt-2"><p>{{ form.form.value.email }}</p></div>
+
+                                  <form [formGroup]="edit_email_form.form" (ngSubmit)="onEditEmailSubmit(edit_email_form.form)">
+                                    <p>Change Email</p>
+                                    <span *ngIf="this.emailHasError" class="text-danger"><p>This email is already used.</p></span>
+                                    <span *ngIf="this.emailNoChanges" class="text-danger"><p>Nothing Changed</p></span>
+
+                                    <div class="form-group">
+                                      <label>New Email</label>
+                                      <input class="form-control" formControlName="email" (input)="emailInputChange($event.target.value)" type="text">
+                                      <span *ngIf="edit_email_form.form.hasError('email', 'required')" class="text-danger"><p><small>This field is required.</small></p></span>
+                                      <span *ngIf="edit_email_form.form.hasError('email', 'email')" class="text-danger"><p><small>Invalid email format.</small></p></span>
+                                      <span *ngIf="edit_email_form.form.hasEmailError" class="text-danger"><p><small>{{ this.emailErr }}</small></p></span>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between">
+                                      <button (click)="cancelEmailEvent()" class="btn-sm btn-light">Cancel</button>
+                                      <button class="btn-sm btn-primary" [disabled]="this.emailbtn_disabled">Update Email</button>
+                                    </div>
+                                  </form>
+                                </div>
+
+                                <!-- CHANGE EMAIL -- SUCCESS -->
+                                <div *ngSwitchCase="'edit_email_success'">
+                                  <p>Congratulations! You’ve successfully updated your email.</p>
+                                  <div class="text-right">
+                                    <a href="" (click)="changeEmailClick($event)" class="text-right bold changePw">Change Email</a>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-custom-lg btn-primary">Update Profile</button>
+                    <button class="btn-custom-lg btn-light">Cancel</button>
+
+                </form>
+              </div>
+
+          </div>
+      </div>
+  </div>
+</div>
+

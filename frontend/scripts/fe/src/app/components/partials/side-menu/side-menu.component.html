@@ -1,0 +1,25 @@
+<aside class="sidebar">
+    <a href="" class="nav-brand">
+        <img src="/static/images/logo.png"
+        srcset="/static/images/logo@2x.png 2x,
+                /static/images/logo@3x.png 3x"
+        class="logo">
+        Library
+    </a>
+    <ul class="sidebar--links navbar-nav">
+        <li class="sidebar--item " [ngClass]="{active: state.includes('dashboard') }">
+            <a (click)="onDashboardClick($event)"><i class="la la-home"></i>Dashboard</a>
+        </li>
+        <li class="sidebar--item">
+            <a><i class="la la-question-circle"></i>Help Docs</a>
+        </li>
+        <li class="sidebar--item" [ngClass]="{active: state.includes('settings') }">
+          <a (click)='onSettingsClick($event)'><i class="la la-cogs"></i>Settings</a>
+        </li>
+        <li class="sidebar--item" [ngClass]="{active: state.includes('logout') }">
+          <a (click)='onLogoutClick($event)'><i class="la la-sign-out-alt"></i>Logout</a>
+        </li>
+    </ul>
+</aside>
+
+

@@ -1,0 +1,35 @@
+<div class="container p-5">
+
+    <h3 class="section-title mb-3">Login</h3>
+
+    <div *ngIf="hasDeactivated" class="alert alert-warning">
+        <p>Your account has been deactivated. Your personal data will be deleted within 48 hours.</p>
+    </div>
+    <div *ngIf="new" class="alert alert-warning">
+        <p>Check your email and activate your account.</p>
+    </div>
+    <form [formGroup]="form.form" (ngSubmit)="onSubmit(form.form)">
+        <span [hidden]="!form.err" class="text-danger">Invalid Email/Password. Please try again.</span>
+        <!-- <span *ngIf="hasError" class="text-danger"><p>Invalid Email/Password. Please try again.</p></span> -->
+        <div>
+            <label>Email:</label>
+            <input class="form-control" formControlName="email" (input)="inputChange($event.target.value)" type="text">
+            <span *ngIf="form.hasError('email', 'required')" class="text-danger"><p><small>Email is required.</small></p></span>
+            <span *ngIf="form.hasError('email', 'email')" class="text-danger"><p><small>Invalid email format.</small></p></span>
+        </div>
+        <div>
+            <label>Password:</label>
+            <input class="form-control" formControlName="password" (input)="inputChange($event.target.value)" type="password">
+            <span *ngIf="form.hasError('password', 'required')" class="text-danger"><p><small>Password is required.</small></p></span>
+        </div>
+        <br>
+        <button class="btn btn-primary" type="submit">Login</button>
+    </form><br>
+    
+
+    <div class="form-group">
+        <p><a (click)='forgotPassword()' class="mb-1">Forgot Password</a></p>
+        <p><a (click)='register()'>Don't have an account?</a></p>
+    </div>
+
+</div>

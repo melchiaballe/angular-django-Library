@@ -1,0 +1,69 @@
+//typography variables
+
+
+
+
+//Primary colors
+
+$white: #ffffff;
+$text--primary: #05274a;
+$brand--primary: #1552f0;
+$brand--secondary: #00d4a7;
+
+// Mood Colors
+
+$success: #1cd49b;
+$danger: #fb3a52;
+// $warning: #ffde52;
+// $info: #4a73fa;
+
+
+//secondary colors
+$text--secondary: #778ca2;
+$text-positive: #6dd230;
+$text-negative: #d0021b;
+$text--blue-grey: #98a9bc;
+$muted:#9E9FA1;
+$dark-grey:#172B4D;
+$fiord:#42516E;
+$light-grey:#AFB5C1;
+
+
+// $background:#405772;
+$bg--light: #F8FAFB;
+$border--muted:#dbdbdb;
+$border-light: #e8ecef;
+$border-light--two: #f2f4f6;
+
+
+
+
+//avatar colors
+
+$orange: #FDB140;
+$fire: #F3745B;
+$purple: #7D5BF3;
+$pink: #ED49B2;
+$green: #1DCF90;
+$grey: #5E6A84;
+$cyan: #04C3CC;
+
+
+//font-sizes:
+$basefont: 16;
+$h1: #{72 / $basefont}rem;
+$h2: #{30 / $basefont}rem;
+$h3: #{24 / $basefont}rem;
+$h4: #{20 / $basefont}rem;
+$h5: #{16 / $basefont}rem;
+$h6: #{13 / $basefont}rem;
+$paragraph: #{14 / $basefont}rem;
+$small: #{12 / $basefont}rem;
+$xsmall: #{10 / $basefont}rem;
+
+
+
+
+
+$avatar:  '[class*="avatar-"]';
+

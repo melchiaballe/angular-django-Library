@@ -1,0 +1,19 @@
+Howdy, Admin!
+
+
+The following are the missing ranges (inclusive) that you should be aware of.
+
+FROM
+{% for dt in current %}
+    {{ forloop.counter }} {{ dt }}
+{% endfor %}
+
+TO
+{% for prev_dt in previous %}
+    {{ forloop.counter }} {{ prev_dt }}
+{% endfor %}
+
+MODEL
+{% for model in models %}
+    {{ forloop.counter }} {{ model }}
+{% endfor %}

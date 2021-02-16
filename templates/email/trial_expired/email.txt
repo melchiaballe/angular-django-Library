@@ -1,0 +1,5 @@
+Your subscription has expired!
+
+Please see our pricing plans and send and email to contact@collectops.com with the desired plan
+
+{{ pricing_url }}

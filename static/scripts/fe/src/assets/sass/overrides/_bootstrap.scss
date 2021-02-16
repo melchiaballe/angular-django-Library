@@ -1,0 +1,19 @@
+//overriding bootstrap theme colors
+$theme-colors: ("primary": #1552f0,
+"success": #6dd230,
+"light": #F4F5F7,
+"danger": #d0021b,
+);
+
+.btn-primary{
+	color: $white !important;
+
+}
+
+//disabling default bootstrap box shadows 
+
+$enable-shadows: false;
+
+
+
+

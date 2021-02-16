@@ -1,0 +1,40 @@
+.tag{
+	text-align: left;
+	padding: torem(2) torem(20);
+	font-weight: 500;
+	width: fit-content;
+	border-radius:4px;
+	&-positive{
+		background: rgba( $success,0.10);
+		color:  $success;
+		@extend .tag;
+	}
+	&-negative{
+		background: rgba( $danger,0.10);
+		color:  $danger;
+		@extend .tag;
+	}
+}
+
+.avatar  {
+	width: torem(40);
+	padding: 5px;
+	  height: torem(40);
+	  border-radius: 50%;
+}
+
+.no-photo{
+
+	&-pink{
+		@include badge-pill-mono($pink,15%);
+	}
+	&-success{
+		@include badge-pill-mono($success,35%);
+	}
+	&-primary{
+		@include badge-pill-mono($primary,35%);
+	}
+	&-orange{
+		@include badge-pill-mono($orange,35%);
+	}
+}

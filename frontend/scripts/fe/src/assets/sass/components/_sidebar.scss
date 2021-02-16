@@ -1,0 +1,49 @@
+.sidebar{
+	width: torem(242);
+	height: 100%;
+	background: $white;
+	padding-top: torem(21);
+	border-right: solid 1px lighten($border-light, 3%);
+	.nav-brand{
+		padding-left: torem(26);
+		line-height: 1.2;
+  		letter-spacing: 0.2px;
+  		font-weight: 500;
+  		font-size: $h5;
+  		color:$brand--primary;
+  		img{
+  			width: torem(30);
+  		}
+	}
+	&--links{
+		padding-top: torem(15);
+	}
+	&--item{
+		padding: torem(14) torem(26);
+		a{
+			text-transform: capitalize;
+			font-weight: 300;
+			@include flex-align-center();
+			i{
+				font-size: torem(18);
+				margin-right: torem(10);
+			}
+			&:hover{
+				@include transition(all ease-in 0.3s);
+				i{
+					color:$brand--primary;
+					@include transition(all ease-in 0.3s);
+				}
+			}
+			
+		}
+		&.active{
+			background:$bg--light;
+			border-left: $brand--primary solid 2px;
+			a{
+				font-weight: 500;
+			}
+			
+		}
+	}
+}
