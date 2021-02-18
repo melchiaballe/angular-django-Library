@@ -4,7 +4,6 @@ import { Disconnect, Deactivate } from "src/app/commons/utils/security.utils";
 import { RegisterComponent } from "./register/register.component";
 import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
 import { ResetPasswordComponent } from "./reset-password/reset-password.component";
-import { ActivateAccountComponent } from "./activate-account/activate-account.component";
 
 
 export const PUBLIC_STATES: Object[] = [
@@ -51,10 +50,5 @@ export const PUBLIC_STATES: Object[] = [
         name    : 'reset-password',
         url     : '/reset-password/:token',
         views: ContentOnly(ResetPasswordComponent),
-    },
-    {
-        name    : 'activate-account',
-        url     : '/activate-account/:token',
-        views : ContentOnly(ActivateAccountComponent)
     },
 ]

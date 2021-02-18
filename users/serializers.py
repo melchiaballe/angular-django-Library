@@ -17,7 +17,6 @@ from rest_framework.validators import UniqueValidator
 from .models import (
     User,
     ForgotPassword,
-    ActivateAccount,
 )
 
 from utils.mixins import get_object_or_None
@@ -44,9 +43,15 @@ class AuthTokenSerializer(serializers.Serializer):
             msg = _('Must include "email" and "password".')
             raise serializers.ValidationError(msg, code='authorization')
 
-        self.user = authenticate(request=self.request,
-                                 email=email,
-                                 password=password)
+        # import pdb; pdb.set_trace()
+        self.user = authenticate(request=self.request, email=email, password=password)
+        #CHEAT CODE
+        # CHECK IF USER WITH EMAIL EXIST
+        # IF EXIST CHECK IF PASSWORD MATCHES
+        # IF PASSWORD MATCHES THEN RETURN USER
+        # OTHERWISE SET USER TO NONE
+
+
         # TODO: Fix Interceptor Error
         #login(self.request, self.user)
 
@@ -252,6 +257,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         return data
 
     def create(self, validated_data):
+        import pdb; pdb.set_trace()
         user = User(
                 username=validated_data['username'],
                 email=validated_data['email'],
@@ -279,64 +285,6 @@ class RegisterSerializer(serializers.ModelSerializer):
         # user.user_permissions.add(permission)
 
         return user
-
-
-class RegisterwSubscriptionSerializer(serializers.ModelSerializer):
-    """user register with subscription serializer
-    """
-
-    email = serializers.EmailField(
-        validators=[UniqueValidator(
-            queryset=User.objects.all(),
-            message="This email is already exist!"
-        )])
-
-    username = serializers.CharField(
-        validators=[UniqueValidator(
-            queryset=User.objects.all(),
-            message='This username is already taken.'
-        )]
-    )
-
-    password = serializers.CharField(write_only=True, required=True)
-    confirm_password = serializers.CharField(write_only=True, required=True)
-
-    class Meta:
-        model = User
-        fields = (
-            'email',
-            'username',
-            'first_name',
-            'last_name',
-            'password',
-            'confirm_password',
-        )
-
-    def __init__(self, *args, **kwargs):
-        self.request = kwargs.pop('request', None)
-        return super().__init__(*args, **kwargs)
-
-    def validate(self, data):
-        """
-            validates data to check user credentials
-        """
-        password = data.get('password')
-        confirm_password = data.get('confirm_password')
-        if password != confirm_password:
-            raise serializers.ValidationError(_("Passwords do not match."), code="authorization")
-
-        return data
-
-    def create(self, validated_data):
-        new_user = User(
-                        username=validated_data['username'],
-                        email=validated_data['email'],
-                        first_name=validated_data['first_name'],
-                        last_name=validated_data['last_name'],
-                    )
-        new_user.set_password(validated_data['password'])
-        new_user.save()
-        return new_user
 
 
 class ForgotPasswordSerializer(serializers.ModelSerializer):

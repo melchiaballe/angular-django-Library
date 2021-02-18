@@ -5,35 +5,34 @@
             <button class="btn btn-outline-secondary" type="button"><i class="la la-search"></i></button>
         </div>
     </div>
-
+    <div>
+        <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary float-right" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <p ngbDropdownItem>Action - 1</p>
+                <p ngbDropdownItem>Another Action</p>
+                <p ngbDropdownItem>Something else is here</p>
+            </div>
+        </div>
+    </div>
     <div>
         <table class="table">
             <thead>
                 <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Owner</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+                <tr *ngFor="let book of books_list" (click)="rowClicked(book)">
+                    <td>{{ book.title | titlecase }}</td>
+                    <td>{{ book.author | titlecase }}</td>
+                    <td>{{ book.location | titlecase }}</td>
+                    <td>{{ book.status | titlecase  }}</td>
+                    <td>{{ book.owner.full_name | titlecase }}</td>
                 </tr>
             </tbody>
             </table>

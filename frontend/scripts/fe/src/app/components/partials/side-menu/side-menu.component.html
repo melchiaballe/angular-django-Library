@@ -11,7 +11,13 @@
             <a (click)="onDashboardClick($event)"><i class="la la-home"></i>Dashboard</a>
         </li>
         <li class="sidebar--item">
-            <a><i class="la la-question-circle"></i>Help Docs</a>
+            <a><i class="la la-plus-square"></i>Add a Book</a>
+        </li>
+        <li class="sidebar--item">
+            <a><i class="la la-copy"></i>Borrowed Books</a>
+        </li>
+        <li class="sidebar--item">
+            <a><i class="la la-book"></i>Owned Books</a>
         </li>
         <li class="sidebar--item" [ngClass]="{active: state.includes('settings') }">
           <a (click)='onSettingsClick($event)'><i class="la la-cogs"></i>Settings</a>

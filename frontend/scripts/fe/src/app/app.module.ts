@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UIRouterModule } from '@uirouter/angular';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SimpleModalModule } from 'ngx-simple-modal';
 
 import { AppComponent } from './app.component';
 import { UsersModule } from './components/users/users.module';
@@ -22,6 +23,7 @@ import { TokenService } from './commons/services/interceptors/token.service';
     BrowserModule,
     HttpClientModule,
     UIRouterModule.forRoot(APP_STATES),
+    SimpleModalModule,
     NgbModule.forRoot(),
 
     PublicModule,

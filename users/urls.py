@@ -8,7 +8,6 @@ from .api import (
     Register,
     ForgotPassword,
     ResetPassword,
-    ActivateAccount,
     ChangeEmail
 )
 
@@ -27,10 +26,6 @@ urlpatterns = [
         'get': 'get_current',
     }), name="current-user"),
 
-    path('auth/deactivate/', User.as_view({
-        'post': 'deactivate',
-    }), name="user-deactivate"),
-
     path('auth/register/', Register.as_view(), name="register"),
     # path('auth/new-user/', RegisterSubscription.as_view(), name="new-user-register"),
     path('auth/login/', Login.as_view(), name="login"),
@@ -39,6 +34,5 @@ urlpatterns = [
     path('auth/email/', ChangeEmail.as_view(), name="change_email"),
     path('auth/forgot-password/', ForgotPassword.as_view(), name='forgot-password'),
     path('auth/reset-password/', ResetPassword.as_view(), name='reset-password'),
-    path('auth/activate-account/', ActivateAccount.as_view(), name='activate-account'),
 
 ]

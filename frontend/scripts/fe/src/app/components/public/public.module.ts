@@ -6,7 +6,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { ActivateAccountComponent } from './activate-account/activate-account.component';
 
 @NgModule({
   imports: [
@@ -14,6 +13,6 @@ import { ActivateAccountComponent } from './activate-account/activate-account.co
     ReactiveFormsModule,
     NgbModule
   ],
-  declarations: [LoginComponent, RegisterComponent, ForgotPasswordComponent, ResetPasswordComponent, ActivateAccountComponent]
+  declarations: [LoginComponent, RegisterComponent, ForgotPasswordComponent, ResetPasswordComponent,]
 })
 export class PublicModule { }

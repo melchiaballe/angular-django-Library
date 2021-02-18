@@ -10,8 +10,6 @@ import { EditEmailModel } from 'src/app/commons/models/edit-email.model';
 import { AuthService } from 'src/app/commons/services/auth/auth.service';
 import { StateService } from '@uirouter/core';
 import { UserService } from 'src/app/commons/services/auth/user.service';
-import { DeactivateForm } from 'src/app/commons/forms/deactivate.forms';
-import { Deactivate } from 'src/app/commons/models/deactivate.model';
 
 
 @Component({
@@ -26,7 +24,6 @@ export class SettingsComponent implements OnInit {
   private edit_password_form: EditPasswordForm;
   private edit_email_form: EditEmailForm;
   //private add_password_form: AddPasswordForm;
-  private deactivate_form: DeactivateForm;
   private file: File | null = null;
   private date: Date = new Date;
 
@@ -65,7 +62,6 @@ export class SettingsComponent implements OnInit {
     this.edit_password_form = new EditPasswordForm(new EditPasswordModel);
     this.edit_email_form = new EditEmailForm(new EditEmailModel);
     //this.add_password_form = new AddPasswordForm(new AddPasswordModel);
-    this.deactivate_form = new DeactivateForm(new Deactivate);
 
     setTimeout(() => {
       this.nav.hasLoaded = false
@@ -268,61 +264,10 @@ export class SettingsComponent implements OnInit {
     this.switchExpression = '';
   }
 
-  deactivateClick($event){
-    // prevent href default behavior
-    $event.preventDefault();
-    // initialize switchExpression to redirect to change password form
-    this.switchExpression1 = 'deactivate_account';
-
-    if(this.deacbtn_disable === true) {
-      this.deacbtn_disable = false;
-    }
-  }
-
-  onDeactivateSubmit({value, valid}: {value: Deactivate, valid:boolean}){
-    this.deactivate_form.submitted = true;
-
-    if(valid){
-      if(value.deactivate !== 'DELETE ACCOUNT'){
-        this.checkDeact = false;
-        this.deacbtn_disable = false;
-      }
-      else{
-        this.deacbtn_disable = true;
-        this.checkDeact = true;
-        this.user.deactivate(value)
-          .then(resp => { this.state.go('log-out', {"deactivate": true}); })
-          .catch(err => {
-            this.errorString = "Incorrect Old Password";
-            this.deactPassHasErr = true;
-            this.deacbtn_disable = false;
-
-            // setTimeout(() => {
-            //   this.errorString  = ""
-            // }, 3000)
-
-          });
-      }
-    }
-  }
-
   deacPassInputChange(value) {
     if(this.deactPassHasErr === true) {
       this.deactPassHasErr = false;
     }
-  }
-
-  deactivateInputChange(value) {
-    if(this.checkDeact === false) {
-      this.checkDeact = true;
-    }
-  }
-
-  cancelDeactivateEvent(){
-    // re initialize edit password and add password form to empty fields
-    this.deactivate_form = new DeactivateForm(new Deactivate);
-    // initialize switchExpression to redirect to default view
-    this.switchExpression1 = '';
   }
 
 

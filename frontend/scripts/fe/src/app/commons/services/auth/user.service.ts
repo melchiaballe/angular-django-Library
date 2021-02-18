@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
 import { HttpClient } from '@angular/common/http';
-import { AUTH_USER, CHANGE_PASSWORD, AUTH_DEACTIVATE, CHANGE_EMAIL } from '../../constants/api.constants';
+import { AUTH_USER, CHANGE_PASSWORD, CHANGE_EMAIL } from '../../constants/api.constants';
 import { User } from '../../models/user.model';
 
 @Injectable({
@@ -45,13 +45,6 @@ export class UserService {
       .toPromise()
       .then(resp => { return resp; } )
       .catch(err => { return Promise.reject(err); })
-  }
-
-  deactivate(data){
-    return this.http.post(AUTH_DEACTIVATE, data)
-    .toPromise()
-    .then(resp => { return resp; } )
-    .catch(err => { return Promise.reject(err); })
   }
 
 

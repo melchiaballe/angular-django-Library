@@ -33,7 +33,7 @@ class Checkout(models.Model):
     checked_out_date = models.DateTimeField(auto_now_add=True)
     returned_date = models.DateTimeField(blank=True)
 
-class Comments(models.Model):
+class Comment(models.Model):
 
     message = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)

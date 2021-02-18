@@ -9,10 +9,6 @@ export class NavigationService {
   public hasLoaded:boolean = false;
   public isLoading: boolean = false;
 
-
-  public backtestLimit:boolean = false;
-  public liveLimit:boolean = false;
-
   constructor() { }
 
   changeHeaderTitle(title){

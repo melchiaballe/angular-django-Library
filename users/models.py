@@ -131,7 +131,7 @@ class ForgotPassword(models.Model):
 
             # Send email to user
             send_mail(
-                'SignalsBench - Reset Password',
+                'OnlineLibrary - Reset Password',
                 email_plain,
                 settings.DEFAULT_FROM_EMAIL,
                 [self.user.email],
@@ -141,77 +141,13 @@ class ForgotPassword(models.Model):
             # Send email celery task
             # from defaults.tasks import send_email_celery
             # send_email_celery.delay(
-            #     'SignalsBench - Reset Password',
+            #     'OnlineLibrary - Reset Password',
             #     email_plain,
             #     settings.DEFAULT_FROM_EMAIL,
             #     [self.user.email],
             #     html_message=email_html,
             # )
         super(ForgotPassword, self).save()
-
-
-class ActivateAccount(models.Model):
-    PENDING = 1
-    USED = 2
-
-    STATUS_CHOICES = (
-        (PENDING, 'Pending'),
-        (USED, 'Used')
-    )
-
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    token = models.CharField(max_length=255, blank=True)
-    status = models.IntegerField(default=PENDING, choices=STATUS_CHOICES)
-
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_updated = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return "{} - {}".format(self.user, self.status)
-
-    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        if not self.id:
-            # Set token
-            curr_time = strftime("%Y-%m-%d %H:%M:%S", gmtime())
-            string_to_hash = "{}{}".format(self.user.email, curr_time)
-            self.token = hashlib.sha256(string_to_hash.encode('utf-8')).hexdigest()
-
-            try:
-                confirm_link = settings.WEBAPP_ACTIVATE_ACCOUNT_PATH
-            except Exception as e:
-                raise ValueError("Missing setting: WEBAPP_ACTIVATE_ACCOUNT_PATH")
-
-            base_url = "{}{}/".format(settings.PROTOCOL, settings.DOMAIN_NAME)
-            token_link = "{}{}/{}".format(base_url, confirm_link, self.token)
-
-            email_context = {
-                'token': token_link,
-                'full_name': self.user.get_full_name()
-            }
-
-            # Email templates
-            email_plain = render_to_string('email/activate_account/email.txt', email_context)
-            email_html = render_to_string('email/activate_account/email.html', email_context)
-
-            #Send email to user
-            send_mail(
-                'SignalsBench - Activate Account',
-                email_plain,
-                settings.DEFAULT_FROM_EMAIL,
-                [self.user.email],
-                html_message=email_html,
-            )
-
-            # Send email celery task
-            # from defaults.tasks import send_email_celery
-            # send_email_celery.delay(
-            #     'SignalsBench - Activate Account',
-            #     email_plain,
-            #     settings.DEFAULT_FROM_EMAIL,
-            #     [self.user.email],
-            #     html_message=email_html,
-            # )
-        super(ActivateAccount, self).save()
 
 
 

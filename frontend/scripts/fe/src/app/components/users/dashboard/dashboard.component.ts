@@ -1,9 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { StateService } from '@uirouter/core';
+// import { DatePipe } from '@angular/common';
+import { TitleCasePipe } from '@angular/common';
+
 import { NavigationService } from 'src/app/commons/services/navigation/navigation.service';
 import { AuthService } from 'src/app/commons/services/auth/auth.service';
 import { UserService } from 'src/app/commons/services/auth/user.service';
-import { StateService } from '@uirouter/core';
-import { DatePipe } from '@angular/common';
+import { BooksService } from 'src/app/commons/services/books/books.service';
+import { SimpleModalService } from "ngx-simple-modal";
+
+import { BookDetailsComponent } from '../../partials/modals/book-details/book-details.component'
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -11,29 +18,19 @@ import { DatePipe } from '@angular/common';
 })
 export class DashboardComponent implements OnInit {
 
-  public time:any = [];
-  public capital:any=[];
-  public chart:any;
-  private selectedStrategy = "";
-  private lastDateUpdated:any;
-  private pipe = new DatePipe('en-US');
-  private activated = false;
+  // private pipe = new DatePipe('en-US');
+
+  books_list:any;
 
   constructor(
     private nav: NavigationService,
     private auth: AuthService,
     private state: StateService,
+    private booksService: BooksService,
+    private simpleModalService:SimpleModalService
   ) { }
 
   async ngOnInit() {
-
-    if (this.state.params.activated) {
-      this.activated = true;
-
-      setTimeout(() => {
-        this.activated = false;
-      }, 3000)
-    }
 
     this.nav.changeHeaderTitle('Dashboard');
 
@@ -48,5 +45,33 @@ export class DashboardComponent implements OnInit {
       await this.auth.setuser();
     }
 
+
+    this.booksService.getAllBooks().subscribe(
+      data => {
+        this.books_list = data
+        console.log(data)
+      }, error => {
+        console.log(error)
+      }
+    )
+
+  }
+
+
+  rowClicked(book){
+    console.log(book)
+    this.simpleModalService.addModal(BookDetailsComponent, {
+      has_error: false,
+      book:book
+    })
+    .subscribe((isConfirmed)=>{
+        //We get modal result
+        if(isConfirmed) {
+            alert('accepted');
+        }
+        else {
+            alert('declined');
+        }
+    });
   }
 }

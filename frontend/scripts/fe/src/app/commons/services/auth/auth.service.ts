@@ -3,7 +3,7 @@ import * as _ from 'lodash';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { AUTH_LOGIN, AUTH_USER, AUTH_REGISTER, FORGOT_PASSWORD, RESET_PASSWORD, NEW_USER, AUTH_USER_ID, ACTIVATE_ACCOUNT } from '../../constants/api.constants';
+import { AUTH_LOGIN, AUTH_USER, AUTH_REGISTER, FORGOT_PASSWORD, RESET_PASSWORD, NEW_USER, AUTH_USER_ID } from '../../constants/api.constants';
 import { AUTH_KEY } from '../../constants/conf.constants';
 import { User } from '../../models/user.model';
 
@@ -45,14 +45,6 @@ export class AuthService {
   /* Forgot Password */
   resetPassword(data){
     return this.http.post(RESET_PASSWORD, data)
-      .toPromise()
-      .then(resp=>{ return resp; })
-      .catch(err=> { return Promise.reject(err); })
-  }
-
-   /* Activate Account */
-  activateAccount(data){
-    return this.http.post(ACTIVATE_ACCOUNT, data)
       .toPromise()
       .then(resp=>{ return resp; })
       .catch(err=> { return Promise.reject(err); })
@@ -141,13 +133,6 @@ export class AuthService {
         console.log(error);
       }
     )
-  }
-
-  getActivatedUser(token){
-    return this.http.get(ACTIVATE_ACCOUNT, { params: token })
-      .toPromise()
-      .then(resp=>{ return resp; })
-      .catch(err=> { return Promise.reject(err);   })
   }
 
 }

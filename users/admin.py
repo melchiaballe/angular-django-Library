@@ -7,7 +7,6 @@ from rest_framework.authtoken.models import Token
 from users.models import (
     User,
     ForgotPassword,
-    ActivateAccount,
 )
 # Register your models here.
 
@@ -39,5 +38,4 @@ from users.models import (
 
 admin.site.register(User)
 admin.site.register(ForgotPassword)
-admin.site.register(ActivateAccount)
 admin.site.register(Permission)
