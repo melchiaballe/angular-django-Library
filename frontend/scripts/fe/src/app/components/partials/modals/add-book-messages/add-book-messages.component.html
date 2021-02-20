@@ -1,0 +1,12 @@
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-body">
+      <div>
+        <button (click)="this.close()"> BUTANGI OG CLOSE ICON RIGHT SIDE</button>
+        <p> ICON NA NAKA CENTER NGCLASS IF HAS ERROR X ICON IF WALA CHECK </p>
+        <p *ngIf="this.has_error">ERROR MESSAGE</p>
+        <p *ngIf="!this.has_error">SUCCESS MESSAGE</p>
+      </div>
+    </div>
+  </div>
+</div>
