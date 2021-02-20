@@ -1,10 +1,12 @@
 <div class="dashboard--panel">
 
     <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button"><i class="la la-search"></i></button>
-        </div>
+        <form class="form-group" [formGroup]="form.form" (ngSubmit)="onSubmit(form.form)">
+            <input type="text" formControlName="search_text" class="form-control" placeholder="Search Title" aria-label="Search" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit"><i class="la la-search"></i></button>
+            </div>
+        </form>
         <div class="input-group-append" ngbDropdown>
             <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle><i class="la la-filter"></i> Filter</button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1" >

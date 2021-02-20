@@ -3,6 +3,9 @@ import { StateService } from '@uirouter/core';
 // import { DatePipe } from '@angular/common';
 import { TitleCasePipe } from '@angular/common';
 
+import { SearchForm } from 'src/app/commons/forms/search.forms';
+import { SearchModel } from 'src/app/commons/models/search.model';
+
 import { NavigationService } from 'src/app/commons/services/navigation/navigation.service';
 import { AuthService } from 'src/app/commons/services/auth/auth.service';
 import { UserService } from 'src/app/commons/services/auth/user.service';
@@ -10,7 +13,6 @@ import { BooksService } from 'src/app/commons/services/books/books.service';
 import { SimpleModalService } from "ngx-simple-modal";
 
 import { BookDetailsComponent } from '../../partials/modals/book-details/book-details.component'
-import { ignoreElements } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,6 +25,7 @@ export class DashboardComponent implements OnInit {
 
   books_list:any;
   all_books:any;
+  private form: SearchForm;
 
   constructor(
     private nav: NavigationService,
@@ -35,6 +38,8 @@ export class DashboardComponent implements OnInit {
   async ngOnInit() {
 
     this.nav.changeHeaderTitle('Dashboard');
+    
+    this.form = new SearchForm(new SearchModel);
 
     setTimeout(() => {
       this.nav.hasLoaded = false
@@ -59,6 +64,11 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  onSubmit({ value, valid }: { value: SearchModel, valid: boolean }) {
+    if(valid){
+      this.books_list = this.all_books.filter(x => x.title.includes(value.search_text))
+    }
+  }
 
   rowClicked(book){
     console.log(book)
@@ -84,5 +94,7 @@ export class DashboardComponent implements OnInit {
     } else {
       this.books_list = this.all_books.filter(x=>x.status===status);
     }
+
+    this.form.form.controls['search_text'].setValue(null);
   }
 }
