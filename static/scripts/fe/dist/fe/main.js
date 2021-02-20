@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"page-wrapper\">\n  <ui-view name=\"sidemenu\"></ui-view>\n  <main>\n    <ui-view name=\"navigation\"></ui-view>\n    <ui-view name=\"content\"></ui-view>\n    <ui-view name=\"footer\"></ui-view>\n  </main>\n</div>\n\n\n"
+module.exports = "\r\n<div class=\"page-wrapper\">\r\n  <ui-view name=\"sidemenu\"></ui-view>\r\n  <main>\r\n    <ui-view name=\"navigation\"></ui-view>\r\n    <ui-view name=\"content\"></ui-view>\r\n    <ui-view name=\"footer\"></ui-view>\r\n  </main>\r\n</div>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -96,14 +96,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
 /* harmony import */ var _uirouter_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @uirouter/angular */ "./node_modules/@uirouter/angular/lib/index.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _components_users_users_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/users/users.module */ "./src/app/components/users/users.module.ts");
-/* harmony import */ var _commons_utils_app_states__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./commons/utils/app.states */ "./src/app/commons/utils/app.states.ts");
-/* harmony import */ var _components_partials_partials_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/partials/partials.module */ "./src/app/components/partials/partials.module.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _components_public_public_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/public/public.module */ "./src/app/components/public/public.module.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
-/* harmony import */ var _commons_services_interceptors_token_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./commons/services/interceptors/token.service */ "./src/app/commons/services/interceptors/token.service.ts");
+/* harmony import */ var ngx_simple_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-simple-modal */ "./node_modules/ngx-simple-modal/fesm5/ngx-simple-modal.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _components_users_users_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/users/users.module */ "./src/app/components/users/users.module.ts");
+/* harmony import */ var _commons_utils_app_states__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./commons/utils/app.states */ "./src/app/commons/utils/app.states.ts");
+/* harmony import */ var _components_partials_partials_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/partials/partials.module */ "./src/app/components/partials/partials.module.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _components_public_public_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/public/public.module */ "./src/app/components/public/public.module.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
+/* harmony import */ var _commons_services_interceptors_token_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./commons/services/interceptors/token.service */ "./src/app/commons/services/interceptors/token.service.ts");
+/* harmony import */ var _components_books_books_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/books/books.module */ "./src/app/components/books/books.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -123,27 +125,31 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
+                _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
-                _uirouter_angular__WEBPACK_IMPORTED_MODULE_3__["UIRouterModule"].forRoot(_commons_utils_app_states__WEBPACK_IMPORTED_MODULE_7__["APP_STATES"]),
+                _uirouter_angular__WEBPACK_IMPORTED_MODULE_3__["UIRouterModule"].forRoot(_commons_utils_app_states__WEBPACK_IMPORTED_MODULE_8__["APP_STATES"]),
+                ngx_simple_modal__WEBPACK_IMPORTED_MODULE_5__["SimpleModalModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbModule"].forRoot(),
-                _components_public_public_module__WEBPACK_IMPORTED_MODULE_10__["PublicModule"],
-                _components_partials_partials_module__WEBPACK_IMPORTED_MODULE_8__["PartialsModule"],
-                _components_users_users_module__WEBPACK_IMPORTED_MODULE_6__["UsersModule"],
+                _components_public_public_module__WEBPACK_IMPORTED_MODULE_11__["PublicModule"],
+                _components_partials_partials_module__WEBPACK_IMPORTED_MODULE_9__["PartialsModule"],
+                _components_users_users_module__WEBPACK_IMPORTED_MODULE_7__["UsersModule"],
+                _components_books_books_module__WEBPACK_IMPORTED_MODULE_14__["BooksModule"]
             ],
             exports: [],
-            providers: [{ provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"], useClass: _commons_services_interceptors_token_service__WEBPACK_IMPORTED_MODULE_12__["TokenService"], multi: true },
-                _angular_common__WEBPACK_IMPORTED_MODULE_9__["DatePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["DecimalPipe"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_11__["CookieService"]],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
+            providers: [{ provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"], useClass: _commons_services_interceptors_token_service__WEBPACK_IMPORTED_MODULE_13__["TokenService"], multi: true },
+                _angular_common__WEBPACK_IMPORTED_MODULE_10__["DatePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_10__["DecimalPipe"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_12__["CookieService"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -157,23 +163,12 @@ var AppModule = /** @class */ (function () {
 /*!****************************************************!*\
   !*** ./src/app/commons/constants/api.constants.ts ***!
   \****************************************************/
-/*! exports provided: USERS, SUBSCRIPTIONS, TRANSACTIONS, CARDS, DELETE_CARD, EDIT_CARD, ADD_CARD, SET_DEFAULT_CARD, USER_SUBSCRIPTIONS, ADD_SUBSCRIPTIONS, CHANGE_SUBSCRIPTIONS, EDIT_BILLING, AUTH_USER, AUTH_USER_ID, CHANGE_PASSWORD, CHANGE_EMAIL, AUTH_LOGIN, AUTH_REGISTER, NEW_USER, FORGOT_PASSWORD, RESET_PASSWORD, ACTIVATE_ACCOUNT, AUTH_DEACTIVATE, CURRENCIES, STRATEGIES, ARCHIVE_STRATEGY, PUBLIC_STRATEGY, PRIVATE_STRATEGY, DEPLOY_STRATEGY, STOP_LIVE_STRATEGY, COPY_SELECTED_STRATEGY, VISIT_SELECTED_STRATEGY, ALLOW_NOTIFICATIONS, DISABLE_NOTIFICATIONS, GET_SPECIFIC_STRATEGY, USER_STRATEGIES, LIVE_USER_STRATEGIES, LIST_STRATEGIES, SPECIFIC_STRATEGY, MARKETPLACE, SIGNALS, STATISTICS, SPECIFIC_STATISTICS, TOTAL_STATISTICS, BACKTEST_LOG, TRADES, SPECIFIC_TRADES, SPECIFIC_TRADES_WAP, TOTAL_TRADES, SPECIFIC_SIGNALS, LIVE_SPECIFIC_STATISTICS, LIVE_TOTAL_STATISTICS, LIVE_SPECIFIC_TRADES, LIVE_SPECIFIC_TRADES_WAP, LIVE_TOTAL_TRADES, LIVE_USER_TRADES */
+/*! exports provided: USERS, AUTH_USER, AUTH_USER_ID, CHANGE_PASSWORD, CHANGE_EMAIL, AUTH_LOGIN, AUTH_REGISTER, NEW_USER, FORGOT_PASSWORD, RESET_PASSWORD, CURRENCIES, STRATEGIES, BOOKS, OWNED_BOOKS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USERS", function() { return USERS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SUBSCRIPTIONS", function() { return SUBSCRIPTIONS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TRANSACTIONS", function() { return TRANSACTIONS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CARDS", function() { return CARDS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_CARD", function() { return DELETE_CARD; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EDIT_CARD", function() { return EDIT_CARD; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_CARD", function() { return ADD_CARD; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_DEFAULT_CARD", function() { return SET_DEFAULT_CARD; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USER_SUBSCRIPTIONS", function() { return USER_SUBSCRIPTIONS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_SUBSCRIPTIONS", function() { return ADD_SUBSCRIPTIONS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHANGE_SUBSCRIPTIONS", function() { return CHANGE_SUBSCRIPTIONS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EDIT_BILLING", function() { return EDIT_BILLING; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AUTH_USER", function() { return AUTH_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AUTH_USER_ID", function() { return AUTH_USER_ID; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHANGE_PASSWORD", function() { return CHANGE_PASSWORD; });
@@ -183,58 +178,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NEW_USER", function() { return NEW_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORGOT_PASSWORD", function() { return FORGOT_PASSWORD; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET_PASSWORD", function() { return RESET_PASSWORD; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ACTIVATE_ACCOUNT", function() { return ACTIVATE_ACCOUNT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AUTH_DEACTIVATE", function() { return AUTH_DEACTIVATE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CURRENCIES", function() { return CURRENCIES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STRATEGIES", function() { return STRATEGIES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ARCHIVE_STRATEGY", function() { return ARCHIVE_STRATEGY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PUBLIC_STRATEGY", function() { return PUBLIC_STRATEGY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PRIVATE_STRATEGY", function() { return PRIVATE_STRATEGY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DEPLOY_STRATEGY", function() { return DEPLOY_STRATEGY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STOP_LIVE_STRATEGY", function() { return STOP_LIVE_STRATEGY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "COPY_SELECTED_STRATEGY", function() { return COPY_SELECTED_STRATEGY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VISIT_SELECTED_STRATEGY", function() { return VISIT_SELECTED_STRATEGY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALLOW_NOTIFICATIONS", function() { return ALLOW_NOTIFICATIONS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DISABLE_NOTIFICATIONS", function() { return DISABLE_NOTIFICATIONS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_SPECIFIC_STRATEGY", function() { return GET_SPECIFIC_STRATEGY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USER_STRATEGIES", function() { return USER_STRATEGIES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LIVE_USER_STRATEGIES", function() { return LIVE_USER_STRATEGIES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LIST_STRATEGIES", function() { return LIST_STRATEGIES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SPECIFIC_STRATEGY", function() { return SPECIFIC_STRATEGY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MARKETPLACE", function() { return MARKETPLACE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SIGNALS", function() { return SIGNALS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STATISTICS", function() { return STATISTICS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SPECIFIC_STATISTICS", function() { return SPECIFIC_STATISTICS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TOTAL_STATISTICS", function() { return TOTAL_STATISTICS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BACKTEST_LOG", function() { return BACKTEST_LOG; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TRADES", function() { return TRADES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SPECIFIC_TRADES", function() { return SPECIFIC_TRADES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SPECIFIC_TRADES_WAP", function() { return SPECIFIC_TRADES_WAP; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TOTAL_TRADES", function() { return TOTAL_TRADES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SPECIFIC_SIGNALS", function() { return SPECIFIC_SIGNALS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LIVE_SPECIFIC_STATISTICS", function() { return LIVE_SPECIFIC_STATISTICS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LIVE_TOTAL_STATISTICS", function() { return LIVE_TOTAL_STATISTICS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LIVE_SPECIFIC_TRADES", function() { return LIVE_SPECIFIC_TRADES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LIVE_SPECIFIC_TRADES_WAP", function() { return LIVE_SPECIFIC_TRADES_WAP; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LIVE_TOTAL_TRADES", function() { return LIVE_TOTAL_TRADES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LIVE_USER_TRADES", function() { return LIVE_USER_TRADES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BOOKS", function() { return BOOKS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OWNED_BOOKS", function() { return OWNED_BOOKS; });
 /* harmony import */ var _utils_http_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/http.utils */ "./src/app/commons/utils/http.utils.ts");
 
 /* USERS ENDPOINTS
  */
 var USERS = '/api/users/';
-/* SUBSCRIPTION ENDPOINTS */
-var SUBSCRIPTIONS = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(USERS, 'subscriptions');
-var TRANSACTIONS = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(USERS, 'transactions');
-var CARDS = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(USERS, 'cards');
-var DELETE_CARD = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(USERS, 'card/delete');
-var EDIT_CARD = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(USERS, 'card/edit');
-var ADD_CARD = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(USERS, 'card/add');
-var SET_DEFAULT_CARD = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(USERS, 'card/set-default');
-var USER_SUBSCRIPTIONS = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(SUBSCRIPTIONS, 'user');
-var ADD_SUBSCRIPTIONS = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(SUBSCRIPTIONS, 'add');
-var CHANGE_SUBSCRIPTIONS = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(SUBSCRIPTIONS, 'change');
-var EDIT_BILLING = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(SUBSCRIPTIONS, 'edit-billing');
 /* AUTH ENDPOINTS
  */
 var AUTH_USER = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(USERS, 'auth');
@@ -246,47 +198,13 @@ var AUTH_REGISTER = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsa
 var NEW_USER = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(AUTH_USER, 'new-user');
 var FORGOT_PASSWORD = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(AUTH_USER, 'forgot-password');
 var RESET_PASSWORD = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(AUTH_USER, 'reset-password');
-var ACTIVATE_ACCOUNT = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(AUTH_USER, 'activate-account');
-var AUTH_DEACTIVATE = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(AUTH_USER, 'deactivate');
 /* CURRENCY ENDPOINTS */
 var CURRENCIES = '/api/currencies/';
 /* STRATEGIES ENDPOINTS */
 var STRATEGIES = '/api/strategies/';
-var ARCHIVE_STRATEGY = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(STRATEGIES, 'archive');
-var PUBLIC_STRATEGY = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(STRATEGIES, 'make-public');
-var PRIVATE_STRATEGY = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(STRATEGIES, 'make-private');
-var DEPLOY_STRATEGY = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(STRATEGIES, 'deploy');
-var STOP_LIVE_STRATEGY = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(STRATEGIES, 'stop-live');
-var COPY_SELECTED_STRATEGY = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(STRATEGIES, 'copy');
-var VISIT_SELECTED_STRATEGY = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(STRATEGIES, 'visit');
-var ALLOW_NOTIFICATIONS = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(STRATEGIES, 'allow_notification');
-var DISABLE_NOTIFICATIONS = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(STRATEGIES, 'disable_notification');
-var GET_SPECIFIC_STRATEGY = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(STRATEGIES, 'get-specific-strategy');
-var USER_STRATEGIES = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(STRATEGIES, 'user-strategies');
-var LIVE_USER_STRATEGIES = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(STRATEGIES, 'live/user-strategies');
-var LIST_STRATEGIES = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(STRATEGIES, 'list');
-var SPECIFIC_STRATEGY = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(STRATEGIES, 'specific-strategy');
-var MARKETPLACE = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(STRATEGIES, 'marketplace');
-var SIGNALS = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(STRATEGIES, 'user-signals');
-// export const LIVE_SIGNALS = urlsafe(STRATEGIES, 'live/signals');
-/* STATISTICS ENDPOINTS */
-var STATISTICS = '/api/backtest/statistics/';
-var SPECIFIC_STATISTICS = '/api/backtest/statistic/';
-var TOTAL_STATISTICS = '/api/backtest/total/statistic/';
-var BACKTEST_LOG = '/api/backtest/backtest-log/';
-/* TRADES ENDPOINTS */
-var TRADES = '/api/backtest/trades/';
-var SPECIFIC_TRADES = '/api/backtest/trade/';
-var SPECIFIC_TRADES_WAP = '/api/backtest/trade/asset/';
-var TOTAL_TRADES = '/api/backtest/total/trade/';
-var SPECIFIC_SIGNALS = '/api/backtest/specific-signal/';
-/* LIVE ENDPOINTS */
-var LIVE_SPECIFIC_STATISTICS = '/api/live/statistic/';
-var LIVE_TOTAL_STATISTICS = '/api/live/total/statistic/';
-var LIVE_SPECIFIC_TRADES = '/api/live/trade/';
-var LIVE_SPECIFIC_TRADES_WAP = '/api/live/trade/asset/';
-var LIVE_TOTAL_TRADES = '/api/live/total/trade/';
-var LIVE_USER_TRADES = '/api/live/user-trades/';
+/* BOOKS ENDPOINTS */
+var BOOKS = '/api/books/';
+var OWNED_BOOKS = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(BOOKS, 'owned-books');
 
 
 /***/ }),
@@ -308,46 +226,49 @@ var AUTH_KEY = 'NCqrSTxQCGMK2wDvRL';
 
 /***/ }),
 
-/***/ "./src/app/commons/forms/deactivate.forms.ts":
-/*!***************************************************!*\
-  !*** ./src/app/commons/forms/deactivate.forms.ts ***!
-  \***************************************************/
-/*! exports provided: DeactivateForm */
+/***/ "./src/app/commons/forms/books.forms.ts":
+/*!**********************************************!*\
+  !*** ./src/app/commons/forms/books.forms.ts ***!
+  \**********************************************/
+/*! exports provided: BookForm */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeactivateForm", function() { return DeactivateForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookForm", function() { return BookForm; });
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 
-var DeactivateForm = /** @class */ (function () {
-    function DeactivateForm(data) {
+var BookForm = /** @class */ (function () {
+    function BookForm(data) {
+        this.err = null;
         this.submitted = false;
         /* Initialize the form builder
          */
         this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"]().group({
-            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControl"](data.password, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]),
-            deactivate: new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControl"](data.deactivate, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]),
+            title: new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControl"](data.title, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]),
+            author: new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControl"](data.author, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]),
+            location: new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControl"](data.location, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]),
+            status: new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControl"](data.status, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]),
         });
     }
     /* Check if form field is valid
      */
-    DeactivateForm.prototype.valid = function (f) {
-        return !(!this.form.get(f).valid && (this.form.get(f).touched || this.submitted));
+    BookForm.prototype.valid = function (f) {
+        return !(!this.form.get(f).valid && this.form.get(f).touched && this.submitted);
     };
     /* Check if the form field has an error
      */
-    DeactivateForm.prototype.hasError = function (f, e) {
-        return this.form.get(f).hasError(e) && (this.form.get(f).touched || this.submitted);
+    BookForm.prototype.hasError = function (f, e) {
+        return this.form.get(f).hasError(e) && (this.form.get(f).touched && this.submitted);
     };
     /* DEFAULT VALUE
      * set the value of the form fields if there is a default value.
      */
-    DeactivateForm.prototype.defaultValue = function (d) {
+    BookForm.prototype.defaultValue = function (d) {
         // set a timeout just incase that the value is not yet ready.
         this.form.patchValue(d);
     };
-    return DeactivateForm;
+    return BookForm;
 }());
 
 
@@ -648,24 +569,33 @@ var UserForm = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/commons/models/deactivate.model.ts":
-/*!****************************************************!*\
-  !*** ./src/app/commons/models/deactivate.model.ts ***!
-  \****************************************************/
-/*! exports provided: Deactivate */
+/***/ "./src/app/commons/models/book.model.ts":
+/*!**********************************************!*\
+  !*** ./src/app/commons/models/book.model.ts ***!
+  \**********************************************/
+/*! exports provided: Books */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Deactivate", function() { return Deactivate; });
-var Deactivate = /** @class */ (function () {
-    function Deactivate(data) {
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Books", function() { return Books; });
+// export class DeleteCard {
+//     customer_token : string = null;
+//     card_token: string = null;
+//     constructor(data={}) {
+//       Object.assign(this, data);
+//     }
+//   }
+var Books = /** @class */ (function () {
+    function Books(data) {
         if (data === void 0) { data = {}; }
-        this.password = null;
-        this.deactivate = null;
+        this.title = null;
+        this.author = null;
+        this.location = null;
+        this.status = null;
         Object.assign(this, data);
     }
-    return Deactivate;
+    return Books;
 }());
 
 
@@ -927,7 +857,7 @@ var AuthService = /** @class */ (function () {
         return this.http.post(_constants_api_constants__WEBPACK_IMPORTED_MODULE_2__["AUTH_LOGIN"], creds)
             .toPromise()
             .then(function (resp) { _this.setToken(resp); _this.authUser(Object(resp).user_id); return resp; })
-            .catch(function (err) { return Promise.reject(err); });
+            .catch(function (err) { console.log(err); return Promise.reject(err); });
     };
     /* Forgot Password */
     AuthService.prototype.forgotPassword = function (data) {
@@ -939,13 +869,6 @@ var AuthService = /** @class */ (function () {
     /* Forgot Password */
     AuthService.prototype.resetPassword = function (data) {
         return this.http.post(_constants_api_constants__WEBPACK_IMPORTED_MODULE_2__["RESET_PASSWORD"], data)
-            .toPromise()
-            .then(function (resp) { return resp; })
-            .catch(function (err) { return Promise.reject(err); });
-    };
-    /* Activate Account */
-    AuthService.prototype.activateAccount = function (data) {
-        return this.http.post(_constants_api_constants__WEBPACK_IMPORTED_MODULE_2__["ACTIVATE_ACCOUNT"], data)
             .toPromise()
             .then(function (resp) { return resp; })
             .catch(function (err) { return Promise.reject(err); });
@@ -1023,12 +946,6 @@ var AuthService = /** @class */ (function () {
             console.log(error);
         });
     };
-    AuthService.prototype.getActivatedUser = function (token) {
-        return this.http.get(_constants_api_constants__WEBPACK_IMPORTED_MODULE_2__["ACTIVATE_ACCOUNT"], { params: token })
-            .toPromise()
-            .then(function (resp) { return resp; })
-            .catch(function (err) { return Promise.reject(err); });
-    };
     AuthService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
@@ -1105,12 +1022,6 @@ var UserService = /** @class */ (function () {
             .then(function (resp) { return resp; })
             .catch(function (err) { return Promise.reject(err); });
     };
-    UserService.prototype.deactivate = function (data) {
-        return this.http.post(_constants_api_constants__WEBPACK_IMPORTED_MODULE_3__["AUTH_DEACTIVATE"], data)
-            .toPromise()
-            .then(function (resp) { return resp; })
-            .catch(function (err) { return Promise.reject(err); });
-    };
     UserService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
@@ -1119,6 +1030,54 @@ var UserService = /** @class */ (function () {
             _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], UserService);
     return UserService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/commons/services/books/books.service.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/commons/services/books/books.service.ts ***!
+  \*********************************************************/
+/*! exports provided: BooksService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BooksService", function() { return BooksService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _constants_api_constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../constants/api.constants */ "./src/app/commons/constants/api.constants.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var BooksService = /** @class */ (function () {
+    function BooksService(http) {
+        this.http = http;
+    }
+    BooksService.prototype.getAllBooks = function () {
+        return this.http.get(_constants_api_constants__WEBPACK_IMPORTED_MODULE_2__["BOOKS"]);
+    };
+    BooksService.prototype.getOwnedBooks = function () {
+        return this.http.get(_constants_api_constants__WEBPACK_IMPORTED_MODULE_2__["OWNED_BOOKS"]);
+    };
+    BooksService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], BooksService);
+    return BooksService;
 }());
 
 
@@ -1253,8 +1212,6 @@ var NavigationService = /** @class */ (function () {
         this.headerTitle = 'Dashboard';
         this.hasLoaded = false;
         this.isLoading = false;
-        this.backtestLimit = false;
-        this.liveLimit = false;
     }
     NavigationService.prototype.changeHeaderTitle = function (title) {
         this.headerTitle = title;
@@ -1284,11 +1241,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "APP_STATES", function() { return APP_STATES; });
 /* harmony import */ var src_app_components_users_users_states__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/app/components/users/users.states */ "./src/app/components/users/users.states.ts");
 /* harmony import */ var src_app_components_public_public_states__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/components/public/public.states */ "./src/app/components/public/public.states.ts");
+/* harmony import */ var src_app_components_books_books_states__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/components/books/books.states */ "./src/app/components/books/books.states.ts");
+
 
 
 var APP_STATES = {
     otherwise: '/login/',
-    states: [].concat(src_app_components_users_users_states__WEBPACK_IMPORTED_MODULE_0__["USER_STATES"], src_app_components_public_public_states__WEBPACK_IMPORTED_MODULE_1__["PUBLIC_STATES"])
+    states: [].concat(src_app_components_users_users_states__WEBPACK_IMPORTED_MODULE_0__["USER_STATES"], src_app_components_public_public_states__WEBPACK_IMPORTED_MODULE_1__["PUBLIC_STATES"], src_app_components_books_books_states__WEBPACK_IMPORTED_MODULE_2__["BOOK_STATES"])
 };
 
 
@@ -1403,6 +1362,360 @@ function Deactivate(t) {
 
 /***/ }),
 
+/***/ "./src/app/components/books/add-book/add-book.component.css":
+/*!******************************************************************!*\
+  !*** ./src/app/components/books/add-book/add-book.component.css ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/books/add-book/add-book.component.html":
+/*!*******************************************************************!*\
+  !*** ./src/app/components/books/add-book/add-book.component.html ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"dashboard--panel\">\n  <div class=\"container p-5\">\n\n    <form [formGroup]=\"form.form\" (ngSubmit)=\"onSubmit(form.form)\">\n        <div>\n            <label>Title:</label>\n            <input class=\"form-control\" formControlName=\"title\" type=\"text\">\n            <!-- <span [hidden]=\"form.valid('title')\" class=\"text-danger\"><p><small>First name is required.</small></p></span> -->\n        </div>\n\n        <div>\n            <label>Author:</label>\n            <input class=\"form-control\" formControlName=\"author\" type=\"text\">\n            <!-- <span [hidden]=\"form.valid('last_name')\" class=\"text-danger\"><p><small>Last name is required.</small></p></span> -->\n        </div>\n\n        <div>\n          <label>Location:</label>\n          <input class=\"form-control\" formControlName=\"location\" type=\"text\">\n          <!-- <span [hidden]=\"form.valid('last_name')\" class=\"text-danger\"><p><small>Last name is required.</small></p></span> -->\n        </div>\n\n        <div>\n          <label>Status:</label>\n          <select class=\"form-control\" formControlName=\"status\" name=\"status\" id=\"status\">\n            <option value=\"available\" [selected]=\"true\"><p>Available</p></option>\n            <option value=\"digital copy\"><p>Digital Copy</p></option>\n          </select>\n          <!-- <span [hidden]=\"form.valid('last_name')\" class=\"text-danger\"><p><small>Last name is required.</small></p></span> -->\n        </div>\n\n        <br>\n        <button class=\"btn btn-primary\" type=\"submit\" [disabled]=\"this.disable\">Save</button>\n    </form>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/books/add-book/add-book.component.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/components/books/add-book/add-book.component.ts ***!
+  \*****************************************************************/
+/*! exports provided: AddBookComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddBookComponent", function() { return AddBookComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_commons_forms_books_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/commons/forms/books.forms */ "./src/app/commons/forms/books.forms.ts");
+/* harmony import */ var src_app_commons_models_book_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/commons/models/book.model */ "./src/app/commons/models/book.model.ts");
+/* harmony import */ var src_app_commons_services_books_books_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/commons/services/books/books.service */ "./src/app/commons/services/books/books.service.ts");
+/* harmony import */ var src_app_commons_services_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/commons/services/navigation/navigation.service */ "./src/app/commons/services/navigation/navigation.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var AddBookComponent = /** @class */ (function () {
+    function AddBookComponent(nav, booksService) {
+        this.nav = nav;
+        this.booksService = booksService;
+    }
+    AddBookComponent.prototype.ngOnInit = function () {
+        this.nav.changeHeaderTitle('Add Book');
+        this.form = new src_app_commons_forms_books_forms__WEBPACK_IMPORTED_MODULE_1__["BookForm"](new src_app_commons_models_book_model__WEBPACK_IMPORTED_MODULE_2__["Books"]);
+    };
+    AddBookComponent.prototype.onSubmit = function (_a) {
+        var value = _a.value, valid = _a.valid;
+    };
+    AddBookComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-add-book',
+            template: __webpack_require__(/*! ./add-book.component.html */ "./src/app/components/books/add-book/add-book.component.html"),
+            styles: [__webpack_require__(/*! ./add-book.component.css */ "./src/app/components/books/add-book/add-book.component.css")]
+        }),
+        __metadata("design:paramtypes", [src_app_commons_services_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_4__["NavigationService"],
+            src_app_commons_services_books_books_service__WEBPACK_IMPORTED_MODULE_3__["BooksService"]])
+    ], AddBookComponent);
+    return AddBookComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/books/books.module.ts":
+/*!**************************************************!*\
+  !*** ./src/app/components/books/books.module.ts ***!
+  \**************************************************/
+/*! exports provided: BooksModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BooksModule", function() { return BooksModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _add_book_add_book_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./add-book/add-book.component */ "./src/app/components/books/add-book/add-book.component.ts");
+/* harmony import */ var _borrowed_books_borrowed_books_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./borrowed-books/borrowed-books.component */ "./src/app/components/books/borrowed-books/borrowed-books.component.ts");
+/* harmony import */ var _owned_books_owned_books_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./owned-books/owned-books.component */ "./src/app/components/books/owned-books/owned-books.component.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+var BooksModule = /** @class */ (function () {
+    function BooksModule() {
+    }
+    BooksModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"],
+            ],
+            declarations: [_add_book_add_book_component__WEBPACK_IMPORTED_MODULE_2__["AddBookComponent"], _borrowed_books_borrowed_books_component__WEBPACK_IMPORTED_MODULE_3__["BorrowedBooksComponent"], _owned_books_owned_books_component__WEBPACK_IMPORTED_MODULE_4__["OwnedBooksComponent"]]
+        })
+    ], BooksModule);
+    return BooksModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/books/books.states.ts":
+/*!**************************************************!*\
+  !*** ./src/app/components/books/books.states.ts ***!
+  \**************************************************/
+/*! exports provided: BOOK_STATES */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BOOK_STATES", function() { return BOOK_STATES; });
+/* harmony import */ var src_app_commons_utils_layout_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/app/commons/utils/layout.utils */ "./src/app/commons/utils/layout.utils.ts");
+/* harmony import */ var src_app_commons_utils_security_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/commons/utils/security.utils */ "./src/app/commons/utils/security.utils.ts");
+/* harmony import */ var _add_book_add_book_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./add-book/add-book.component */ "./src/app/components/books/add-book/add-book.component.ts");
+/* harmony import */ var _borrowed_books_borrowed_books_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./borrowed-books/borrowed-books.component */ "./src/app/components/books/borrowed-books/borrowed-books.component.ts");
+/* harmony import */ var _owned_books_owned_books_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./owned-books/owned-books.component */ "./src/app/components/books/owned-books/owned-books.component.ts");
+
+
+
+
+
+var BOOK_STATES = [
+    {
+        name: 'add-book',
+        url: '/add-book/',
+        views: Object(src_app_commons_utils_layout_utils__WEBPACK_IMPORTED_MODULE_0__["NavContent"])(_add_book_add_book_component__WEBPACK_IMPORTED_MODULE_2__["AddBookComponent"]),
+        onEnter: src_app_commons_utils_security_utils__WEBPACK_IMPORTED_MODULE_1__["LoginRequired"]
+    },
+    {
+        name: 'borrowed-books',
+        url: '/borrowed-books/',
+        views: Object(src_app_commons_utils_layout_utils__WEBPACK_IMPORTED_MODULE_0__["NavContent"])(_borrowed_books_borrowed_books_component__WEBPACK_IMPORTED_MODULE_3__["BorrowedBooksComponent"]),
+        onEnter: src_app_commons_utils_security_utils__WEBPACK_IMPORTED_MODULE_1__["LoginRequired"]
+    },
+    {
+        name: 'owned-books',
+        url: '/owned-books/',
+        views: Object(src_app_commons_utils_layout_utils__WEBPACK_IMPORTED_MODULE_0__["NavContent"])(_owned_books_owned_books_component__WEBPACK_IMPORTED_MODULE_4__["OwnedBooksComponent"]),
+        onEnter: src_app_commons_utils_security_utils__WEBPACK_IMPORTED_MODULE_1__["LoginRequired"]
+    },
+];
+
+
+/***/ }),
+
+/***/ "./src/app/components/books/borrowed-books/borrowed-books.component.css":
+/*!******************************************************************************!*\
+  !*** ./src/app/components/books/borrowed-books/borrowed-books.component.css ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/books/borrowed-books/borrowed-books.component.html":
+/*!*******************************************************************************!*\
+  !*** ./src/app/components/books/borrowed-books/borrowed-books.component.html ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"dashboard--panel\">\n  <div class=\"input-group mb-3\">\n      <input type=\"text\" class=\"form-control\" placeholder=\"Recipient's username\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\">\n      <div class=\"input-group-append\">\n          <button class=\"btn btn-outline-secondary\" type=\"button\"><i class=\"la la-search\"></i></button>\n      </div>\n  </div>\n  <div>\n      <div ngbDropdown>\n          <button class=\"btn btn-outline-primary float-right\" id=\"dropdownBasic1\" ngbDropdownToggle>Toggle dropdown</button>\n          <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\" >\n              <a class=\"dropdown-item\" href=\".\" ngbDropdownItem (click)=\"filterClick($event, 'all')\">All</a>\n              <a class=\"dropdown-item\" href=\"#\" ngbDropdownItem (click)=\"filterClick($event, 'available')\">Available</a>\n              <a class=\"dropdown-item\" href=\"#\" ngbDropdownItem (click)=\"filterClick($event, 'checked out')\">Checked Out</a>\n              <a class=\"dropdown-item\" href=\"#\" ngbDropdownItem (click)=\"filterClick($event, 'digital copy')\">Digital Copy</a>\n          </div>\n      </div><br>\n  </div>\n  <div class=\"mt-5\">\n      <table class=\"table\">\n          <thead>\n              <tr>\n                  <th scope=\"col\">Title</th>\n                  <th scope=\"col\">Author</th>\n                  <th scope=\"col\">Location</th>\n                  <th scope=\"col\">Status</th>\n                  <th scope=\"col\">Owner</th>\n              </tr>\n          </thead>\n              <tbody>\n                  <tr *ngFor=\"let book of books_list\" (click)=\"rowClicked(book)\">\n                      <td>{{ book.title | titlecase }}</td>\n                      <td>{{ book.author | titlecase }}</td>\n                      <td>{{ book.location | titlecase }}</td>\n                      <td [ngClass]=\"{'text-danger': book.status==='checked out', \n                                      'text-success': book.status==='available' || book.status==='digital copy'}\">{{ book.status | titlecase  }}</td>\n                      <td>{{ book.owner.full_name | titlecase }}</td>\n                  </tr>\n              </tbody>\n          </table>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/books/borrowed-books/borrowed-books.component.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/components/books/borrowed-books/borrowed-books.component.ts ***!
+  \*****************************************************************************/
+/*! exports provided: BorrowedBooksComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BorrowedBooksComponent", function() { return BorrowedBooksComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_commons_services_books_books_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/commons/services/books/books.service */ "./src/app/commons/services/books/books.service.ts");
+/* harmony import */ var src_app_commons_services_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/commons/services/navigation/navigation.service */ "./src/app/commons/services/navigation/navigation.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var BorrowedBooksComponent = /** @class */ (function () {
+    function BorrowedBooksComponent(nav, booksService) {
+        this.nav = nav;
+        this.booksService = booksService;
+    }
+    BorrowedBooksComponent.prototype.ngOnInit = function () {
+        this.nav.changeHeaderTitle('Borrowed Books');
+    };
+    BorrowedBooksComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-borrowed-books',
+            template: __webpack_require__(/*! ./borrowed-books.component.html */ "./src/app/components/books/borrowed-books/borrowed-books.component.html"),
+            styles: [__webpack_require__(/*! ./borrowed-books.component.css */ "./src/app/components/books/borrowed-books/borrowed-books.component.css")]
+        }),
+        __metadata("design:paramtypes", [src_app_commons_services_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_2__["NavigationService"],
+            src_app_commons_services_books_books_service__WEBPACK_IMPORTED_MODULE_1__["BooksService"]])
+    ], BorrowedBooksComponent);
+    return BorrowedBooksComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/books/owned-books/owned-books.component.css":
+/*!************************************************************************!*\
+  !*** ./src/app/components/books/owned-books/owned-books.component.css ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/books/owned-books/owned-books.component.html":
+/*!*************************************************************************!*\
+  !*** ./src/app/components/books/owned-books/owned-books.component.html ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"dashboard--panel\">\n  <div class=\"input-group mb-3\">\n      <input type=\"text\" class=\"form-control\" placeholder=\"Recipient's username\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\">\n      <div class=\"input-group-append\">\n          <button class=\"btn btn-outline-secondary\" type=\"button\"><i class=\"la la-search\"></i></button>\n      </div>\n  </div>\n  <div>\n      <div ngbDropdown>\n          <button class=\"btn btn-outline-primary float-right\" id=\"dropdownBasic1\" ngbDropdownToggle>Toggle dropdown</button>\n          <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\" >\n              <a class=\"dropdown-item\" href=\".\" ngbDropdownItem (click)=\"filterClick($event, 'all')\">All</a>\n              <a class=\"dropdown-item\" href=\"#\" ngbDropdownItem (click)=\"filterClick($event, 'available')\">Available</a>\n              <a class=\"dropdown-item\" href=\"#\" ngbDropdownItem (click)=\"filterClick($event, 'checked out')\">Checked Out</a>\n              <a class=\"dropdown-item\" href=\"#\" ngbDropdownItem (click)=\"filterClick($event, 'digital copy')\">Digital Copy</a>\n              <a class=\"dropdown-item\" href=\"#\" ngbDropdownItem (click)=\"filterClick($event, 'lost')\">Lost</a>\n              <a class=\"dropdown-item\" href=\"#\" ngbDropdownItem (click)=\"filterClick($event, 'damaged')\">Damaged</a>\n          </div>\n      </div><br>\n  </div>\n  <div class=\"mt-5\">\n      <table class=\"table\">\n          <thead>\n              <tr>\n                  <th scope=\"col\">Title</th>\n                  <th scope=\"col\">Author</th>\n                  <th scope=\"col\">Location</th>\n                  <th scope=\"col\">Status</th>\n                  <th scope=\"col\">Owner</th>\n              </tr>\n          </thead>\n              <tbody>\n                  <tr *ngFor=\"let book of books_list\" (click)=\"rowClicked(book)\">\n                      <td>{{ book.title | titlecase }}</td>\n                      <td>{{ book.author | titlecase }}</td>\n                      <td>{{ book.location | titlecase }}</td>\n                      <td [ngClass]=\"{'text-danger': book.status==='checked out', \n                                      'text-success': book.status==='available' || book.status==='digital copy'}\">{{ book.status | titlecase  }}</td>\n                      <td>{{ book.owner.full_name | titlecase }}</td>\n                  </tr>\n              </tbody>\n          </table>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/books/owned-books/owned-books.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/components/books/owned-books/owned-books.component.ts ***!
+  \***********************************************************************/
+/*! exports provided: OwnedBooksComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OwnedBooksComponent", function() { return OwnedBooksComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var ngx_simple_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ngx-simple-modal */ "./node_modules/ngx-simple-modal/fesm5/ngx-simple-modal.js");
+/* harmony import */ var src_app_commons_services_books_books_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/commons/services/books/books.service */ "./src/app/commons/services/books/books.service.ts");
+/* harmony import */ var src_app_commons_services_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/commons/services/navigation/navigation.service */ "./src/app/commons/services/navigation/navigation.service.ts");
+/* harmony import */ var _partials_modals_book_details_book_details_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../partials/modals/book-details/book-details.component */ "./src/app/components/partials/modals/book-details/book-details.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var OwnedBooksComponent = /** @class */ (function () {
+    function OwnedBooksComponent(nav, booksService, simpleModalService) {
+        this.nav = nav;
+        this.booksService = booksService;
+        this.simpleModalService = simpleModalService;
+    }
+    OwnedBooksComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.nav.changeHeaderTitle('Owned Books');
+        this.booksService.getOwnedBooks().subscribe(function (data) {
+            _this.all_books = data;
+            _this.books_list = _this.all_books;
+            console.log(data);
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    OwnedBooksComponent.prototype.filterClick = function (event, status) {
+        event.preventDefault();
+        if (status === 'all') {
+            this.books_list = this.all_books;
+        }
+        else {
+            this.books_list = this.all_books.filter(function (x) { return x.status === status; });
+        }
+    };
+    OwnedBooksComponent.prototype.rowClicked = function (book) {
+        console.log(book);
+        this.simpleModalService.addModal(_partials_modals_book_details_book_details_component__WEBPACK_IMPORTED_MODULE_4__["BookDetailsComponent"], {
+            has_error: false,
+            book: book
+        })
+            .subscribe(function (isConfirmed) {
+            //We get modal result
+            // if(isConfirmed) {
+            //     alert('accepted');
+            // }
+            // else {
+            //     alert('declined');
+            // }
+        });
+    };
+    OwnedBooksComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-owned-books',
+            template: __webpack_require__(/*! ./owned-books.component.html */ "./src/app/components/books/owned-books/owned-books.component.html"),
+            styles: [__webpack_require__(/*! ./owned-books.component.css */ "./src/app/components/books/owned-books/owned-books.component.css")]
+        }),
+        __metadata("design:paramtypes", [src_app_commons_services_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_3__["NavigationService"],
+            src_app_commons_services_books_books_service__WEBPACK_IMPORTED_MODULE_2__["BooksService"],
+            ngx_simple_modal__WEBPACK_IMPORTED_MODULE_1__["SimpleModalService"]])
+    ], OwnedBooksComponent);
+    return OwnedBooksComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/partials/footer/footer.component.css":
 /*!*****************************************************************!*\
   !*** ./src/app/components/partials/footer/footer.component.css ***!
@@ -1421,7 +1734,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<footer class=\"d-flex justify-content-between align-items-center\">\n    <small>\n      <a href=\"\">© 2019 SignalsBench. All Rights Reserved</a>\n    </small>\n    <div class=\"navbar\">\n      <a href=\"\">YouTube</a>\n      <a href=\"\">Twitter</a>\n      <a href=\"\">Instagram</a>\n      <a href=\"\">Blog</a>\n    </div>\n</footer>"
+module.exports = "<footer class=\"d-flex justify-content-between align-items-center\">\r\n    <small>\r\n      <a href=\"\">© 2021. All Rights Reserved</a>\r\n    </small>\r\n    <div class=\"navbar\">\r\n      <a href=\"\">YouTube</a>\r\n      <a href=\"\">Twitter</a>\r\n      <a href=\"\">Instagram</a>\r\n      <a href=\"\">Blog</a>\r\n    </div>\r\n</footer>"
 
 /***/ }),
 
@@ -1466,6 +1779,91 @@ var FooterComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/components/partials/modals/book-details/book-details.component.css":
+/*!************************************************************************************!*\
+  !*** ./src/app/components/partials/modals/book-details/book-details.component.css ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/partials/modals/book-details/book-details.component.html":
+/*!*************************************************************************************!*\
+  !*** ./src/app/components/partials/modals/book-details/book-details.component.html ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"modal-dialog modal-dialog-centered\">\r\n  <div class=\"modal-content\">\r\n    <div class=\"modal-header\">\r\n      <h4 class=\"modal-title\">{{ book.title }}</h4>\r\n      <button type=\"button\" class=\"close\" (click)=\"close()\" >&times;</button>\r\n    </div>\r\n    <div class=\"modal-body\">\r\n      <p> {{book.owner.full_name}}</p>\r\n\r\n      <div>\r\n        <p> COMMENT SECTION </p>\r\n      </div>\r\n    </div>\r\n    <div class=\"modal-footer\">\r\n      <button type=\"button\" class=\"btn btn-primary\" (click)=\"close()\">OK</button>\r\n    </div>\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/partials/modals/book-details/book-details.component.ts":
+/*!***********************************************************************************!*\
+  !*** ./src/app/components/partials/modals/book-details/book-details.component.ts ***!
+  \***********************************************************************************/
+/*! exports provided: BookDetailsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookDetailsComponent", function() { return BookDetailsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var ngx_simple_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ngx-simple-modal */ "./node_modules/ngx-simple-modal/fesm5/ngx-simple-modal.js");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var BookDetailsComponent = /** @class */ (function (_super) {
+    __extends(BookDetailsComponent, _super);
+    function BookDetailsComponent() {
+        var _this = _super.call(this) || this;
+        _this.has_error = false;
+        return _this;
+    }
+    BookDetailsComponent.prototype.ngOnInit = function () {
+    };
+    BookDetailsComponent.prototype.confirm = function () {
+        // we set modal result as true on click on confirm button,
+        // then we can get modal result from caller code
+        this.result = true;
+        this.close();
+    };
+    BookDetailsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-book-details',
+            template: __webpack_require__(/*! ./book-details.component.html */ "./src/app/components/partials/modals/book-details/book-details.component.html"),
+            styles: [__webpack_require__(/*! ./book-details.component.css */ "./src/app/components/partials/modals/book-details/book-details.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], BookDetailsComponent);
+    return BookDetailsComponent;
+}(ngx_simple_modal__WEBPACK_IMPORTED_MODULE_1__["SimpleModalComponent"]));
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/partials/navigation/navigation.component.css":
 /*!*************************************************************************!*\
   !*** ./src/app/components/partials/navigation/navigation.component.css ***!
@@ -1484,7 +1882,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg main-nav\">\n  <div>\n    <ul class=\"navbar-nav \">\n        <li class=\"nav-item\">\n          <a class=\"nav-link nav-link-active\">{{ this.nav.headerTitle }}</a>\n        </li>\n      </ul>\n  </div>\n\n  <div class=\"nav-right\">\n      <div class=\"profile\">\n        <div class=\"profile--avatar no-photo-{{ auth.user.color }}\">{{ auth.user.username }}</div>\n      </div>\n  </div>\n</nav>\n\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg main-nav\">\n  <div>\n    <ul class=\"navbar-nav \">\n        <li class=\"nav-item\">\n          <a class=\"nav-link nav-link-active\">{{ this.nav.headerTitle }}</a>\n        </li>\n      </ul>\n  </div>\n\n  <div class=\"nav-right\">\n    <div class=\"profile\">\n      <div class=\"profile--avatar no-photo-{{ auth.user.color }}\">{{ auth.user.username }}</div>\n    </div>\n  </div>\n\n</nav>\n\n"
 
 /***/ }),
 
@@ -1608,12 +2006,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _side_menu_side_menu_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./side-menu/side-menu.component */ "./src/app/components/partials/side-menu/side-menu.component.ts");
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
 /* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./footer/footer.component */ "./src/app/components/partials/footer/footer.component.ts");
+/* harmony import */ var _modals_book_details_book_details_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modals/book-details/book-details.component */ "./src/app/components/partials/modals/book-details/book-details.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1629,7 +2029,10 @@ var PartialsModule = /** @class */ (function () {
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__["NgbModule"],
             ],
-            declarations: [_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_2__["NavigationComponent"], _side_menu_side_menu_component__WEBPACK_IMPORTED_MODULE_3__["SideMenuComponent"], _footer_footer_component__WEBPACK_IMPORTED_MODULE_5__["FooterComponent"]]
+            declarations: [_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_2__["NavigationComponent"], _side_menu_side_menu_component__WEBPACK_IMPORTED_MODULE_3__["SideMenuComponent"], _footer_footer_component__WEBPACK_IMPORTED_MODULE_5__["FooterComponent"], _modals_book_details_book_details_component__WEBPACK_IMPORTED_MODULE_6__["BookDetailsComponent"]],
+            entryComponents: [
+                _modals_book_details_book_details_component__WEBPACK_IMPORTED_MODULE_6__["BookDetailsComponent"]
+            ],
         })
     ], PartialsModule);
     return PartialsModule;
@@ -1657,7 +2060,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<aside class=\"sidebar\">\n    <a href=\"\" class=\"nav-brand\">\n        <img src=\"/static/images/logo.png\"\n        srcset=\"/static/images/logo@2x.png 2x,\n                /static/images/logo@3x.png 3x\"\n        class=\"logo\">\n        Library\n    </a>\n    <ul class=\"sidebar--links navbar-nav\">\n        <li class=\"sidebar--item \" [ngClass]=\"{active: state.includes('dashboard') }\">\n            <a (click)=\"onDashboardClick($event)\"><i class=\"la la-home\"></i>Dashboard</a>\n        </li>\n        <li class=\"sidebar--item\">\n            <a><i class=\"la la-question-circle\"></i>Help Docs</a>\n        </li>\n        <li class=\"sidebar--item\" [ngClass]=\"{active: state.includes('settings') }\">\n          <a (click)='onSettingsClick($event)'><i class=\"la la-cogs\"></i>Settings</a>\n        </li>\n        <li class=\"sidebar--item\" [ngClass]=\"{active: state.includes('logout') }\">\n          <a (click)='onLogoutClick($event)'><i class=\"la la-sign-out-alt\"></i>Logout</a>\n        </li>\n    </ul>\n</aside>\n\n\n"
+module.exports = "<nav class=\"sidebar\">\r\n    <a href=\"\" class=\"nav-brand\">\r\n        <img src=\"/static/images/logo.png\"\r\n        srcset=\"/static/images/logo@2x.png 2x,\r\n                /static/images/logo@3x.png 3x\"\r\n        class=\"logo\">\r\n        Library\r\n    </a>\r\n    <ul class=\"sidebar--links navbar-nav\">\r\n        <li class=\"sidebar--item \" [ngClass]=\"{active: state.includes('dashboard') }\">\r\n            <a (click)=\"onStateChange($event, 'dashboard', 'Dashboard')\"><i class=\"la la-home\"></i>Dashboard</a>\r\n        </li>\r\n        <li class=\"sidebar--item\" [ngClass]=\"{active: state.includes('add-book') }\">\r\n            <a (click)=\"onStateChange($event, 'add-book', 'Add Book')\"><i class=\"la la-plus-square\"></i>Add a Book</a>\r\n        </li>\r\n        <li class=\"sidebar--item\" [ngClass]=\"{active: state.includes('borrowed-books') }\">\r\n            <a (click)=\"onStateChange($event, 'borrowed-books', 'Borrowed Books')\"><i class=\"la la-copy\"></i>Borrowed Books</a>\r\n        </li>\r\n        <li class=\"sidebar--item\" [ngClass]=\"{active: state.includes('owned-books') }\">\r\n            <a (click)=\"onStateChange($event, 'owned-books', 'Owned Books')\"><i class=\"la la-book\"></i>Owned Books</a>\r\n        </li>\r\n        <li class=\"sidebar--item\" [ngClass]=\"{active: state.includes('settings') }\">\r\n          <a (click)=\"onStateChange($event, 'settings', 'Settings')\"><i class=\"la la-cogs\"></i>Settings</a>\r\n        </li>\r\n        <li class=\"sidebar--item\" [ngClass]=\"{active: state.includes('logout') }\">\r\n          <a (click)=\"onStateChange($event, 'logout', 'Logout')\"><i class=\"la la-sign-out-alt\"></i>Logout</a>\r\n        </li>\r\n    </ul>\r\n</nav>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -1693,33 +2096,10 @@ var SideMenuComponent = /** @class */ (function () {
     }
     SideMenuComponent.prototype.ngOnInit = function () {
     };
-    SideMenuComponent.prototype.onDashboardClick = function (event) {
+    SideMenuComponent.prototype.onStateChange = function (event, state, header) {
         event.preventDefault();
-        this.state.go('dashboard');
-    };
-    SideMenuComponent.prototype.onSignalsClick = function (event) {
-        event.preventDefault();
-        this.state.go('signals');
-    };
-    SideMenuComponent.prototype.onMarketplaceClick = function (event) {
-        event.preventDefault();
-        this.state.go('marketplace');
-    };
-    SideMenuComponent.prototype.onStrategiesClick = function (event) {
-        event.preventDefault();
-        this.state.go('strategies');
-    };
-    SideMenuComponent.prototype.onCreateStrategyClick = function (event) {
-        event.preventDefault();
-        this.state.go('create-strategy');
-    };
-    SideMenuComponent.prototype.onLogoutClick = function (event) {
-        event.preventDefault();
-        this.state.go('logout');
-    };
-    SideMenuComponent.prototype.onSettingsClick = function (event) {
-        event.preventDefault();
-        this.state.go('settings');
+        this.state.go(state);
+        this.nav.changeHeaderTitle(header);
     };
     SideMenuComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1731,92 +2111,6 @@ var SideMenuComponent = /** @class */ (function () {
             src_app_commons_services_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_2__["NavigationService"]])
     ], SideMenuComponent);
     return SideMenuComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/components/public/activate-account/activate-account.component.css":
-/*!***********************************************************************************!*\
-  !*** ./src/app/components/public/activate-account/activate-account.component.css ***!
-  \***********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/components/public/activate-account/activate-account.component.html":
-/*!************************************************************************************!*\
-  !*** ./src/app/components/public/activate-account/activate-account.component.html ***!
-  \************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div *ngIf=\"this.error\" class=\"alert alert-warning\">\n    <span>{{ this.error }}</span>\n</div>\n\n<div *ngIf=\"this.isSuccessful\" class=\"alert alert-success\">\n    <span>Account Activated.</span><br>\n    <span><a (click)='redirectLogin()'>Login</a></span>\n</div>\n"
-
-/***/ }),
-
-/***/ "./src/app/components/public/activate-account/activate-account.component.ts":
-/*!**********************************************************************************!*\
-  !*** ./src/app/components/public/activate-account/activate-account.component.ts ***!
-  \**********************************************************************************/
-/*! exports provided: ActivateAccountComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActivateAccountComponent", function() { return ActivateAccountComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var src_app_commons_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/commons/services/auth/auth.service */ "./src/app/commons/services/auth/auth.service.ts");
-/* harmony import */ var _uirouter_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @uirouter/core */ "./node_modules/@uirouter/core/lib-esm/index.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var ActivateAccountComponent = /** @class */ (function () {
-    function ActivateAccountComponent(auth, state) {
-        this.auth = auth;
-        this.state = state;
-        this.isSuccessful = false;
-    }
-    ActivateAccountComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.token = this.state.params['token'];
-        // send Welcome Email after Activation
-        this.auth.activateAccount({ 'token': this.token })
-            .then(function (resp) {
-            _this.isSuccessful = true;
-            _this.auth.getActivatedUser({ 'token': _this.token })
-                .then(function (user) {
-                _this.auth.setToken({ 'token': user[0].key });
-                _this.state.go('dashboard-activated', { 'activated': true });
-            });
-        })
-            .catch(function (err) {
-            _this.error = err.error.non_field_errors;
-        });
-    };
-    ActivateAccountComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-activate-account',
-            template: __webpack_require__(/*! ./activate-account.component.html */ "./src/app/components/public/activate-account/activate-account.component.html"),
-            styles: [__webpack_require__(/*! ./activate-account.component.css */ "./src/app/components/public/activate-account/activate-account.component.css")]
-        }),
-        __metadata("design:paramtypes", [src_app_commons_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
-            _uirouter_core__WEBPACK_IMPORTED_MODULE_2__["StateService"]])
-    ], ActivateAccountComponent);
-    return ActivateAccountComponent;
 }());
 
 
@@ -1957,7 +2251,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container p-5\">\n\n    <h3 class=\"section-title mb-3\">Login</h3>\n\n    <div *ngIf=\"hasDeactivated\" class=\"alert alert-warning\">\n        <p>Your account has been deactivated. Your personal data will be deleted within 48 hours.</p>\n    </div>\n    <div *ngIf=\"new\" class=\"alert alert-warning\">\n        <p>Check your email and activate your account.</p>\n    </div>\n    <form [formGroup]=\"form.form\" (ngSubmit)=\"onSubmit(form.form)\">\n        <span [hidden]=\"!form.err\" class=\"text-danger\">Invalid Email/Password. Please try again.</span>\n        <!-- <span *ngIf=\"hasError\" class=\"text-danger\"><p>Invalid Email/Password. Please try again.</p></span> -->\n        <div>\n            <label>Email:</label>\n            <input class=\"form-control\" formControlName=\"email\" (input)=\"inputChange($event.target.value)\" type=\"text\">\n            <span *ngIf=\"form.hasError('email', 'required')\" class=\"text-danger\"><p><small>Email is required.</small></p></span>\n            <span *ngIf=\"form.hasError('email', 'email')\" class=\"text-danger\"><p><small>Invalid email format.</small></p></span>\n        </div>\n        <div>\n            <label>Password:</label>\n            <input class=\"form-control\" formControlName=\"password\" (input)=\"inputChange($event.target.value)\" type=\"password\">\n            <span *ngIf=\"form.hasError('password', 'required')\" class=\"text-danger\"><p><small>Password is required.</small></p></span>\n        </div>\n        <br>\n        <button class=\"btn btn-primary\" type=\"submit\">Login</button>\n    </form><br>\n    \n\n    <div class=\"form-group\">\n        <p><a (click)='forgotPassword()' class=\"mb-1\">Forgot Password</a></p>\n        <p><a (click)='register()'>Don't have an account?</a></p>\n    </div>\n\n</div>\n"
+module.exports = "<div class=\"container p-5\">\n\n    <h3 class=\"section-title mb-3\">Login</h3>\n\n    <div *ngIf=\"hasDeactivated\" class=\"alert alert-warning\">\n        <p>Your account has been deactivated. Your personal data will be deleted within 48 hours.</p>\n    </div>\n    <div *ngIf=\"new\" class=\"alert alert-success\">\n        <p>Successfully created your account</p>\n    </div>\n    <form [formGroup]=\"form.form\" (ngSubmit)=\"onSubmit(form.form)\">\n        <span [hidden]=\"!form.err\" class=\"text-danger\">Invalid Email/Password. Please try again.</span>\n        <!-- <span *ngIf=\"hasError\" class=\"text-danger\"><p>Invalid Email/Password. Please try again.</p></span> -->\n        <div>\n            <label>Email:</label>\n            <input class=\"form-control\" formControlName=\"email\" (input)=\"inputChange($event.target.value)\" type=\"text\">\n            <span *ngIf=\"form.hasError('email', 'required')\" class=\"text-danger\"><p><small>Email is required.</small></p></span>\n            <span *ngIf=\"form.hasError('email', 'email')\" class=\"text-danger\"><p><small>Invalid email format.</small></p></span>\n        </div>\n        <div>\n            <label>Password:</label>\n            <input class=\"form-control\" formControlName=\"password\" (input)=\"inputChange($event.target.value)\" type=\"password\">\n            <span *ngIf=\"form.hasError('password', 'required')\" class=\"text-danger\"><p><small>Password is required.</small></p></span>\n        </div>\n        <br>\n        <button class=\"btn btn-primary\" type=\"submit\">Login</button>\n    </form><br>\n    \n\n    <div class=\"form-group\">\n        <p><a (click)='forgotPassword()' class=\"mb-1\">Forgot Password</a></p>\n        <p><a (click)='register()'>Don't have an account?</a></p>\n    </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -2103,14 +2397,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./forgot-password/forgot-password.component */ "./src/app/components/public/forgot-password/forgot-password.component.ts");
 /* harmony import */ var _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./reset-password/reset-password.component */ "./src/app/components/public/reset-password/reset-password.component.ts");
-/* harmony import */ var _activate_account_activate_account_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./activate-account/activate-account.component */ "./src/app/components/public/activate-account/activate-account.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -2129,7 +2421,7 @@ var PublicModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__["NgbModule"]
             ],
-            declarations: [_login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"], _register_register_component__WEBPACK_IMPORTED_MODULE_3__["RegisterComponent"], _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_6__["ForgotPasswordComponent"], _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_7__["ResetPasswordComponent"], _activate_account_activate_account_component__WEBPACK_IMPORTED_MODULE_8__["ActivateAccountComponent"]]
+            declarations: [_login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"], _register_register_component__WEBPACK_IMPORTED_MODULE_3__["RegisterComponent"], _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_6__["ForgotPasswordComponent"], _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_7__["ResetPasswordComponent"],]
         })
     ], PublicModule);
     return PublicModule;
@@ -2155,8 +2447,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./register/register.component */ "./src/app/components/public/register/register.component.ts");
 /* harmony import */ var _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./forgot-password/forgot-password.component */ "./src/app/components/public/forgot-password/forgot-password.component.ts");
 /* harmony import */ var _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./reset-password/reset-password.component */ "./src/app/components/public/reset-password/reset-password.component.ts");
-/* harmony import */ var _activate_account_activate_account_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./activate-account/activate-account.component */ "./src/app/components/public/activate-account/activate-account.component.ts");
-
 
 
 
@@ -2207,11 +2497,6 @@ var PUBLIC_STATES = [
         name: 'reset-password',
         url: '/reset-password/:token',
         views: Object(src_app_commons_utils_layout_utils__WEBPACK_IMPORTED_MODULE_0__["ContentOnly"])(_reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_5__["ResetPasswordComponent"]),
-    },
-    {
-        name: 'activate-account',
-        url: '/activate-account/:token',
-        views: Object(src_app_commons_utils_layout_utils__WEBPACK_IMPORTED_MODULE_0__["ContentOnly"])(_activate_account_activate_account_component__WEBPACK_IMPORTED_MODULE_6__["ActivateAccountComponent"])
     },
 ];
 
@@ -2484,7 +2769,7 @@ var ResetPasswordComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".table{\r\n    margin-top: 1rem;\r\n}\r\n\r\n.dashboard--panel{\r\n    height: 100%;\r\n}\r\n\r\n"
 
 /***/ }),
 
@@ -2495,7 +2780,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"dashboard--panel\">\n\n</div>"
+module.exports = "<div class=\"dashboard--panel\">\r\n\r\n    <div class=\"input-group mb-3\">\r\n        <input type=\"text\" class=\"form-control\" placeholder=\"Search\" aria-label=\"Search\" aria-describedby=\"basic-addon2\">\r\n        <div class=\"input-group-append\">\r\n            <button class=\"btn btn-outline-secondary\" type=\"button\"><i class=\"la la-search\"></i></button>\r\n        </div>\r\n        <div class=\"input-group-append\" ngbDropdown>\r\n            <button class=\"btn btn-outline-primary\" id=\"dropdownBasic1\" ngbDropdownToggle><i class=\"la la-filter\"></i> Filter</button>\r\n            <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\" >\r\n                <a class=\"dropdown-item\" href=\".\" ngbDropdownItem (click)=\"filterClick($event, 'all')\">All</a>\r\n                <a class=\"dropdown-item\" href=\"#\" ngbDropdownItem (click)=\"filterClick($event, 'available')\">Available</a>\r\n                <a class=\"dropdown-item\" href=\"#\" ngbDropdownItem (click)=\"filterClick($event, 'checked out')\">Checked Out</a>\r\n                <a class=\"dropdown-item\" href=\"#\" ngbDropdownItem (click)=\"filterClick($event, 'digital copy')\">Digital Copy</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"mt-5\">\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-3\" *ngFor=\"let book of books_list\" (click)=\"rowClicked(book)\">\r\n                <div class=\"card mb-5\">\r\n                    <div class=\"card-body\">\r\n                        <img src=\"{% static 'images/no-cover-img.jpg' %}\" class=\"card-img-top\" alt=\"...\">\r\n                        <h5 class=\"card-title mb-0\">\r\n                            {{ book.title | titlecase }}\r\n                        \r\n                            <span class=\"badge badge-pill\" \r\n                            [ngClass]=\"{'badge-danger': book.status==='checked out', \r\n                            'badge-success': book.status==='available' || book.status==='digital copy'}\" style=\"color: white;\">\r\n                                {{ book.status | titlecase  }}\r\n                            </span>\r\n                        </h5>\r\n                        <small class=\"text-muted mt-0\">by: {{ book.author | titlecase }} </small>\r\n\r\n                        \r\n                        <!-- <p class=\"card-text\">\r\n                            <b>Book Description: </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br>\r\n                            <b>Location: </b>{{ book.location | titlecase }}\r\n                        </p>\r\n        \r\n                        <p class=\"card-text\"><small class=\"text-muted\">Property of: {{ book.owner.full_name | titlecase }}</small></p> -->\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        \r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -2510,10 +2795,12 @@ module.exports = "<div class=\"dashboard--panel\">\n\n</div>"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var src_app_commons_services_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/commons/services/navigation/navigation.service */ "./src/app/commons/services/navigation/navigation.service.ts");
-/* harmony import */ var src_app_commons_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/commons/services/auth/auth.service */ "./src/app/commons/services/auth/auth.service.ts");
-/* harmony import */ var _uirouter_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @uirouter/core */ "./node_modules/@uirouter/core/lib-esm/index.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _uirouter_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @uirouter/core */ "./node_modules/@uirouter/core/lib-esm/index.js");
+/* harmony import */ var src_app_commons_services_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/commons/services/navigation/navigation.service */ "./src/app/commons/services/navigation/navigation.service.ts");
+/* harmony import */ var src_app_commons_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/commons/services/auth/auth.service */ "./src/app/commons/services/auth/auth.service.ts");
+/* harmony import */ var src_app_commons_services_books_books_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/commons/services/books/books.service */ "./src/app/commons/services/books/books.service.ts");
+/* harmony import */ var ngx_simple_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-simple-modal */ "./node_modules/ngx-simple-modal/fesm5/ngx-simple-modal.js");
+/* harmony import */ var _partials_modals_book_details_book_details_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../partials/modals/book-details/book-details.component */ "./src/app/components/partials/modals/book-details/book-details.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2563,16 +2850,15 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
+
+
 var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent(nav, auth, state) {
+    function DashboardComponent(nav, auth, state, booksService, simpleModalService) {
         this.nav = nav;
         this.auth = auth;
         this.state = state;
-        this.time = [];
-        this.capital = [];
-        this.selectedStrategy = "";
-        this.pipe = new _angular_common__WEBPACK_IMPORTED_MODULE_4__["DatePipe"]('en-US');
-        this.activated = false;
+        this.booksService = booksService;
+        this.simpleModalService = simpleModalService;
     }
     DashboardComponent.prototype.ngOnInit = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -2580,12 +2866,6 @@ var DashboardComponent = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (this.state.params.activated) {
-                            this.activated = true;
-                            setTimeout(function () {
-                                _this.activated = false;
-                            }, 3000);
-                        }
                         this.nav.changeHeaderTitle('Dashboard');
                         setTimeout(function () {
                             _this.nav.hasLoaded = false;
@@ -2598,10 +2878,43 @@ var DashboardComponent = /** @class */ (function () {
                         // get user information from the backend. (sync)
                         _a.sent();
                         _a.label = 2;
-                    case 2: return [2 /*return*/];
+                    case 2:
+                        this.booksService.getAllBooks().subscribe(function (data) {
+                            _this.all_books = data;
+                            _this.books_list = _this.all_books;
+                            console.log(data);
+                        }, function (error) {
+                            console.log(error);
+                        });
+                        return [2 /*return*/];
                 }
             });
         });
+    };
+    DashboardComponent.prototype.rowClicked = function (book) {
+        console.log(book);
+        this.simpleModalService.addModal(_partials_modals_book_details_book_details_component__WEBPACK_IMPORTED_MODULE_6__["BookDetailsComponent"], {
+            has_error: false,
+            book: book
+        })
+            .subscribe(function (isConfirmed) {
+            //We get modal result
+            // if(isConfirmed) {
+            //     alert('accepted');
+            // }
+            // else {
+            //     alert('declined');
+            // }
+        });
+    };
+    DashboardComponent.prototype.filterClick = function (event, status) {
+        event.preventDefault();
+        if (status === 'all') {
+            this.books_list = this.all_books;
+        }
+        else {
+            this.books_list = this.all_books.filter(function (x) { return x.status === status; });
+        }
     };
     DashboardComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -2609,9 +2922,11 @@ var DashboardComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./dashboard.component.html */ "./src/app/components/users/dashboard/dashboard.component.html"),
             styles: [__webpack_require__(/*! ./dashboard.component.css */ "./src/app/components/users/dashboard/dashboard.component.css")]
         }),
-        __metadata("design:paramtypes", [src_app_commons_services_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_1__["NavigationService"],
-            src_app_commons_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
-            _uirouter_core__WEBPACK_IMPORTED_MODULE_3__["StateService"]])
+        __metadata("design:paramtypes", [src_app_commons_services_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_2__["NavigationService"],
+            src_app_commons_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
+            _uirouter_core__WEBPACK_IMPORTED_MODULE_1__["StateService"],
+            src_app_commons_services_books_books_service__WEBPACK_IMPORTED_MODULE_4__["BooksService"],
+            ngx_simple_modal__WEBPACK_IMPORTED_MODULE_5__["SimpleModalService"]])
     ], DashboardComponent);
     return DashboardComponent;
 }());
@@ -2638,7 +2953,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"dashboard--panel\">\n  <div class=\"row\">\n      <div class=\"col-md-8\">\n          <div class=\"panel--white\">\n              <div class=\"panel__header\">\n                <div class=\"panel-label\"><i class=\"fa fa-newspaper-o m-1\"></i>Profile</div>\n              </div>\n              <div class=\"panel__content\">\n                  <form [formGroup]=\"form.form\" (ngSubmit)=\"onSubmit(form.form)\" class=\"form\" enctype=\"multipart/form-data\">\n                    <div [hidden]=\"!this.editSuccessMessage\" class=\"alert alert-success\"><p>You have successfully updated your info!</p></div>\n                    <div *ngIf=\"!this.ProfNoChanges\" class=\"alert alert-info\"><p>No Changes!</p></div>\n                    <div class=\"row\">\n                        <div class=\"col mb-5\">\n                            <label>First Name</label>\n                            <input type=\"text\" class=\"form-control\" formControlName=\"first_name\"  placeholder=\"First name\">\n                            <span [hidden]=\"form.valid('first_name')\" class=\"text-danger\"><p><small>This field is required.</small></p></span>\n                            <label>Username</label>\n                            <input type=\"text\" class=\"form-control\" formControlName=\"username\" (input)=\"usernameInputChange($event.target.value)\" placeholder=\"Username\" disabled>\n                            <small class='text-muted'>Please note that you cannot change your username after sign up.</small><br><br>\n\n                            <div [ngSwitch]=\"switchExpression\" class=\"password-field\">\n                                <!-- CHANGE PASSWORD FORM -->\n                                <div *ngSwitchCase=\"'change_password'\">\n                                    <form [formGroup]=\"edit_password_form.form\" (ngSubmit)=\"onEditPasswordSubmit(edit_password_form.form)\">\n                                        <p>Change Password</p>\n                                        <span *ngIf=\"passwordHasError\" class=\"text-danger\">{{ edit_password_form.err }}</span>\n                                        <div class=\"form-group\">\n                                            <label>Old Password</label>\n                                            <input type=\"password\" formControlName=\"old_password\" (input)=\"passwordInputChange($event.target.value)\" class=\"form-control\">\n                                            <span *ngIf=\"edit_password_form.hasError('old_password', 'required')\" class=\"text-danger\"><small>This field is required</small></span>\n                                        </div>\n                                        <div class=\"form-group\">\n                                            <label>New Password</label>\n                                            <input type=\"password\" formControlName=\"new_password\" (input)=\"passwordInputChange($event.target.value)\" class=\"form-control\">\n                                            <span *ngIf=\"edit_password_form.hasError('new_password', 'required')\" class=\"text-danger\"><p><small>This field is required</small></p></span>\n                                            <span *ngIf=\"edit_password_form.hasError('new_password', 'minlength')\" class=\"text-danger\"><p><small>Password should consist of 8 characters</small></p></span>\n                                            <span *ngIf=\"edit_password_form.hasError('new_password', 'pattern')\" class=\"text-danger\"><p><small>Password must contain a number and symbol (#$@!%&*?_)</small></p></span>\n                                        </div>\n                                        <div class=\"form-group\">\n                                            <label>Confirm Password</label>\n                                            <input type=\"password\" formControlName=\"confirm_new_password\" (input)=\"passwordInputChange($event.target.value)\" class=\"form-control\">\n                                            <span *ngIf=\"edit_password_form.hasError('confirm_new_password', 'required')\" class=\"text-danger\"><p><small>This field is required</small></p></span>\n                                            <span *ngIf=\"edit_password_form.hasError('confirm_new_password', 'minlength')\" class=\"text-danger\"><p><small>Password should consist of 8 characters.</small></p></span>\n                                            <span *ngIf=\"edit_password_form.hasError('confirm_new_password', 'pattern')\" class=\"text-danger\"><p><small>Password must contain a number and symbol (#$@!%&*?_)</small></p></span>\n                                        </div>\n                                        <div class=\"d-flex justify-content-between\">\n                                            <button (click)=\"cancelPasswordEvent()\" class=\"btn-sm btn-light\">Cancel</button>\n                                            <button class=\"btn-sm btn-primary\" [disabled]=\"this.passbtn_disable\">Update Password</button>\n                                        </div>\n                                    </form>\n                                </div>\n\n                                <!-- CHANGE/CREATE PASSWORD -- SUCCESS -->\n                                <div *ngSwitchCase=\"'success'\">\n                                  <p>Congratulations! You’ve successfully updated your password.</p>\n                                  <div class=\"text-right\">\n                                      <a href=\"\" (click)=\"changePassClick($event)\" class=\"text-right bold changePw\">Change Password</a>\n                                  </div>\n                                </div>\n\n                                <div *ngSwitchDefault>\n                                    <!-- PASSWORD ALREADY CREATED -->\n                                    <div class=\"text-left\">\n                                        <a href=\"\" (click)=\"changePassClick($event)\" class=\"bold changePw\">Change Password</a>\n                                    </div>\n                                    <!-- CPASSWORD ALREADY CREATED-->\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"col\">\n                            <label>Last Name</label>\n                            <input type=\"text\" class=\"form-control\" formControlName=\"last_name\" placeholder=\"Last name\">\n                            <span [hidden]=\"form.valid('last_name')\" class=\"text-danger\"><p><small>This field is required.</small></p></span>\n                            <label>Color</label>\n                            <select class=\"form-control\" formControlName=\"color\" name=\"color\" id=\"color\">\n                              <option value=\"pink\"><p>Pink</p></option>\n                              <option value=\"success\"><p>Green</p></option>\n                              <option value=\"primary\"><p>Blue</p></option>\n                              <option value=\"orange\"><p>Orange</p></option>\n                              <option value=\"red\"><p>Red</p></option>\n                            </select>\n\n                            <label>E-mail</label>\n\n                            <div [ngSwitch]=\"switchExpression\" class=\"email-field\">\n                                <div *ngSwitchDefault>\n                                  <div>\n                                    <div class=\"bold mt-2\"><p>{{ form.form.value.email }} <a href=\"\" (click)=\"changeEmailClick($event)\" class=\"text-right bold text-muted\"><small>Change Email</small></a></p></div>\n                                  </div>\n                                </div>\n\n\n                                <div *ngSwitchCase=\"'change_email'\">\n                                  <div class=\"bold mt-2\"><p>{{ form.form.value.email }}</p></div>\n\n                                  <form [formGroup]=\"edit_email_form.form\" (ngSubmit)=\"onEditEmailSubmit(edit_email_form.form)\">\n                                    <p>Change Email</p>\n                                    <span *ngIf=\"this.emailHasError\" class=\"text-danger\"><p>This email is already used.</p></span>\n                                    <span *ngIf=\"this.emailNoChanges\" class=\"text-danger\"><p>Nothing Changed</p></span>\n\n                                    <div class=\"form-group\">\n                                      <label>New Email</label>\n                                      <input class=\"form-control\" formControlName=\"email\" (input)=\"emailInputChange($event.target.value)\" type=\"text\">\n                                      <span *ngIf=\"edit_email_form.form.hasError('email', 'required')\" class=\"text-danger\"><p><small>This field is required.</small></p></span>\n                                      <span *ngIf=\"edit_email_form.form.hasError('email', 'email')\" class=\"text-danger\"><p><small>Invalid email format.</small></p></span>\n                                      <span *ngIf=\"edit_email_form.form.hasEmailError\" class=\"text-danger\"><p><small>{{ this.emailErr }}</small></p></span>\n                                    </div>\n\n                                    <div class=\"d-flex justify-content-between\">\n                                      <button (click)=\"cancelEmailEvent()\" class=\"btn-sm btn-light\">Cancel</button>\n                                      <button class=\"btn-sm btn-primary\" [disabled]=\"this.emailbtn_disabled\">Update Email</button>\n                                    </div>\n                                  </form>\n                                </div>\n\n                                <!-- CHANGE EMAIL -- SUCCESS -->\n                                <div *ngSwitchCase=\"'edit_email_success'\">\n                                  <p>Congratulations! You’ve successfully updated your email.</p>\n                                  <div class=\"text-right\">\n                                    <a href=\"\" (click)=\"changeEmailClick($event)\" class=\"text-right bold changePw\">Change Email</a>\n                                  </div>\n                                </div>\n                              </div>\n                        </div>\n                    </div>\n\n                    <button class=\"btn-custom-lg btn-primary\">Update Profile</button>\n                    <button class=\"btn-custom-lg btn-light\">Cancel</button>\n\n                </form>\n              </div>\n\n          </div>\n      </div>\n  </div>\n</div>\n\n"
+module.exports = "<div class=\"dashboard--panel\">\n  <div class=\"row\">\n      <div class=\"col-md-8\">\n          <div class=\"panel--white\">\n              <div class=\"panel__header\">\n                <div class=\"panel-label\"><i class=\"fa fa-newspaper-o m-1\"></i>Profile</div>\n              </div>\n              <div class=\"panel__content\">\n                  <form [formGroup]=\"form.form\" (ngSubmit)=\"onSubmit(form.form)\" class=\"form\" enctype=\"multipart/form-data\">\n                    <div [hidden]=\"!this.editSuccessMessage\" class=\"alert alert-success\"><p>You have successfully updated your info!</p></div>\n                    <div *ngIf=\"!this.ProfNoChanges\" class=\"alert alert-info\"><p>No Changes!</p></div>\n                    <div class=\"row\">\n                        <div class=\"col mb-5\">\n                            <label>First Name</label>\n                            <input type=\"text\" class=\"form-control\" formControlName=\"first_name\"  placeholder=\"First name\">\n                            <span [hidden]=\"form.valid('first_name')\" class=\"text-danger\"><p><small>This field is required.</small></p></span>\n                            <label>Username</label>\n                            <input type=\"text\" class=\"form-control\" formControlName=\"username\" (input)=\"usernameInputChange($event.target.value)\" placeholder=\"Username\" disabled>\n                            <small class='text-muted'>Please note that you cannot change your username after sign up.</small><br><br>\n\n                            <div [ngSwitch]=\"switchExpression\" class=\"password-field\">\n                                <!-- CHANGE PASSWORD FORM -->\n                                <div *ngSwitchCase=\"'change_password'\">\n                                    <form [formGroup]=\"edit_password_form.form\" (ngSubmit)=\"onEditPasswordSubmit(edit_password_form.form)\">\n                                        <p>Change Password</p>\n                                        <span *ngIf=\"passwordHasError\" class=\"text-danger\">{{ edit_password_form.err }}</span>\n                                        <div class=\"form-group\">\n                                            <label>Old Password</label>\n                                            <input type=\"password\" formControlName=\"old_password\" (input)=\"passwordInputChange($event.target.value)\" class=\"form-control\">\n                                            <span *ngIf=\"edit_password_form.hasError('old_password', 'required')\" class=\"text-danger\"><small>This field is required</small></span>\n                                        </div>\n                                        <div class=\"form-group\">\n                                            <label>New Password</label>\n                                            <input type=\"password\" formControlName=\"new_password\" (input)=\"passwordInputChange($event.target.value)\" class=\"form-control\">\n                                            <span *ngIf=\"edit_password_form.hasError('new_password', 'required')\" class=\"text-danger\"><p><small>This field is required</small></p></span>\n                                            <span *ngIf=\"edit_password_form.hasError('new_password', 'minlength')\" class=\"text-danger\"><p><small>Password should consist of 8 characters</small></p></span>\n                                            <span *ngIf=\"edit_password_form.hasError('new_password', 'pattern')\" class=\"text-danger\"><p><small>Password must contain a number and symbol (#$@!%&*?_)</small></p></span>\n                                        </div>\n                                        <div class=\"form-group\">\n                                            <label>Confirm Password</label>\n                                            <input type=\"password\" formControlName=\"confirm_new_password\" (input)=\"passwordInputChange($event.target.value)\" class=\"form-control\">\n                                            <span *ngIf=\"edit_password_form.hasError('confirm_new_password', 'required')\" class=\"text-danger\"><p><small>This field is required</small></p></span>\n                                            <span *ngIf=\"edit_password_form.hasError('confirm_new_password', 'minlength')\" class=\"text-danger\"><p><small>Password should consist of 8 characters.</small></p></span>\n                                            <span *ngIf=\"edit_password_form.hasError('confirm_new_password', 'pattern')\" class=\"text-danger\"><p><small>Password must contain a number and symbol (#$@!%&*?_)</small></p></span>\n                                        </div>\n                                        <div class=\"d-flex justify-content-between\">\n                                            <button (click)=\"cancelPasswordEvent()\" class=\"btn-sm btn-light\">Cancel</button>\n                                            <button class=\"btn-sm btn-primary\" [disabled]=\"this.passbtn_disable\">Update Password</button>\n                                        </div>\n                                    </form>\n                                </div>\n\n                                <!-- CHANGE/CREATE PASSWORD -- SUCCESS -->\n                                <div *ngSwitchCase=\"'success'\">\n                                  <p>Congratulations! You’ve successfully updated your password.</p>\n                                  <div class=\"text-right\">\n                                      <a href=\"\" (click)=\"changePassClick($event)\" class=\"text-right bold changePw\">Change Password</a>\n                                  </div>\n                                </div>\n\n                                <div *ngSwitchDefault>\n                                    <!-- PASSWORD ALREADY CREATED -->\n                                    <div class=\"text-left\">\n                                        <a href=\"\" (click)=\"changePassClick($event)\" class=\"bold changePw\">Change Password</a>\n                                    </div>\n                                    <!-- CPASSWORD ALREADY CREATED-->\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"col\">\n                            <label>Last Name</label>\n                            <input type=\"text\" class=\"form-control\" formControlName=\"last_name\" placeholder=\"Last name\">\n                            <span [hidden]=\"form.valid('last_name')\" class=\"text-danger\"><p><small>This field is required.</small></p></span>\n\n                            <label>E-mail</label>\n\n                            <div [ngSwitch]=\"switchExpression\" class=\"email-field\">\n                                <div *ngSwitchDefault>\n                                  <div>\n                                    <div class=\"bold mt-2\"><p>{{ form.form.value.email }} <a href=\"\" (click)=\"changeEmailClick($event)\" class=\"text-right bold text-muted\"><small>Change Email</small></a></p></div>\n                                  </div>\n                                </div>\n\n\n                                <div *ngSwitchCase=\"'change_email'\">\n                                  <div class=\"bold mt-2\"><p>{{ form.form.value.email }}</p></div>\n\n                                  <form [formGroup]=\"edit_email_form.form\" (ngSubmit)=\"onEditEmailSubmit(edit_email_form.form)\">\n                                    <p>Change Email</p>\n                                    <span *ngIf=\"this.emailHasError\" class=\"text-danger\"><p>This email is already used.</p></span>\n                                    <span *ngIf=\"this.emailNoChanges\" class=\"text-danger\"><p>Nothing Changed</p></span>\n\n                                    <div class=\"form-group\">\n                                      <label>New Email</label>\n                                      <input class=\"form-control\" formControlName=\"email\" (input)=\"emailInputChange($event.target.value)\" type=\"text\">\n                                      <span *ngIf=\"edit_email_form.form.hasError('email', 'required')\" class=\"text-danger\"><p><small>This field is required.</small></p></span>\n                                      <span *ngIf=\"edit_email_form.form.hasError('email', 'email')\" class=\"text-danger\"><p><small>Invalid email format.</small></p></span>\n                                      <span *ngIf=\"edit_email_form.form.hasEmailError\" class=\"text-danger\"><p><small>{{ this.emailErr }}</small></p></span>\n                                    </div>\n\n                                    <div class=\"d-flex justify-content-between\">\n                                      <button (click)=\"cancelEmailEvent()\" class=\"btn-sm btn-light\">Cancel</button>\n                                      <button class=\"btn-sm btn-primary\" [disabled]=\"this.emailbtn_disabled\">Update Email</button>\n                                    </div>\n                                  </form>\n                                </div>\n\n                                <!-- CHANGE EMAIL -- SUCCESS -->\n                                <div *ngSwitchCase=\"'edit_email_success'\">\n                                  <p>Congratulations! You’ve successfully updated your email.</p>\n                                  <div class=\"text-right\">\n                                    <a href=\"\" (click)=\"changeEmailClick($event)\" class=\"text-right bold changePw\">Change Email</a>\n                                  </div>\n                                </div>\n                              </div>\n                        </div>\n                    </div>\n\n                    <button class=\"btn-custom-lg btn-primary\">Update Profile</button>\n                    <button class=\"btn-custom-lg btn-light\">Cancel</button>\n\n                </form>\n              </div>\n\n          </div>\n      </div>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -2663,8 +2978,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_commons_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/commons/services/auth/auth.service */ "./src/app/commons/services/auth/auth.service.ts");
 /* harmony import */ var _uirouter_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @uirouter/core */ "./node_modules/@uirouter/core/lib-esm/index.js");
 /* harmony import */ var src_app_commons_services_auth_user_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/commons/services/auth/user.service */ "./src/app/commons/services/auth/user.service.ts");
-/* harmony import */ var src_app_commons_forms_deactivate_forms__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/commons/forms/deactivate.forms */ "./src/app/commons/forms/deactivate.forms.ts");
-/* harmony import */ var src_app_commons_models_deactivate_model__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/commons/models/deactivate.model */ "./src/app/commons/models/deactivate.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2720,14 +3033,13 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
-
-
 var SettingsComponent = /** @class */ (function () {
     function SettingsComponent(auth, state, user, nav) {
         this.auth = auth;
         this.state = state;
         this.user = user;
         this.nav = nav;
+        //private add_password_form: AddPasswordForm;
         this.file = null;
         this.date = new Date;
         this.checkDeact = true;
@@ -2754,7 +3066,6 @@ var SettingsComponent = /** @class */ (function () {
                         this.edit_password_form = new src_app_commons_forms_password_forms__WEBPACK_IMPORTED_MODULE_3__["EditPasswordForm"](new src_app_commons_models_edit_password_model__WEBPACK_IMPORTED_MODULE_6__["EditPasswordModel"]);
                         this.edit_email_form = new src_app_commons_forms_email_forms__WEBPACK_IMPORTED_MODULE_4__["EditEmailForm"](new src_app_commons_models_edit_email_model__WEBPACK_IMPORTED_MODULE_7__["EditEmailModel"]);
                         //this.add_password_form = new AddPasswordForm(new AddPasswordModel);
-                        this.deactivate_form = new src_app_commons_forms_deactivate_forms__WEBPACK_IMPORTED_MODULE_11__["DeactivateForm"](new src_app_commons_models_deactivate_model__WEBPACK_IMPORTED_MODULE_12__["Deactivate"]);
                         setTimeout(function () {
                             _this.nav.hasLoaded = false;
                         }, 100);
@@ -2943,55 +3254,10 @@ var SettingsComponent = /** @class */ (function () {
         // initialize switchExpression to redirect to default view
         this.switchExpression = '';
     };
-    SettingsComponent.prototype.deactivateClick = function ($event) {
-        // prevent href default behavior
-        $event.preventDefault();
-        // initialize switchExpression to redirect to change password form
-        this.switchExpression1 = 'deactivate_account';
-        if (this.deacbtn_disable === true) {
-            this.deacbtn_disable = false;
-        }
-    };
-    SettingsComponent.prototype.onDeactivateSubmit = function (_a) {
-        var _this = this;
-        var value = _a.value, valid = _a.valid;
-        this.deactivate_form.submitted = true;
-        if (valid) {
-            if (value.deactivate !== 'DELETE ACCOUNT') {
-                this.checkDeact = false;
-                this.deacbtn_disable = false;
-            }
-            else {
-                this.deacbtn_disable = true;
-                this.checkDeact = true;
-                this.user.deactivate(value)
-                    .then(function (resp) { _this.state.go('log-out', { "deactivate": true }); })
-                    .catch(function (err) {
-                    _this.errorString = "Incorrect Old Password";
-                    _this.deactPassHasErr = true;
-                    _this.deacbtn_disable = false;
-                    // setTimeout(() => {
-                    //   this.errorString  = ""
-                    // }, 3000)
-                });
-            }
-        }
-    };
     SettingsComponent.prototype.deacPassInputChange = function (value) {
         if (this.deactPassHasErr === true) {
             this.deactPassHasErr = false;
         }
-    };
-    SettingsComponent.prototype.deactivateInputChange = function (value) {
-        if (this.checkDeact === false) {
-            this.checkDeact = true;
-        }
-    };
-    SettingsComponent.prototype.cancelDeactivateEvent = function () {
-        // re initialize edit password and add password form to empty fields
-        this.deactivate_form = new src_app_commons_forms_deactivate_forms__WEBPACK_IMPORTED_MODULE_11__["DeactivateForm"](new src_app_commons_models_deactivate_model__WEBPACK_IMPORTED_MODULE_12__["Deactivate"]);
-        // initialize switchExpression to redirect to default view
-        this.switchExpression1 = '';
     };
     SettingsComponent.prototype.createPassClick = function () {
         // initialize switchExpression to redirect to create password form
