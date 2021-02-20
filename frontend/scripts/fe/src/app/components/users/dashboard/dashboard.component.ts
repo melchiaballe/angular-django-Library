@@ -47,7 +47,6 @@ export class DashboardComponent implements OnInit {
       await this.auth.setuser();
     }
 
-
     this.booksService.getAllBooks().subscribe(
       data => {
         this.all_books = data;

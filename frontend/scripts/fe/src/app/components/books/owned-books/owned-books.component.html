@@ -15,36 +15,36 @@
         </div>
     </div>
 
-    <div class="table-responsive mt-4">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Title</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Location</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Owner</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-                <tbody>
-                    <tr *ngFor="let book of books_list" (click)="rowClicked(book)">
-                        <td>{{ book.title | titlecase }}</td>
-                        <td>{{ book.author | titlecase }}</td>
-                        <td>{{ book.location | titlecase }}</td>
-                        <td>
-                            <span class="badge badge-pill" 
-                                [ngClass]="{'badge-danger': book.status==='checked out', 
-                                'badge-success': book.status==='available' || book.status==='digital copy'}" style="color: white;">
-                                {{ book.status | titlecase  }}
-                            </span>
-                        </td>
-                        <td>{{ book.owner.full_name | titlecase }}</td>
-                        <td>
-                            <button type="button" class="btn btn-secondary btn-sm">Update</button> 
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="mt-4">
+        <ul class="responsive-table pl-0">
+          <li class="table-header">
+            <div class="col col-1 font-weight-bold">Book</div>
+            <div class="col col-2 font-weight-bold">Location</div>
+            <div class="col col-3 font-weight-bold">Status</div>
+            <div class="col col-4 font-weight-bold">Owner</div>
+            <div class="col col-5 font-weight-bold"></div>
+          </li>
+          <li class="table-row" *ngFor="let book of books_list" (click)="rowClicked(book)">
+            <div class="col col-1">
+                <p class="mb-0 font-weight-bold">{{ book.title | titlecase }} </p>
+                <small class="text-muted">by: {{ book.author | titlecase }}</small>
+            </div>
+            <div class="col col-2"><p class="mb-0 mt-3">{{ book.location | titlecase }}</p></div>
+            <div class="col col-3">
+                <p class="badge badge-pill mb-0 mt-3"  
+                    [ngClass]="{'badge-danger': book.status==='checked out', 
+                    'badge-success': book.status==='available' || book.status==='digital copy'}" style="color: white;">
+                    {{ book.status | titlecase  }}
+                </p>
+            </div>
+            <div class="col col-4">
+                <p class="mb-0 mt-3">{{ book.owner.full_name | titlecase }}</p>
+            </div>
+            <div class="col col-5">
+                <button type="button" class="btn btn-secondary btn-sm">Update</button> 
+            </div>
+          </li>
+          
+        </ul>
     </div>
 </div>

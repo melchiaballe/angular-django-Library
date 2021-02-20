@@ -3,6 +3,7 @@
         padding: torem(24) torem(28);
         overflow-y: auto;
         max-height: calc(100vh - 100px);
+        min-height: 90vh;
         // height: 100%;
         &--bg {
             background: $white;

@@ -1,18 +1,55 @@
 <div class="modal-dialog modal-dialog-centered">
   <div class="modal-content">
     <div class="modal-header">
-      <h4 class="modal-title">{{ book.title }}</h4>
+      <h3 class="modal-title" style="line-height: 0.9">
+        <b>{{ book.title }}  
+
+          <span class="badge badge-pill badge-sm" 
+            [ngClass]="{'badge-danger': book.status==='checked out', 
+            'badge-success': book.status==='available' || book.status==='digital copy'}" style="color: white; font-size: 12px;">
+            {{ book.status | titlecase  }}
+          </span>
+        </b>
+        <br>
+        <small class="text-muted">by {{book.author | titlecase }}</small>
+      </h3>
       <button type="button" class="close" (click)="close()" >&times;</button>
     </div>
     <div class="modal-body">
-      <p> {{book.owner.full_name}}</p>
+      <p><b>Description:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non dictum libero. Vestibulum sit amet varius nunc. Sed luctus nisl sed auctor fermentum ...</p>
+      <p><b>Owned by:</b> {{ book.owner.full_name }}</p>
+      <hr>
+      
+      <div class="comment-section" style="max-height: 250px; overflow: auto;">
+        <h6>Comments (15):</h6>
+        <div class="d-flex align-items-center pt-2 pb-3 border-bottom">
+          <img class="img-sm rounded-circle" src="static/scripts/fe/src/assets/images/no-prof-img.png" alt="profile">
+          <div class="ml-3">
+              <h6 class="mb-1">Stella Davidson</h6>
+              <small class="text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</small>
+          </div>
+        </div>
 
-      <div>
-        <p> COMMENT SECTION </p>
+        <div class="d-flex align-items-center pt-2 pb-3 border-bottom">
+          <img class="img-sm rounded-circle" src="static/scripts/fe/src/assets/images/no-prof-img.png" alt="profile">
+          <div class="ml-3">
+              <h6 class="mb-1">Stella Davidson</h6>
+              <small class="text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</small>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center pt-2 pb-3 border-bottom">
+          <img class="img-sm rounded-circle" src="static/scripts/fe/src/assets/images/no-prof-img.png" alt="profile">
+          <div class="ml-3">
+              <h6 class="mb-1">Stella Davidson</h6>
+              <small class="text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</small>
+          </div>
+        </div>
       </div>
+      <a href="." class="float-right"><small>Show More...</small></a>
     </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-primary" (click)="close()">OK</button>
+    <div class="modal-footer mt-3">
+      <button type="button" class="btn btn-primary btn-block" (click)="close()">Check Out</button>
     </div>
   </div>
 </div>
