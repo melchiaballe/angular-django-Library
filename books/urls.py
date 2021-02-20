@@ -5,6 +5,10 @@ from .api import BookViewSet
 urlpatterns = [
     path('', BookViewSet.as_view({
         'get': 'filter',
-    }), name="payroll-list"),
+    }), name="book-list"),
+
+    path('owned-books/', BookViewSet.as_view({
+        'get': 'owned_books',
+    }), name="owned-book-list"),
     
 ]

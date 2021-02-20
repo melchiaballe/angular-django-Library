@@ -10,6 +10,7 @@ import { BooksService } from 'src/app/commons/services/books/books.service';
 import { SimpleModalService } from "ngx-simple-modal";
 
 import { BookDetailsComponent } from '../../partials/modals/book-details/book-details.component'
+import { ignoreElements } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,6 +22,7 @@ export class DashboardComponent implements OnInit {
   // private pipe = new DatePipe('en-US');
 
   books_list:any;
+  all_books:any;
 
   constructor(
     private nav: NavigationService,
@@ -48,7 +50,8 @@ export class DashboardComponent implements OnInit {
 
     this.booksService.getAllBooks().subscribe(
       data => {
-        this.books_list = data
+        this.all_books = data;
+        this.books_list = this.all_books;
         console.log(data)
       }, error => {
         console.log(error)
@@ -66,12 +69,21 @@ export class DashboardComponent implements OnInit {
     })
     .subscribe((isConfirmed)=>{
         //We get modal result
-        if(isConfirmed) {
-            alert('accepted');
-        }
-        else {
-            alert('declined');
-        }
+        // if(isConfirmed) {
+        //     alert('accepted');
+        // }
+        // else {
+        //     alert('declined');
+        // }
     });
+  }
+
+  filterClick(event, status){
+    event.preventDefault();
+    if (status === 'all') {
+      this.books_list = this.all_books;
+    } else {
+      this.books_list = this.all_books.filter(x=>x.status===status);
+    }
   }
 }

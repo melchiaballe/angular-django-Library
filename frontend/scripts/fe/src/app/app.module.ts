@@ -13,6 +13,7 @@ import { DatePipe, DecimalPipe } from '@angular/common';
 import { PublicModule } from './components/public/public.module';
 import { CookieService } from 'ngx-cookie-service';
 import { TokenService } from './commons/services/interceptors/token.service';
+import { BooksModule } from './components/books/books.module';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { TokenService } from './commons/services/interceptors/token.service';
     PublicModule,
     PartialsModule,
     UsersModule,
+    BooksModule
   ],
   exports : [],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenService, multi: true },

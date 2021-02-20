@@ -7,6 +7,7 @@ from rest_framework.viewsets import ViewSet
 
 from .models import Book, Checkout, Comment
 from .serializers import BookSerializer
+from django.db.models import Q
 
 class BookViewSet(ViewSet):
     """ book endpoints
@@ -23,8 +24,16 @@ class BookViewSet(ViewSet):
     def filter(self, *args, **kwargs):
         # import pdb; pdb.set_trace()
         serializer = self.serializer_class(
-            instance=Book.objects.all(), 
+            instance=Book.objects.filter(Q(status=Book.AVAILABLE) | Q(status=Book.CHECKED_OUT) | Q(status=Book.DIGITAL_COPY)), 
             many=True,
         )
 
+        return Response(serializer.data, status=200)
+
+    def owned_books(self, *args, **kwargs):
+        # import pdb; pdb.set_trace()
+        serializer = self.serializer_class(
+            instance=Book.objects.filter(owner=self.request.user), 
+            many=True,
+        )
         return Response(serializer.data, status=200)

@@ -8,22 +8,22 @@
     </a>
     <ul class="sidebar--links navbar-nav">
         <li class="sidebar--item " [ngClass]="{active: state.includes('dashboard') }">
-            <a (click)="onDashboardClick($event)"><i class="la la-home"></i>Dashboard</a>
+            <a (click)="onStateChange($event, 'dashboard', 'Dashboard')"><i class="la la-home"></i>Dashboard</a>
         </li>
-        <li class="sidebar--item">
-            <a><i class="la la-plus-square"></i>Add a Book</a>
+        <li class="sidebar--item" [ngClass]="{active: state.includes('add-book') }">
+            <a (click)="onStateChange($event, 'add-book', 'Add Book')"><i class="la la-plus-square"></i>Add a Book</a>
         </li>
-        <li class="sidebar--item">
-            <a><i class="la la-copy"></i>Borrowed Books</a>
+        <li class="sidebar--item" [ngClass]="{active: state.includes('borrowed-books') }">
+            <a (click)="onStateChange($event, 'borrowed-books', 'Borrowed Books')"><i class="la la-copy"></i>Borrowed Books</a>
         </li>
-        <li class="sidebar--item">
-            <a><i class="la la-book"></i>Owned Books</a>
+        <li class="sidebar--item" [ngClass]="{active: state.includes('owned-books') }">
+            <a (click)="onStateChange($event, 'owned-books', 'Owned Books')"><i class="la la-book"></i>Owned Books</a>
         </li>
         <li class="sidebar--item" [ngClass]="{active: state.includes('settings') }">
-          <a (click)='onSettingsClick($event)'><i class="la la-cogs"></i>Settings</a>
+          <a (click)="onStateChange($event, 'settings', 'Settings')"><i class="la la-cogs"></i>Settings</a>
         </li>
         <li class="sidebar--item" [ngClass]="{active: state.includes('logout') }">
-          <a (click)='onLogoutClick($event)'><i class="la la-sign-out-alt"></i>Logout</a>
+          <a (click)="onStateChange($event, 'logout', 'Logout')"><i class="la la-sign-out-alt"></i>Logout</a>
         </li>
     </ul>
 </aside>

@@ -19,39 +19,10 @@ export class SideMenuComponent implements OnInit {
 
   }
 
-  onDashboardClick(event){
-    event.preventDefault()
-    this.state.go('dashboard')
-  }
-
-  onSignalsClick(event){
-    event.preventDefault()
-    this.state.go('signals')
-  }
-
-  onMarketplaceClick(event){
-    event.preventDefault()
-    this.state.go('marketplace')
-  }
-
-  onStrategiesClick(event){
-    event.preventDefault()
-    this.state.go('strategies')
-  }
-
-  onCreateStrategyClick(event){
-    event.preventDefault()
-    this.state.go('create-strategy')
-  }
-
-  onLogoutClick(event){
-    event.preventDefault()
-    this.state.go('logout')
-  }
-
-  onSettingsClick(event){
-    event.preventDefault()
-    this.state.go('settings')
+  onStateChange(event, state, header){
+    event.preventDefault();
+    this.state.go(state);
+    this.nav.changeHeaderTitle(header);
   }
 
 

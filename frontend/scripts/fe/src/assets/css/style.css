@@ -10462,7 +10462,7 @@ footer .navbar a {
 .dashboard--panel {
   padding: 1.5rem 1.75rem;
   overflow-y: auto;
-  max-height: calc(100vh - 100px);
+  height: 100%;
 }
 .dashboard--panel--bg {
   background: #ffffff;

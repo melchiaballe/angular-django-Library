@@ -9,11 +9,11 @@
 //   }
 
 export class Books {
-  
-    customer_token : string = null;
-    card_token: string = null;
-    exp_month : string = null;
-    exp_year : string = null;
+
+    title : string = null;
+    author: string = null;
+    location : string = null;
+    status : string = null;
 
     constructor(data={}) {
       Object.assign(this, data);
