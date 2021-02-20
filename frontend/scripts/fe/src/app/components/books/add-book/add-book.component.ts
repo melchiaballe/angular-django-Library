@@ -31,22 +31,13 @@ export class AddBookComponent implements OnInit {
 
   onSubmit({ value, valid }: { value: Books, valid: boolean }) {
     if(valid){
-      // FOR TESTING OF MESSAGES
-      // SUCCESS
-      this.simpleModalService.addModal(AddBookMessagesComponent, {has_error:false}).subscribe()
-      // ERROR
-      this.simpleModalService.addModal(AddBookMessagesComponent, {has_error:true}).subscribe()
-
-      //UNCOMMENT IF DONE WITH MESSAGES
-      // this.booksService.addBook(value).subscribe(
-      //   data => {
-      //     alert("IT IS SAVED")
-      //     this.simpleModalService.addModal(AddBookMessagesComponent, {has_error:false}).subscribe()
-      //   }, error => {
-      //     alert("PLEASE SEE ERROR MESSAGE")
-      //     this.simpleModalService.addModal(AddBookMessagesComponent, {has_error:true}).subscribe()
-      //   }
-      // )
+      this.booksService.addBook(value).subscribe(
+        data => {
+          this.simpleModalService.addModal(AddBookMessagesComponent, {has_error:false}).subscribe()
+        }, error => {
+          this.simpleModalService.addModal(AddBookMessagesComponent, {has_error:true}).subscribe()
+        }
+      )
     }
   }
 
