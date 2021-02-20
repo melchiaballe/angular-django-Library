@@ -11,4 +11,7 @@ urlpatterns = [
         'get': 'owned_books',
     }), name="owned-book-list"),
     
+    path('add-book/', BookViewSet.as_view({
+        'post': 'add_book',
+    }), name="add-book")
 ]

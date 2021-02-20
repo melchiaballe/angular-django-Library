@@ -26,3 +26,4 @@ export const STRATEGIES = '/api/strategies/'
 /* BOOKS ENDPOINTS */
 export const BOOKS = '/api/books/'
 export const OWNED_BOOKS = urlsafe(BOOKS, 'owned-books');
+export const ADD_BOOK = urlsafe(BOOKS, 'add-book');

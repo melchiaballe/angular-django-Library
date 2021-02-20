@@ -37,3 +37,13 @@ class BookViewSet(ViewSet):
             many=True,
         )
         return Response(serializer.data, status=200)
+
+    def add_book(self, *args, **kwargs):
+        serializer = self.serializer_class(
+            data=self.request.data, request=self.request
+        )
+        print(serializer.is_valid())
+        if serializer.is_valid(raise_exception=True):
+            # serializer.object.owner = self.request.user 
+            serializer.save() 
+        return Response({}, status=200)

@@ -25,6 +25,8 @@ class Book(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        unique_together = ('title', 'author', 'owner'),
 
 class Checkout(models.Model):
 

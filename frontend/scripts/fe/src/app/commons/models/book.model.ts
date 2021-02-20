@@ -13,6 +13,7 @@ export class Books {
     title : string = null;
     author: string = null;
     location : string = null;
+    owner: Number = null;
     status : string = null;
 
     constructor(data={}) {
