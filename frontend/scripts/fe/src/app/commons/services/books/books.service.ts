@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BOOKS, OWNED_BOOKS, ADD_BOOK } from '../../constants/api.constants'
+import { 
+  BOOKS, OWNED_BOOKS, ADD_BOOK, 
+  CHECKOUT_BOOK } from '../../constants/api.constants'
 import { Books } from '../../models/book.model'
 
 @Injectable({
@@ -23,5 +25,9 @@ export class BooksService {
 
   addBook(data: Books){
     return this.http.post(ADD_BOOK, data)
+  }
+
+  checkoutBook(data){
+    return this.http.post(CHECKOUT_BOOK, data)
   }
 }

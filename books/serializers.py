@@ -10,7 +10,7 @@ class BookSerializer(serializers.ModelSerializer):
 
     class Meta:
         model=Book
-        fields = ('title', 'author', 'location', 'owner', 'status')
+        fields = ('id', 'title', 'author', 'location', 'owner', 'status')
     
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request', None)
@@ -74,6 +74,64 @@ class BookSerializer(serializers.ModelSerializer):
             
         return self.instance
 
+class CheckoutSerializer(serializers.ModelSerializer):
+    
+    book = BookSerializer(required=False, allow_null=True)
+    checked_out_by = ShortUserSerializer(required=False, allow_null=True)
+
+    class Meta:
+        model=Checkout
+        fields = ('id', 'book', 'checked_out_by', 'checked_out_date', 'returned_date')
+    
+    def __init__(self, *args, **kwargs):
+        self.request = kwargs.pop('request', None)
+        return super(CheckoutSerializer, self).__init__(*args, **kwargs)
+
+    def create(self, validated_data):
+        import pdb; pdb.set_trace()
+        pass
+        # checkout = Checkout(
+        #         title=validated_data['title'],
+        #         author=validated_data['author'],
+        #         location=validated_data['location'],
+        #         checked_out_by=self.request.user,
+        #     )
+        # checkout.save()
+    
+    def update(self, instance, validated_data):
+        pass
+        # title = validated_data.pop('title', None)
+        # author = validated_data.pop('author', None)
+        # location = validated_data.pop('location', None)
+        # status = validated_data.pop('status', None)
+
+        # if title is not None:
+        #     instance.title = title
+        
+        # if author is not None:
+        #     instance.author = author
+
+        # if location is not None:
+        #     instance.location = location
+        
+        # if status is not None:
+        #     instance.status = status
+
+        # instance.save()
+        # return instance
+
+    def save(self, **kwargs):
+        validated_data = dict(
+            list(self.validated_data.items()) +
+            list(kwargs.items())
+        )
+
+        if self.instance is not None:
+            self.instance = self.update(self.instance, validated_data)
+        else:
+            self.instance = self.create(validated_data)
+            
+        return self.instance
 # class PlanSerializer(serializers.ModelSerializer):
 #     """ plan serializer
 #     """

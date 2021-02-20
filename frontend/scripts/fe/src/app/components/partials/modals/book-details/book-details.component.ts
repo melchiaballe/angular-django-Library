@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SimpleModalComponent } from "ngx-simple-modal";
+import { BooksService } from 'src/app/commons/services/books/books.service';
 export interface ConfirmModel {
   has_error:boolean,
   book:any
@@ -14,7 +15,9 @@ export class BookDetailsComponent extends SimpleModalComponent<ConfirmModel, boo
   has_error:boolean = false;
   book:any;
   
-  constructor() {
+  constructor(
+    private booksService: BooksService
+  ) {
     super()
    }
 
@@ -27,6 +30,18 @@ export class BookDetailsComponent extends SimpleModalComponent<ConfirmModel, boo
     // then we can get modal result from caller code
     this.result = true;
     this.close();
+  }
+
+  borrowBook(){
+    console.log(this.book)
+    // ADD SIMPLEMODAL SERVICE CONFIRMATION BEFORE CALL
+    this.booksService.checkoutBook({book_id: this.book.id}).subscribe(
+      data => {
+        this.book.status='checked out'
+      }, error => {
+        console.log(error)
+      }
+    )
   }
 
 }

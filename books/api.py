@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from rest_framework.viewsets import ViewSet
 
 from .models import Book, Checkout, Comment
-from .serializers import BookSerializer
+from .serializers import BookSerializer, CheckoutSerializer
 from django.db.models import Q
 
 class BookViewSet(ViewSet):
@@ -42,8 +42,33 @@ class BookViewSet(ViewSet):
         serializer = self.serializer_class(
             data=self.request.data, request=self.request
         )
-        print(serializer.is_valid())
         if serializer.is_valid(raise_exception=True):
             # serializer.object.owner = self.request.user 
             serializer.save() 
         return Response({}, status=200)
+
+class CheckoutViewSet(ViewSet):
+
+    serializer_class = CheckoutSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def checkout_book(self, *args, **kwargs):
+        data = self.request.data
+        try:
+            book_obj = Book.objects.get(id=data.get('book_id'))
+            if book_obj.status != 'available':
+                return Response({'status': 'Book is current unavailable'}, status=400)
+            else:
+                if book_obj.owner == self.request.user:
+                    return Response({'status': 'You are the owner of this book'}, status=400)
+                else:
+                    checkout_obj = Checkout.objects.create(
+                        book=book_obj,
+                        checked_out_by=self.request.user
+                    )
+
+                    book_obj.status=Book.CHECKED_OUT
+                    book_obj.save()
+        except:
+            return Response({'status': 'Something went wrong try again'}, status=400)
+        return Response({'status': 'Success'}, status=200)
