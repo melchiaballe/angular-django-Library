@@ -17,9 +17,10 @@ export interface ConfirmModel {
 export class BookDetailsComponent extends SimpleModalComponent<ConfirmModel, boolean> implements OnInit {
 
   private form: CommentForm;
-  has_error:boolean = false;
+  has_error = false;
   book:any;
   comments_list: any;
+  isCheckedOut = false;
 
   constructor(
     private booksService: BooksService,
@@ -38,6 +39,14 @@ export class BookDetailsComponent extends SimpleModalComponent<ConfirmModel, boo
     );
 
     this.intializeForm();
+
+    this.booksService.isCheckedOut(this.book.id).subscribe(
+      data => {
+        this.isCheckedOut = Object(data).status;
+      }, error => {
+        console.log(error);
+      }
+    );
   }
 
 
@@ -53,6 +62,19 @@ export class BookDetailsComponent extends SimpleModalComponent<ConfirmModel, boo
     this.booksService.checkoutBook({book_id: this.book.id}).subscribe(
       data => {
         this.book.status = 'checked out';
+        this.isCheckedOut = true;
+      }, error => {
+        console.log(error);
+      }
+    );
+  }
+
+  returnBook(){
+    // ADD SIMPLEMODAL SERVICE CONFIRMATION BEFORE CALL
+    this.booksService.returnBook({book_id: this.book.id}).subscribe(
+      data => {
+        this.book.status = 'available';
+        this.isCheckedOut = false;
       }, error => {
         console.log(error);
       }

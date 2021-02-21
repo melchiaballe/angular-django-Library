@@ -56,7 +56,7 @@
   
     <div class="modal-footer" [hidden]="book.owner.id===this.authService.user_id">
       <button type="button" class="btn btn-primary btn-block" (click)="borrowBook()" [hidden]="book.status==='checked out'">Check Out</button>
-      <button type="button" class="btn btn-warning btn-block" (click)="borrowBook()">Return Book</button>
+      <button type="button" class="btn btn-warning btn-block" (click)="returnBook()" [hidden]='!this.isCheckedOut'>Return Book</button>
     </div>
   </div>
 </div>

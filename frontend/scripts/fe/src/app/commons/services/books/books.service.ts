@@ -5,7 +5,10 @@ import {
   CHECKOUT_BOOK, 
   COMMENTS,
   ADD_COMMENT,
-  DELETE_COMMENT} from '../../constants/api.constants'
+  DELETE_COMMENT,
+  IS_CHECKED_OUT,
+  BORROWED_BOOKS,
+  RETURN_BOOK} from '../../constants/api.constants'
 import { Books } from '../../models/book.model'
 
 @Injectable({
@@ -20,6 +23,10 @@ export class BooksService {
 
   getAllBooks(){
     return this.http.get(BOOKS);
+  }
+
+  getBorrowedBooks(){
+    return this.http.get(BORROWED_BOOKS);
   }
 
   getOwnedBooks(){
@@ -44,5 +51,13 @@ export class BooksService {
 
   deleteComment(data){
     return this.http.post(DELETE_COMMENT, data);
+  }
+
+  isCheckedOut(book_id) {
+    return this.http.get(IS_CHECKED_OUT, { params: {"book_id": book_id}});
+  }
+
+  returnBook(data){
+    return this.http.post(RETURN_BOOK, data);
   }
 }

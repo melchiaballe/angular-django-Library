@@ -26,7 +26,7 @@ export class BorrowedBooksComponent implements OnInit {
     this.nav.changeHeaderTitle('Borrowed Books');
     this.form = new SearchForm(new SearchModel);
 
-    this.booksService.getAllBooks().subscribe(
+    this.booksService.getBorrowedBooks().subscribe(
       data => {
         this.all_books = data;
         this.books_list = this.all_books;
@@ -35,6 +35,7 @@ export class BorrowedBooksComponent implements OnInit {
         console.log(error)
       }
     )
+
 
   }
 
@@ -47,5 +48,19 @@ export class BorrowedBooksComponent implements OnInit {
       }
     }
   }
+
+  returnBook(item){
+    // ADD SIMPLEMODAL SERVICE CONFIRMATION BEFORE CALL
+    this.booksService.returnBook({book_id: item.book.id}).subscribe(
+      data => {
+        item.returned_date = Date.now();
+        // item.book.status = 'available';
+      }, error => {
+        console.log(error);
+      }
+    );
+  }
+
+  
 
 }

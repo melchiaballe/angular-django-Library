@@ -101,4 +101,7 @@ export class DashboardComponent implements OnInit {
 
     this.form.form.controls['search_text'].setValue(null);
   }
+  
 }
+
+

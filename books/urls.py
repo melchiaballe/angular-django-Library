@@ -16,6 +16,10 @@ urlpatterns = [
     path('owned-books/', BookViewSet.as_view({
         'get': 'owned_books',
     }), name="owned-book-list"),
+
+    path('borrowed-books/', CheckoutViewSet.as_view({
+        'get': 'get_borrowed_books',
+    }), name="get_borrowed_books"),
     
     path('add-book/', BookViewSet.as_view({
         'post': 'add_book',
@@ -24,6 +28,14 @@ urlpatterns = [
     path('checkout-book/', CheckoutViewSet.as_view({
         'post': 'checkout_book'
     }), name='checkout_book'),
+
+    path('return-book/', CheckoutViewSet.as_view({
+        'post': 'return_book'
+    }), name='return_book'),
+
+    path('is-checked-out/', CheckoutViewSet.as_view({
+        'get': 'is_checked_out'
+    }), name='is_checkout_out'),
 
     path('comments/', CommentViewSet.as_view({
         'get': 'get_comments'

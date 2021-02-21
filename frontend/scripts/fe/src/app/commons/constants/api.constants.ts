@@ -16,18 +16,14 @@ export const NEW_USER = urlsafe(AUTH_USER, 'new-user');
 export const FORGOT_PASSWORD = urlsafe(AUTH_USER, 'forgot-password');
 export const RESET_PASSWORD = urlsafe(AUTH_USER, 'reset-password');
 
-/* CURRENCY ENDPOINTS */
-export const CURRENCIES = '/api/currencies/'
-
-/* STRATEGIES ENDPOINTS */
-export const STRATEGIES = '/api/strategies/'
-
-
 /* BOOKS ENDPOINTS */
-export const BOOKS = '/api/books/'
+export const BOOKS = '/api/books/';
 export const OWNED_BOOKS = urlsafe(BOOKS, 'owned-books');
 export const ADD_BOOK = urlsafe(BOOKS, 'add-book');
 export const CHECKOUT_BOOK = urlsafe(BOOKS, 'checkout-book');
+export const IS_CHECKED_OUT = urlsafe(BOOKS, 'is-checked-out');
+export const RETURN_BOOK = urlsafe(BOOKS, 'return-book');
+export const BORROWED_BOOKS = urlsafe(BOOKS, 'borrowed-books');
 
 /** COMMENTS ENDPOINTS */
 export const COMMENTS = urlsafe(BOOKS, 'comments');
