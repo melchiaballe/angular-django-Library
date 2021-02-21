@@ -6,7 +6,7 @@ Virtualenv
 Django 3.0.4
 Angular CLI
 
-## Real Estate Calculator
+## Online Library
 1. Setup project, a virtual environment, and install requirements
 
 Backend Side
