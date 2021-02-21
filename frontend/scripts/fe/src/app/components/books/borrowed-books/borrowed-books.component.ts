@@ -41,7 +41,7 @@ export class BorrowedBooksComponent implements OnInit {
 
   onSubmit({ value, valid }: { value: SearchModel, valid: boolean }) {
     if(valid){
-      this.books_list = this.all_books.filter(x => x.title.includes(value.search_text));
+      this.books_list = this.all_books.filter(x => x.book.title.toLowerCase().includes(value.search_text.toLowerCase()));
     }else{
       if (value.search_text === '') {
         this.books_list = this.all_books;
@@ -53,14 +53,23 @@ export class BorrowedBooksComponent implements OnInit {
     // ADD SIMPLEMODAL SERVICE CONFIRMATION BEFORE CALL
     this.booksService.returnBook({book_id: item.book.id}).subscribe(
       data => {
+        item.book.status = 'available';
         item.returned_date = Date.now();
-        // item.book.status = 'available';
       }, error => {
         console.log(error);
       }
     );
   }
 
-  
+  filterClick(event, status){
+    event.preventDefault();
+    if (status === 'all') {
+      this.books_list = this.all_books;
+    } else {
+      this.books_list = this.all_books.filter(x=>x.book.status===status);
+    }
+
+    this.form.form.controls['search_text'].setValue(null);
+  }
 
 }

@@ -9,9 +9,8 @@
                 <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle><i class="la la-filter"></i> Filter</button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1" >
                     <a class="dropdown-item" href="." ngbDropdownItem (click)="filterClick($event, 'all')">All</a>
-                    <a class="dropdown-item" href="#" ngbDropdownItem (click)="filterClick($event, 'available')">Available</a>
+                    <a class="dropdown-item" href="#" ngbDropdownItem (click)="filterClick($event, 'available')">Returned</a>
                     <a class="dropdown-item" href="#" ngbDropdownItem (click)="filterClick($event, 'checked out')">Checked Out</a>
-                    <a class="dropdown-item" href="#" ngbDropdownItem (click)="filterClick($event, 'digital copy')">Digital Copy</a>
                 </div>
             </div>
         </div>

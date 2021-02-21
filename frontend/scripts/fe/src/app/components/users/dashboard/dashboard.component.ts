@@ -66,7 +66,7 @@ export class DashboardComponent implements OnInit {
 
   onSubmit({ value, valid }: { value: SearchModel, valid: boolean }) {
     if(valid){
-      this.books_list = this.all_books.filter(x => x.title.includes(value.search_text));
+      this.books_list = this.all_books.filter(x => x.title.toLowerCase().includes(value.search_text.toLowerCase()));
     }else{
       if (value.search_text === '') {
         this.books_list = this.all_books;
