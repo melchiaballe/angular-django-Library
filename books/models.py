@@ -25,7 +25,7 @@ class Book(models.Model):
     date_updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        unique_together = ('title', 'author', 'owner'),
+        unique_together = ('title', 'author', 'owner', 'is_digital_copy'),
 
     def __str__(self):
         return "{}".format(self.title)

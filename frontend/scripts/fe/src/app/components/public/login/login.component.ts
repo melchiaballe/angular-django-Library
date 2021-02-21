@@ -14,7 +14,6 @@ export class LoginComponent implements OnInit {
   private form : LoginForm;
   private isActivated = false;
   private hasError = false;
-  private hasDeactivated = false;
   private new = false;
 
   constructor(
@@ -25,17 +24,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     // initialize the form.
     this.form = new LoginForm(new Login);
-    this.isActivated = this.state.params['is_activated'];
     if (this.auth.authenticated()) return this.state.go('dashboard');
-      console.log('Authenticated');
-
-    if(this.state.params.deactivate === 'true') {
-      this.hasDeactivated = true;
-
-      setTimeout(() => {
-        this.hasDeactivated = false;
-      }, 3000)
-    }
 
     if(this.state.params.new === 'true') {
       this.new = true;
@@ -68,7 +57,7 @@ export class LoginComponent implements OnInit {
               const redirectUrl = prevState.shift().name;
               if (redirectUrl != 'login')
               {
-                if(redirectUrl === 'forgot-password' || redirectUrl === 'reset-password' || redirectUrl === 'activate-account' )
+                if(redirectUrl === 'forgot-password' || redirectUrl === 'reset-password' || redirectUrl === 'register-login' )
                 {
                   this.state.go('dashboard');
                 }else{
@@ -88,9 +77,9 @@ export class LoginComponent implements OnInit {
       }
     }
 
-    forgotPassword(){
-      this.state.go('forgot-password')
-    }
+    // forgotPassword(){
+    //   this.state.go('forgot-password')
+    // }
 
     register(){ 
       this.state.go('register')

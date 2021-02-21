@@ -34,7 +34,6 @@ export class OwnedBooksComponent implements OnInit {
       data => {
         this.all_books = data;
         this.books_list = this.all_books;
-        console.log(data)
       }, error => {
         console.log(error)
       }
@@ -54,22 +53,14 @@ export class OwnedBooksComponent implements OnInit {
     this.form.form.controls['search_text'].setValue(null);
   }
 
-  // rowClicked(book){
-  //   console.log(book)
-  //   this.simpleModalService.addModal(BookDetailsComponent, {
-  //     has_error: false,
-  //     book:book
-  //   })
-  //   .subscribe((isConfirmed)=>{
-  //       //We get modal result
-  //       // if(isConfirmed) {
-  //       //     alert('accepted');
-  //       // }
-  //       // else {
-  //       //     alert('declined');
-  //       // }
-  //   });
-  // }
+  rowClicked(book){
+    this.simpleModalService.addModal(BookDetailsComponent, {
+      has_error: false,
+      book:book
+    })
+    .subscribe((isConfirmed)=>{
+    });
+  }
 
   onSubmit({ value, valid }: { value: SearchModel, valid: boolean }) {
     if (valid) {
@@ -81,7 +72,8 @@ export class OwnedBooksComponent implements OnInit {
     }
   }
 
-  updateBook(book) {
+  updateBook(event, book) {
+    event.stopPropagation();
     this.simpleModalService.addModal(UpdateBookComponent, {book: book}).subscribe(
       (bookData) => {
         if (bookData) {

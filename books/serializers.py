@@ -96,7 +96,7 @@ class CheckoutSerializer(serializers.ModelSerializer):
         return super(CheckoutSerializer, self).__init__(*args, **kwargs)
 
     def create(self, validated_data):
-        import pdb; pdb.set_trace()
+        # import pdb; pdb.set_trace()
         pass
         # checkout = Checkout(
         #         title=validated_data['title'],

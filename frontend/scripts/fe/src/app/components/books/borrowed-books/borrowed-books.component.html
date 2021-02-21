@@ -30,7 +30,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let item of books_list" (click)="rowClicked(book)">
+                <tr *ngFor="let item of books_list" (click)="rowClicked(item.book)">
                     <th scope="row">
                         <p class="mb-0 font-weight-bold">{{ item.book.title | titlecase }} </p>
                         <small class="text-muted">by: {{ item.book.author | titlecase }}</small>
@@ -51,7 +51,7 @@
                         <button type="button" 
                         class="btn btn-secondary btn-sm"  
                         [hidden]="item.returned_date !== null" 
-                        (click)="returnBook(item)">
+                        (click)="returnBook($event, item)">
                             Return Book
                         </button> 
 

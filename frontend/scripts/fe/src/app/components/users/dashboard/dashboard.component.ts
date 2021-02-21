@@ -55,7 +55,6 @@ export class DashboardComponent implements OnInit {
       data => {
         this.all_books = data;
         this.books_list = this.all_books;
-        console.log(data);
       }, error => {
         console.log(error);
       }
@@ -74,7 +73,6 @@ export class DashboardComponent implements OnInit {
   }
 
   rowClicked(book) {
-    console.log(book);
     this.simpleModalService.addModal(BookDetailsComponent, {
       has_error: false,
       book: book

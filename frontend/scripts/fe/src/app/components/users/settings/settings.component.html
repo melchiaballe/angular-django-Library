@@ -18,8 +18,9 @@
                             <input type="text" class="form-control" formControlName="username" (input)="usernameInputChange($event.target.value)" placeholder="Username" disabled>
                             <small class='text-muted'>Please note that you cannot change your username after sign up.</small><br><br>
 
+                            <!--
                             <div [ngSwitch]="switchExpression" class="password-field">
-                                <!-- CHANGE PASSWORD FORM -->
+                                !-- CHANGE PASSWORD FORM --
                                 <div *ngSwitchCase="'change_password'">
                                     <form [formGroup]="edit_password_form.form" (ngSubmit)="onEditPasswordSubmit(edit_password_form.form)">
                                         <p>Change Password</p>
@@ -50,7 +51,7 @@
                                     </form>
                                 </div>
 
-                                <!-- CHANGE/CREATE PASSWORD -- SUCCESS -->
+                                !-- CHANGE/CREATE PASSWORD -- SUCCESS --
                                 <div *ngSwitchCase="'success'">
                                   <p>Congratulations! You’ve successfully updated your password.</p>
                                   <div class="text-right">
@@ -59,13 +60,14 @@
                                 </div>
 
                                 <div *ngSwitchDefault>
-                                    <!-- PASSWORD ALREADY CREATED -->
+                                    !-- PASSWORD ALREADY CREATED --
                                     <div class="text-left">
                                         <a href="" (click)="changePassClick($event)" class="bold changePw">Change Password</a>
                                     </div>
-                                    <!-- CPASSWORD ALREADY CREATED-->
+                                    !-- CPASSWORD ALREADY CREATED--
                                 </div>
                             </div>
+                            -->
                         </div>
                         <div class="col">
                             <label>Last Name</label>

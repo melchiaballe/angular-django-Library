@@ -6,6 +6,7 @@ import { SearchForm } from 'src/app/commons/forms/search.forms';
 import { SearchModel } from 'src/app/commons/models/search.model';
 import { SimpleModalService } from 'ngx-simple-modal';
 import { BookDetailsComponent } from '../../partials/modals/book-details/book-details.component';
+import { ConfirmationMessageComponent } from '../../partials/modals/confirmation-message/confirmation-message.component';
 
 
 @Component({
@@ -33,7 +34,6 @@ export class BorrowedBooksComponent implements OnInit {
       data => {
         this.all_books = data;
         this.books_list = this.all_books;
-        console.log(data)
       }, error => {
         console.log(error)
       }
@@ -52,14 +52,21 @@ export class BorrowedBooksComponent implements OnInit {
     }
   }
 
-  returnBook(item){
+  returnBook(event, item){
+    event.stopPropagation();
     // ADD SIMPLEMODAL SERVICE CONFIRMATION BEFORE CALL
-    this.booksService.returnBook({book_id: item.book.id}).subscribe(
-      data => {
-        item.book.status = 'available';
-        item.returned_date = Date.now();
-      }, error => {
-        console.log(error);
+    this.simpleModalService.addModal(ConfirmationMessageComponent, {has_error: false}).subscribe(
+      (isTrue) => {
+        if (isTrue) {
+          this.booksService.returnBook({book_id: item.book.id}).subscribe(
+            data => {
+              item.book.status = 'available';
+              item.returned_date = Date.now();
+            }, error => {
+              console.log(error);
+            }
+          );
+        }
       }
     );
   }
@@ -77,20 +84,12 @@ export class BorrowedBooksComponent implements OnInit {
     this.form.form.controls['search_text'].setValue(null);
   }
 
-  // rowClicked(book) {
-  //   this.simpleModalService.addModal(BookDetailsComponent, {
-  //     has_error: false,
-  //     book:book
-  //   })
-  //   .subscribe((isConfirmed)=>{
-  //       //We get modal result
-  //       // if(isConfirmed) {
-  //       //     alert('accepted');
-  //       // }
-  //       // else {
-  //       //     alert('declined');
-  //       // }
-  //   });
-  // }
+  rowClicked(book) {
+    this.simpleModalService.addModal(BookDetailsComponent, {
+      has_error: false,
+      book:book
+    })
+    .subscribe((isConfirmed)=>{});
+  }
 
 }

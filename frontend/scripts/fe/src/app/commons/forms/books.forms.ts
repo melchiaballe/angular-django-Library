@@ -52,7 +52,6 @@ export class UpdateBookForm {
     this.form = new FormBuilder().group({
       id              : new FormControl(data.id),
       title           : new FormControl(data.title, [Validators.required]),
-      is_digital_copy : new FormControl(data.is_digital_copy),
       author          : new FormControl(data.author, [Validators.required]),
       location        : new FormControl(data.location, [Validators.required])
     });

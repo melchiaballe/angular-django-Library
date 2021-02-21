@@ -36,7 +36,6 @@ class BookViewSet(ViewSet):
         return Response(serializer.data, status=200)
 
     def owned_books(self, *args, **kwargs):
-        # import pdb; pdb.set_trace()
         serializer = self.serializer_class(
             instance=Book.objects.filter(owner=self.request.user), 
             many=True,
@@ -44,7 +43,6 @@ class BookViewSet(ViewSet):
         return Response(serializer.data, status=200)
 
     def add_book(self, *args, **kwargs):
-        import pdb; pdb.set_trace()
         serializer = self.serializer_class(
             data=self.request.data, request=self.request
         )

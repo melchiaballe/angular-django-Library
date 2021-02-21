@@ -52,7 +52,7 @@ class AuthTokenSerializer(serializers.Serializer):
 
 
         # TODO: Fix Interceptor Error
-        #login(self.request, self.user)
+        login(self.request, self.user)
 
         if not self.user:
             msg = _('Unable to log in with provided credentials.')

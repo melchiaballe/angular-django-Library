@@ -30,12 +30,13 @@ export class UpdateBookComponent extends SimpleModalComponent<ConfirmModel, any>
   intializeForm(){
     this.form = new UpdateBookForm(new Books);
     this.form.defaultValue(this.book);
-    console.log(this.book);
   }
 
   onSubmit({ value, valid }: { value: Books, valid: boolean }) {
     if (valid) {
-      this.result = value;
+      if(this.form.form.dirty){
+        this.result = value;
+      }
       this.close();
     }
   }
