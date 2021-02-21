@@ -43,7 +43,9 @@
                 <p class="mb-0 mt-3">{{ book.owner.full_name | titlecase }}</p>
             </div>
             <div class="col col-5">
-                <button type="button" class="btn btn-secondary btn-sm">Update</button> 
+                <button type="button" 
+                class="btn btn-secondary btn-sm"
+                (click)="updateBook(book)">Update</button> 
             </div>
           </li>
           

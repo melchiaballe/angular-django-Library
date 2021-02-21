@@ -14,7 +14,7 @@ import { AddBookMessagesComponent } from '../../partials/modals/add-book-message
 export class AddBookComponent implements OnInit {
 
   private form: BookForm;
-  private default_status='available';
+  private default_status = 'available';
 
   constructor(
     private nav: NavigationService,

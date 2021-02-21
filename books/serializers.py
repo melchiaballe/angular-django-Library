@@ -16,18 +16,19 @@ class BookSerializer(serializers.ModelSerializer):
         self.request = kwargs.pop('request', None)
         return super(BookSerializer, self).__init__(*args, **kwargs)
 
-    def validate(self, attrs):
-        title = attrs.get('title')
-        author = attrs.get('author')
-        owner = self.request.user
+    # def validate(self, attrs):
+    #     import pdb; pdb.set_trace()
+    #     title = attrs.get('title')
+    #     author = attrs.get('author')
+    #     owner = self.request.user
 
-        try:
-            obj = Book.objects.get(title=title, author=author, owner=owner)
-        except:
-            return attrs
+    #     try:
+    #         obj = Book.objects.get(title=title, author=author, owner=owner)
+    #     except:
+    #         return attrs
 
-        if obj:
-            raise serializers.ValidationError(_("title, author, and owner combination already exists"), code="validation")
+    #     if obj:
+    #         raise serializers.ValidationError(_("title, author, and owner combination already exists"), code="validation")
             
 
     def create(self, validated_data):

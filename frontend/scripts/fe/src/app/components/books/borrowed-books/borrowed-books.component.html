@@ -26,7 +26,7 @@
             <div class="col col-5 font-weight-bold">Checkout Date</div>
             <div class="col col-6 font-weight-bold">Return Date</div>
           </li>
-          <li class="table-row" *ngFor="let item of books_list">
+          <li class="table-row" *ngFor="let item of books_list" (click)="rowClicked(item.book)">
             <div class="col col-1">
                 <p class="mb-0 font-weight-bold">{{ item.book.title | titlecase }} </p>
                 <small class="text-muted">by: {{ item.book.author | titlecase }}</small>

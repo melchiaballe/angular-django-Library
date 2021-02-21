@@ -7,6 +7,8 @@ import { FooterComponent } from './footer/footer.component';
 import { BookDetailsComponent } from './modals/book-details/book-details.component';
 import { AddBookMessagesComponent } from './modals/add-book-messages/add-book-messages.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ConfirmationMessageComponent } from './modals/confirmation-message/confirmation-message.component';
+import { UpdateBookComponent } from './modals/update-book/update-book.component';
 
 @NgModule({
   imports: [
@@ -15,14 +17,18 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   declarations: [
-    NavigationComponent, 
-    SideMenuComponent, 
-    FooterComponent, 
-    BookDetailsComponent, 
-    AddBookMessagesComponent],
+    NavigationComponent,
+    SideMenuComponent,
+    FooterComponent,
+    BookDetailsComponent,
+    AddBookMessagesComponent,
+    ConfirmationMessageComponent,
+    UpdateBookComponent],
   entryComponents: [
     BookDetailsComponent,
-    AddBookMessagesComponent
+    AddBookMessagesComponent,
+    ConfirmationMessageComponent,
+    UpdateBookComponent
   ],
 })
 export class PartialsModule { }

@@ -6,6 +6,7 @@ import { BookDetailsComponent } from '../../partials/modals/book-details/book-de
 
 import { SearchForm } from 'src/app/commons/forms/search.forms';
 import { SearchModel } from 'src/app/commons/models/search.model';
+import { UpdateBookComponent } from '../../partials/modals/update-book/update-book.component';
 
 @Component({
   selector: 'app-owned-books',
@@ -50,31 +51,48 @@ export class OwnedBooksComponent implements OnInit {
     this.form.form.controls['search_text'].setValue(null);
   }
 
-  rowClicked(book){
-    console.log(book)
-    this.simpleModalService.addModal(BookDetailsComponent, {
-      has_error: false,
-      book:book
-    })
-    .subscribe((isConfirmed)=>{
-        //We get modal result
-        // if(isConfirmed) {
-        //     alert('accepted');
-        // }
-        // else {
-        //     alert('declined');
-        // }
-    });
-  }
+  // rowClicked(book){
+  //   console.log(book)
+  //   this.simpleModalService.addModal(BookDetailsComponent, {
+  //     has_error: false,
+  //     book:book
+  //   })
+  //   .subscribe((isConfirmed)=>{
+  //       //We get modal result
+  //       // if(isConfirmed) {
+  //       //     alert('accepted');
+  //       // }
+  //       // else {
+  //       //     alert('declined');
+  //       // }
+  //   });
+  // }
 
   onSubmit({ value, valid }: { value: SearchModel, valid: boolean }) {
-    if(valid){
+    if (valid) {
       this.books_list = this.all_books.filter(x => x.title.toLowerCase().includes(value.search_text.toLowerCase()));
-    }else{
+    } else {
       if (value.search_text === '') {
         this.books_list = this.all_books;
       }
     }
+  }
+
+  updateBook(book) {
+    this.simpleModalService.addModal(UpdateBookComponent, {book: book}).subscribe(
+      (bookData) => {
+        this.booksService.updateBook(bookData).subscribe(
+          data => {
+            const dt = Object(bookData);
+            book.title = bookData.title;
+            book.author = bookData.author;
+            book.location = bookData.location;
+          }, error => {
+            console.log(error);
+          }
+        );
+      }
+    );
   }
 
 }

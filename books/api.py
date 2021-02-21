@@ -54,7 +54,9 @@ class BookViewSet(ViewSet):
 
     def update_book(self, *args, **kwargs):
         serializer = self.serializer_class(
-            data=self.request.data, request=self.request
+            instance=Book.objects.get(id=self.request.data.get('id')),
+            data=self.request.data, 
+            request=self.request
         )
         if serializer.is_valid(raise_exception=True):
             # serializer.object.owner = self.request.user 
@@ -118,7 +120,8 @@ class CheckoutViewSet(ViewSet):
                 else:
                     checkout_obj = Checkout.objects.get(
                         book=book_obj,
-                        checked_out_by=self.request.user
+                        checked_out_by=self.request.user,
+                        returned_date__isnull=True
                     )
                     checkout_obj.returned_date = datetime.datetime.now()
                     book_obj.status=Book.AVAILABLE

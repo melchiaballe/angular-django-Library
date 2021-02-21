@@ -23,8 +23,8 @@ export class DashboardComponent implements OnInit {
 
   // private pipe = new DatePipe('en-US');
 
-  books_list:any;
-  all_books:any;
+  books_list: any;
+  all_books: any;
   private form: SearchForm;
 
   constructor(
@@ -32,18 +32,17 @@ export class DashboardComponent implements OnInit {
     private auth: AuthService,
     private state: StateService,
     private booksService: BooksService,
-    private simpleModalService:SimpleModalService
+    private simpleModalService: SimpleModalService
   ) { }
 
   async ngOnInit() {
 
     this.nav.changeHeaderTitle('Dashboard');
-    
     this.form = new SearchForm(new SearchModel);
 
     setTimeout(() => {
-      this.nav.hasLoaded = false
-    }, 100)
+      this.nav.hasLoaded = false;
+    }, 100);
 
     this.auth.getUser();
 
@@ -56,31 +55,31 @@ export class DashboardComponent implements OnInit {
       data => {
         this.all_books = data;
         this.books_list = this.all_books;
-        console.log(data)
+        console.log(data);
       }, error => {
-        console.log(error)
+        console.log(error);
       }
-    )
+    );
 
   }
 
   onSubmit({ value, valid }: { value: SearchModel, valid: boolean }) {
-    if(valid){
+    if (valid) {
       this.books_list = this.all_books.filter(x => x.title.toLowerCase().includes(value.search_text.toLowerCase()));
-    }else{
+    } else {
       if (value.search_text === '') {
         this.books_list = this.all_books;
       }
     }
   }
 
-  rowClicked(book){
-    console.log(book)
+  rowClicked(book) {
+    console.log(book);
     this.simpleModalService.addModal(BookDetailsComponent, {
       has_error: false,
-      book:book
+      book: book
     })
-    .subscribe((isConfirmed)=>{
+    .subscribe((isConfirmed) => {
         //We get modal result
         // if(isConfirmed) {
         //     alert('accepted');
@@ -91,17 +90,16 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  filterClick(event, status){
+  filterClick(event, status) {
     event.preventDefault();
     if (status === 'all') {
       this.books_list = this.all_books;
     } else {
-      this.books_list = this.all_books.filter(x=>x.status===status);
+      this.books_list = this.all_books.filter(x => x.status === status);
     }
 
     this.form.form.controls['search_text'].setValue(null);
   }
-  
 }
 
 

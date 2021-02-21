@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { SimpleModalComponent } from "ngx-simple-modal";
+import { SimpleModalComponent, SimpleModalService } from "ngx-simple-modal";
 import { CommentForm } from 'src/app/commons/forms/comment.forms';
 import { CommentModel } from 'src/app/commons/models/comment';
 import { AuthService } from 'src/app/commons/services/auth/auth.service';
 import { BooksService } from 'src/app/commons/services/books/books.service';
+
+import { ConfirmationMessageComponent } from '../../modals/confirmation-message/confirmation-message.component'
 export interface ConfirmModel {
-  has_error:boolean,
-  book:any
+  has_error: boolean,
+  book: any
 }
 
 @Component({
@@ -18,15 +20,16 @@ export class BookDetailsComponent extends SimpleModalComponent<ConfirmModel, boo
 
   private form: CommentForm;
   has_error = false;
-  book:any;
+  book: any;
   comments_list: any;
   isCheckedOut = false;
 
   constructor(
     private booksService: BooksService,
-    private authService: AuthService
+    private authService: AuthService,
+    private simpleModalService: SimpleModalService
   ) {
-    super()
+    super();
    }
 
   ngOnInit() {
@@ -57,26 +60,37 @@ export class BookDetailsComponent extends SimpleModalComponent<ConfirmModel, boo
     this.close();
   }
 
-  borrowBook(){
-    // ADD SIMPLEMODAL SERVICE CONFIRMATION BEFORE CALL
-    this.booksService.checkoutBook({book_id: this.book.id}).subscribe(
-      data => {
-        this.book.status = 'checked out';
-        this.isCheckedOut = true;
-      }, error => {
-        console.log(error);
+  borrowBook() {
+    this.simpleModalService.addModal(ConfirmationMessageComponent, {has_error: false}).subscribe(
+      (isTrue) => {
+        if (isTrue) {
+          this.booksService.checkoutBook({book_id: this.book.id}).subscribe(
+            data => {
+              this.book.status = 'checked out';
+              this.isCheckedOut = true;
+            }, error => {
+              console.log(error);
+            }
+          );
+        }
       }
     );
   }
 
-  returnBook(){
+  returnBook() {
     // ADD SIMPLEMODAL SERVICE CONFIRMATION BEFORE CALL
-    this.booksService.returnBook({book_id: this.book.id}).subscribe(
-      data => {
-        this.book.status = 'available';
-        this.isCheckedOut = false;
-      }, error => {
-        console.log(error);
+    this.simpleModalService.addModal(ConfirmationMessageComponent, {has_error: false}).subscribe(
+      (isTrue) => {
+        if (isTrue) {
+          this.booksService.returnBook({book_id: this.book.id}).subscribe(
+            data => {
+              this.book.status = 'available';
+              this.isCheckedOut = false;
+            }, error => {
+              console.log(error);
+            }
+          );
+        }
       }
     );
   }
@@ -88,7 +102,7 @@ export class BookDetailsComponent extends SimpleModalComponent<ConfirmModel, boo
   }
 
   onSubmit({ value, valid }: { value: CommentModel, valid: boolean }) {
-    if(valid){
+    if (valid) {
       this.booksService.addComment(value).subscribe(
         data => {
           this.comments_list.unshift(data);
@@ -97,7 +111,7 @@ export class BookDetailsComponent extends SimpleModalComponent<ConfirmModel, boo
           console.log(error);
           this.intializeForm();
         }
-      )
+      );
     }
   }
 
