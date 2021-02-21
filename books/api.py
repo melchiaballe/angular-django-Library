@@ -6,8 +6,13 @@ from rest_framework.views import APIView
 from rest_framework.viewsets import ViewSet
 
 from .models import Book, Checkout, Comment
-from .serializers import BookSerializer, CheckoutSerializer
+from .serializers import (
+    BookSerializer, 
+    CheckoutSerializer, 
+    CommentSerializer
+)
 from django.db.models import Q
+
 
 class BookViewSet(ViewSet):
     """ book endpoints
@@ -47,6 +52,7 @@ class BookViewSet(ViewSet):
             serializer.save() 
         return Response({}, status=200)
 
+
 class CheckoutViewSet(ViewSet):
 
     serializer_class = CheckoutSerializer
@@ -69,6 +75,46 @@ class CheckoutViewSet(ViewSet):
 
                     book_obj.status=Book.CHECKED_OUT
                     book_obj.save()
+        except:
+            return Response({'status': 'Something went wrong try again'}, status=400)
+        return Response({'status': 'Success'}, status=200)
+
+
+class CommentViewSet(ViewSet):
+
+    serializer_class = CommentSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def get_comments(self, *args, **kwargs):
+        serializer = self.serializer_class(
+            instance=Comment.objects.filter(book__id=self.request.GET.get('book_id'), 
+                                            is_deleted=False).order_by('-date_created'), 
+            many=True,
+        )
+        return Response(serializer.data, status=200)
+
+    def add_comment(self, *args, **kwargs):
+        data = self.request.data
+        try:
+            book_obj = Book.objects.get(id=data.get('book_id'))
+            comment = Comment.objects.create(
+                message=data.get('message'),
+                user=self.request.user,
+                book=book_obj,
+            )
+            serializer = self.serializer_class(
+                instance=comment, 
+            )
+        except:
+            return Response({'status': 'Something went wrong try again'}, status=400)
+        return Response(serializer.data, status=200)
+
+    def delete_comment(self, *args, **kwargs):
+        data = self.request.data
+        try:
+            comment = Comment.objects.get(id=data.get('comment_id'))
+            comment.is_deleted = True
+            comment.save()
         except:
             return Response({'status': 'Something went wrong try again'}, status=400)
         return Response({'status': 'Success'}, status=200)

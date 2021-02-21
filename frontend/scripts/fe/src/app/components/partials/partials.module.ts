@@ -6,11 +6,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './footer/footer.component';
 import { BookDetailsComponent } from './modals/book-details/book-details.component';
 import { AddBookMessagesComponent } from './modals/add-book-messages/add-book-messages.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     NgbModule,
+    ReactiveFormsModule
   ],
   declarations: [
     NavigationComponent, 

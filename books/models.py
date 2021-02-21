@@ -28,12 +28,17 @@ class Book(models.Model):
     class Meta:
         unique_together = ('title', 'author', 'owner'),
 
+    def __str__(self):
+        return "{}".format(self.title)
+
+
 class Checkout(models.Model):
 
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     checked_out_by = models.ForeignKey(User, on_delete=models.CASCADE)
     checked_out_date = models.DateTimeField(auto_now_add=True)
     returned_date = models.DateTimeField(blank=True, null=True)
+
 
 class Comment(models.Model):
 

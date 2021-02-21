@@ -28,3 +28,8 @@ export const BOOKS = '/api/books/'
 export const OWNED_BOOKS = urlsafe(BOOKS, 'owned-books');
 export const ADD_BOOK = urlsafe(BOOKS, 'add-book');
 export const CHECKOUT_BOOK = urlsafe(BOOKS, 'checkout-book');
+
+/** COMMENTS ENDPOINTS */
+export const COMMENTS = urlsafe(BOOKS, 'comments');
+export const ADD_COMMENT = urlsafe(BOOKS, 'add-comment');
+export const DELETE_COMMENT = urlsafe(BOOKS, 'delete-comment');

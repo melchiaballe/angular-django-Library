@@ -25,20 +25,26 @@ export class AddBookComponent implements OnInit {
 
   ngOnInit() {
     this.nav.changeHeaderTitle('Add Book');
-    this.form = new BookForm(new Books);
-    this.form.form.controls['status'].setValue(this.default_status);
+    this.intializeForm();
   }
 
   onSubmit({ value, valid }: { value: Books, valid: boolean }) {
     if(valid){
       this.booksService.addBook(value).subscribe(
         data => {
-          this.simpleModalService.addModal(AddBookMessagesComponent, {has_error:false}).subscribe()
+          this.simpleModalService.addModal(AddBookMessagesComponent, {has_error:false}).subscribe();
+          this.intializeForm();
         }, error => {
-          this.simpleModalService.addModal(AddBookMessagesComponent, {has_error:true}).subscribe()
+          this.simpleModalService.addModal(AddBookMessagesComponent, {has_error:true}).subscribe();
+          this.intializeForm();
         }
       )
     }
+  }
+
+  intializeForm(){
+    this.form = new BookForm(new Books);
+    this.form.form.controls['status'].setValue(this.default_status);
   }
 
 }

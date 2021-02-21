@@ -19,7 +19,7 @@ export class AddBookMessagesComponent extends SimpleModalComponent<ConfirmModel,
 
   ngOnInit() {
     setTimeout(() => {
-      this.close()
+      this.close();
     }, 2000);
   }
 

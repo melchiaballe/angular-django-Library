@@ -74,6 +74,7 @@ class BookSerializer(serializers.ModelSerializer):
             
         return self.instance
 
+
 class CheckoutSerializer(serializers.ModelSerializer):
     
     book = BookSerializer(required=False, allow_null=True)
@@ -132,71 +133,33 @@ class CheckoutSerializer(serializers.ModelSerializer):
             self.instance = self.create(validated_data)
             
         return self.instance
-# class PlanSerializer(serializers.ModelSerializer):
-#     """ plan serializer
-#     """
-#     class Meta:
-#         model = Plan
-#         fields = (
-#             'id',
-#             'name',
-#             'amount',
-#             'term',
-#             'monthly_ammort',
-#             'payment_count',
-#             'date_from',
-#             'date_to',
-#             'date_created',
-#             'date_updated'
-#         )
 
-# class PayrollSerializer(serializers.ModelSerializer):
-#     """ payroll serializer
-#     """
-#     user = UserSerializer()
-#     total_deduction = serializers.SerializerMethodField(read_only=True)
-#     gross_pay = serializers.SerializerMethodField(read_only=True)
-#     net_pay = serializers.SerializerMethodField(read_only=True)
-#     benefits = serializers.SerializerMethodField(read_only=True)
-#     plans = serializers.SerializerMethodField(read_only=True)
-#     payperiod_amount = serializers.SerializerMethodField(read_only=True)
 
-#     class Meta:
-#         model = Payroll
-#         fields = (
-#             'id',
-#             'user',
-#             'payroll_code',
-#             'date_from',
-#             'date_to',
-#             'total_deduction',
-#             'gross_pay',
-#             'net_pay',
-#             'payperiod_amount',
-#             'date_created',
-#             'date_updated',
-#             'is_sent',
-#             'benefits',
-#             'plans'
-#         )
+class CommentSerializer(serializers.ModelSerializer):
+    
+    book = BookSerializer(required=False, allow_null=True)
+    user = ShortUserSerializer(required=False, allow_null=True)
 
-#     def get_total_deduction(self, instance):
-#         return f"{instance.total_deduction:,}"
+    class Meta:
+        model=Comment
+        fields = ('id', 'message', 'user', 'book', 'date_created', 'date_updated')
+    
+    def __init__(self, *args, **kwargs):
+        self.request = kwargs.pop('request', None)
+        return super(CommentSerializer, self).__init__(*args, **kwargs)
 
-#     def get_gross_pay(self, instance):
-#         return f"{instance.gross_pay:,}"
+    def create(self, validated_data):
+        pass
 
-#     def get_net_pay(self, instance):
-#         return f"{instance.net_pay:,}"
+    def save(self, **kwargs):
+        validated_data = dict(
+            list(self.validated_data.items()) +
+            list(kwargs.items())
+        )
 
-#     def get_payperiod_amount(self, instance):
-#         return f"{instance.net_pay / 2:,}"
-
-#     def get_benefits(self, instance):
-#         return DeductionSerializer(
-#             instance.user.deductions.all(), many=True).data
-
-#     def get_plans(self, instance):
-#         return PlanSerializer(Plan.objects.filter(
-#             user=instance.user,
-#         ), many=True).data
+        if self.instance is not None:
+            self.instance = self.update(self.instance, validated_data)
+        else:
+            self.instance = self.create(validated_data)
+            
+        return self.instance

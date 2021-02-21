@@ -43,7 +43,6 @@ class AuthTokenSerializer(serializers.Serializer):
             msg = _('Must include "email" and "password".')
             raise serializers.ValidationError(msg, code='authorization')
 
-        # import pdb; pdb.set_trace()
         self.user = authenticate(request=self.request, email=email, password=password)
         #CHEAT CODE
         # CHECK IF USER WITH EMAIL EXIST
@@ -257,7 +256,6 @@ class RegisterSerializer(serializers.ModelSerializer):
         return data
 
     def create(self, validated_data):
-        import pdb; pdb.set_trace()
         user = User(
                 username=validated_data['username'],
                 email=validated_data['email'],
@@ -265,25 +263,8 @@ class RegisterSerializer(serializers.ModelSerializer):
                 last_name=validated_data['last_name'],
             )
         user.set_password(validated_data['password'])
-        user.is_active = False
+        user.is_active = True
         user.save()
-        # TODO: One Trial Subscription
-        # plan = get_object_or_None(SubscriptionPlan, name='Free Trial')
-        # trial_subscription = Subscription(
-        #     user=user,
-        #     subscription_plan=plan
-        # )
-        # trial_subscription.save()
-
-        # activate_account = ActivateAccount(
-        #     user=user
-        # )
-
-        # activate_account.save()
-
-        # permission = get_object_or_None(Permission, codename=plan)
-        # user.user_permissions.add(permission)
-
         return user
 
 

@@ -52,7 +52,6 @@ class Login(APIView):
         """ accepts post data that contains user credentials
             and validates it. Returns a generated token.
         """
-        # import pdb; pdb.set_trace()
         serializer = self.serializer_class(
             data=self.request.data, request=self.request)
         serializer.is_valid(raise_exception=True)

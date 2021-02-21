@@ -17,39 +17,46 @@
     </div>
     <div class="modal-body">
       <p><b>Description:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non dictum libero. Vestibulum sit amet varius nunc. Sed luctus nisl sed auctor fermentum ...</p>
-      <p><b>Owned by:</b> {{ book.owner.full_name }}</p>
+      <p><b>Owned by:</b> {{ book.owner.full_name | titlecase }}</p>
       <hr>
       
-      <div class="comment-section" style="max-height: 250px; overflow: auto;">
-        <h6>Comments (15):</h6>
-        <div class="d-flex align-items-center pt-2 pb-3 border-bottom">
+      <h6>Comments:</h6>
+      <div class="comment-section" style="max-height: 200px; overflow: auto;">
+        <div class="d-flex align-items-center pt-2 pb-3 border-bottom" *ngFor="let comment of comments_list" >
           <img class="img-sm rounded-circle" src="static/scripts/fe/src/assets/images/no-prof-img.png" alt="profile">
-          <div class="ml-3">
-              <h6 class="mb-1">Stella Davidson</h6>
-              <small class="text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</small>
+          <div class="ml-3" style="line-height: 0.5;">
+            <h6 class="mb-0">
+              <div class="row mb-0">
+                <div class="col-sm-5">
+                  {{ comment.user.full_name | titlecase }} 
+                </div>
+                <div class="col-sm-5 text-muted pl-3 pr-0" style="font-size: 10px; margin-top: 2px;">
+                  {{ comment.date_created | date:'medium' }}
+                </div>
+                <div class="col-sm-2"><button type="button" class="close" (click)="deleteClick(comment.id)" >&times;</button></div>
+              </div>
+            </h6>
+            <small class="text-muted mb-0">{{ comment.message }}</small> <br>
           </div>
-        </div>
 
-        <div class="d-flex align-items-center pt-2 pb-3 border-bottom">
-          <img class="img-sm rounded-circle" src="static/scripts/fe/src/assets/images/no-prof-img.png" alt="profile">
-          <div class="ml-3">
-              <h6 class="mb-1">Stella Davidson</h6>
-              <small class="text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</small>
-          </div>
-        </div>
-
-        <div class="d-flex align-items-center pt-2 pb-3 border-bottom">
-          <img class="img-sm rounded-circle" src="static/scripts/fe/src/assets/images/no-prof-img.png" alt="profile">
-          <div class="ml-3">
-              <h6 class="mb-1">Stella Davidson</h6>
-              <small class="text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</small>
-          </div>
         </div>
       </div>
-      <a href="." class="float-right"><small>Show More...</small></a>
     </div>
-    <div class="modal-footer mt-3">
-      <button type="button" class="btn btn-primary btn-block" (click)="borrowBook()">Check Out</button>
+
+    <form class="form-group" [formGroup]="form.form" (ngSubmit)="onSubmit(form.form)">
+      <input type="hidden" formControlName="book_id">
+      <input type="hidden" formControlName="user">
+      <div class="input-group">
+        <textarea class="form-control"  formControlName="message" placeholder="Write a comment..."></textarea>
+        <div class="input-group-append">
+          <button class="btn btn-secondary btn-sm" type="submit" [disabled]="this.disable"><i class="la la-paper-plane"></i></button>
+        </div>
+      </div>
+    </form>
+  
+    <div class="modal-footer" [hidden]="book.owner.id===this.authService.user_id">
+      <button type="button" class="btn btn-primary btn-block" (click)="borrowBook()" [hidden]="book.status==='checked out'">Check Out</button>
+      <button type="button" class="btn btn-warning btn-block" (click)="borrowBook()">Return Book</button>
     </div>
   </div>
 </div>

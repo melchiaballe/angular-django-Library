@@ -23,15 +23,13 @@
                 <div class="card mb-5">
                     <div class="card-body">
                         <img src="static/scripts/fe/src/assets/images/no-cover-img.jpg" class="card-img-top mb-3" alt="...">
+                        <span class="badge badge-pill text-block " 
+                            [ngClass]="{'badge-danger': book.status==='checked out', 
+                            'badge-success': book.status==='available' || book.status==='digital copy'}" style="color: white;">
+                            {{ book.status | titlecase  }}
+                        </span>
                         <h5 class="card-title mb-0">
                             {{ book.title | titlecase }}
-                        
-                            <span class="badge badge-pill" 
-                                [ngClass]="{'badge-danger': book.status==='checked out', 
-                                'badge-success': book.status==='available' || book.status==='digital copy'}" style="color: white;">
-                                {{ book.status | titlecase  }}
-                            </span>
-
                         </h5>
                         <small class="text-muted mt-0">by: {{ book.author | titlecase }} </small>
 
