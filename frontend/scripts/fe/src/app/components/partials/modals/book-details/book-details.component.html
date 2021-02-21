@@ -26,21 +26,23 @@
       <p><b>Owned by:</b> {{ book.owner.full_name | titlecase }}</p>
       <hr>
       
-      <h6>Comments:</h6>
+      <h6>Comments ({{ comments_list.length }}):</h6>
       <div class="comment-section" style="max-height: 200px; overflow: auto;">
         <div class="d-flex align-items-center pt-2 pb-3 border-bottom" *ngFor="let comment of comments_list" >
           <img class="img-sm rounded-circle" src="static/scripts/fe/src/assets/images/no-prof-img.png" alt="profile">
           <div class="ml-3" style="line-height: 0.5;">
             <h6 class="mb-0">
-              <div class="row mb-0">
-                <div class="col-sm-5">
-                  {{ comment.user.full_name | titlecase }} 
-                </div>
-                <div class="col-sm-5 text-muted pl-3 pr-0" style="font-size: 10px; margin-top: 2px;">
-                  {{ comment.date_created | date:'short' }}
-                </div>
-                <div class="col-sm-2"><button type="button" class="close" (click)="deleteClick(comment.id)" [hidden]="comment.user.id!==this.authService.user_id">&times;</button></div>
-              </div>
+
+              <table>
+                <tr>
+                  <td class="pb-0 pt-0">{{ comment.user.full_name | titlecase }} </td>
+                  <td class="pb-0 pt-0"><small class="text-muted pl-2" style="font-size: 10px; margin-top: 2px;">{{ comment.date_created | date:'medium' }}</small></td>
+                  <td class="pb-0 pt-0"><p></p></td>
+                  <td class="pb-0 pt-0">
+                    <button class="close float-right" type="button" (click)="deleteClick(comment.id)" [hidden]="comment.user.id!==this.authService.user_id">&times;</button>
+                  </td>
+                </tr>
+              </table>
             </h6>
             <small class="text-muted mb-0">{{ comment.message }}</small> <br>
           </div>

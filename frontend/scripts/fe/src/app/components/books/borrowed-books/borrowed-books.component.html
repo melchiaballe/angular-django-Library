@@ -32,21 +32,21 @@
                 <tbody>
                 <tr *ngFor="let item of books_list" (click)="rowClicked(item.book)">
                     <th scope="row">
-                        <p class="mb-0 font-weight-bold">{{ item.book.title | titlecase }} </p>
+                        <p class="font-weight-bold">{{ item.book.title | titlecase }} </p>
                         <small class="text-muted">by: {{ item.book.author | titlecase }}</small>
                     </th>
-                    <td><p class="mb-0 mt-3">{{ item.book.location | titlecase }}</p></td>
+                    <td><p class="">{{ item.book.location | titlecase }}</p></td>
                     <td>
-                        <p class="badge badge-pill mb-0 mt-3 badge-info"  *ngIf="item.returned_date !== null"style="color: white;">
+                        <p class="badge badge-pill badge-info"  *ngIf="item.returned_date !== null"style="color: white;">
                             Returned
                         </p>
         
-                        <p class="badge badge-pill mb-0 mt-3 badge-danger"  *ngIf="item.returned_date === null"style="color: white;">
+                        <p class="badge badge-pill badge-danger"  *ngIf="item.returned_date === null"style="color: white;">
                             Checked Out
                         </p>
                     </td>
-                    <td><p class="mb-0 mt-3"><p class="mb-0 mt-3">{{ item.book.owner.full_name | titlecase }}</p></td>
-                    <td><p class="mb-0 mt-3">{{ item.checked_out_date | date:"medium" }}</p></td>
+                    <td><p class="">{{ item.book.owner.full_name | titlecase }}</p></td>
+                    <td><p class="">{{ item.checked_out_date | date:"medium" }}</p></td>
                     <td>
                         <button type="button" 
                         class="btn btn-secondary btn-sm"  
@@ -55,7 +55,7 @@
                             Return Book
                         </button> 
 
-                        <p class="mb-0 mt-3" [hidden]="item.returned_date === null">{{ item.returned_date | date:"medium" }}
+                        <p class="" [hidden]="item.returned_date === null">{{ item.returned_date | date:"medium" }}
                     </td>
                 </tr>
                 </tbody>

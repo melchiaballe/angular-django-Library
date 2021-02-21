@@ -5,6 +5,7 @@ table {
     thead {
         tr {
             th {
+                vertical-align: middle!important;
                 border: none !important;
                 padding: 10px!important;
 
@@ -32,10 +33,10 @@ table {
 
     tbody {
         tr {
+            vertical-align: middle!important;
             padding-left: torem(30);
             padding-right: torem(30);
-
-           
+            cursor: pointer!important;
 
             * {
                 margin-bottom: 0;

@@ -32,10 +32,10 @@
                 <tbody>
                 <tr *ngFor="let book of books_list" (click)="rowClicked(book)">
                     <th scope="row">
-                        <p class="mb-0 font-weight-bold">{{ book.title | titlecase }} </p>
+                        <p class="font-weight-bold">{{ book.title | titlecase }} </p>
                         <small class="text-muted">by: {{ book.author | titlecase }}</small>
                     </th>
-                    <td><p class="mb-0 mt-3">{{ book.location | titlecase }}</p></td>
+                    <td><p class="">{{ book.location | titlecase }}</p></td>
                     <td>
                         <p class="badge badge-pill badge-sm text-block" 
                             [ngClass]="{'badge-danger': book.status==='checked out', 
@@ -49,7 +49,7 @@
                             Digital Copy
                         </p>
                     </td>
-                    <td><p class="mb-0 mt-3">{{ book.owner.full_name | titlecase }}</p></td>
+                    <td><p class="">{{ book.owner.full_name | titlecase }}</p></td>
                     <td>
                         <button type="button" 
                                 class="btn btn-secondary btn-sm"
