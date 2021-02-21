@@ -23,11 +23,21 @@
                 <div class="card mb-5">
                     <div class="card-body">
                         <img src="static/scripts/fe/src/assets/images/no-cover-img.jpg" class="card-img-top mb-3" alt="...">
-                        <span class="badge badge-pill text-block " 
+
+                        <span class="badge badge-pill badge-sm text-block" 
                             [ngClass]="{'badge-danger': book.status==='checked out', 
-                            'badge-success': book.status==='available'}" style="color: white;">
+                            'badge-success': book.status==='available'}" style="color: white; font-size: 12px;"
+                            *ngIf="book.is_digital_copy !== true">
                             {{ book.status | titlecase  }}
                         </span>
+
+                        <span class="badge badge-pill badge-sm badge-warning text-block" style="color: white; font-size: 12px;"
+                            *ngIf="book.is_digital_copy === true">
+                            Digital Copy
+                        </span>
+
+
+                        
                         <h5 class="card-title mb-0">
                             {{ book.title | titlecase }}
                         </h5>

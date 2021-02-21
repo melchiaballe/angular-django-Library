@@ -6,8 +6,14 @@
 
           <span class="badge badge-pill badge-sm" 
             [ngClass]="{'badge-danger': book.status==='checked out', 
-            'badge-success': book.status==='available'}" style="color: white; font-size: 12px;">
+            'badge-success': book.status==='available'}" style="color: white; font-size: 12px;"
+            *ngIf="book.is_digital_copy !== true">
             {{ book.status | titlecase  }}
+          </span>
+
+          <span class="badge badge-pill badge-sm badge-warning" style="color: white; font-size: 12px;"
+            *ngIf="book.is_digital_copy === true">
+            Digital Copy
           </span>
         </b>
         <br>
