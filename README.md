@@ -19,29 +19,19 @@ pip install -r requirements.txt
 
 Frontend Side
 ```
+cd frontend/scripts/fe
 npm install
 ng build --watch
 ```
 
-2. Create `Environment File` then after that
-
-```
-#EMAIL BACKEND
-EMAIL_HOST_USER = ""
-EMAIL_HOST_PASSWORD = ""
-DEFAULT_FROM_EMAIL = ""
-
-#Base URL
-PROTOCOL = "http://"
-DOMAIN_NAME = "127.0.0.1:8000"
-
-WEBAPP_RESET_PASSWORD_PATH = "reset-password"
-```
-
-3. Migrate the files with
-
+2. Migrate the files with
 ```
 $ python manage.py migrate
+```
+
+3. Create Superuser
+```
+$ python manage.py createsuperuser
 ```
 
 4. Collect Static Files  
@@ -49,8 +39,8 @@ $ python manage.py migrate
 $ python manage.py collectstatic
 ```
 
-5. To build SCSS Files go to `assets/`
+5. To build SCSS Files go to `frontend/scripts/fe/src/assets/` then run this command:
 ```
-$ sass --watch scss/style.scss css/style.css
+$ sass --watch sass/style.scss css/style.css
 ```
 
