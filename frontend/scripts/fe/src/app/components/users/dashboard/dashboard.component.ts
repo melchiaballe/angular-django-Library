@@ -94,6 +94,8 @@ export class DashboardComponent implements OnInit {
     event.preventDefault();
     if (status === 'all') {
       this.books_list = this.all_books;
+    } else if (status === 'digital copy') {
+      this.books_list = this.all_books.filter(x => x.is_digital_copy === true);
     } else {
       this.books_list = this.all_books.filter(x => x.status === status);
     }

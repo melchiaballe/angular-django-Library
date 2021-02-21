@@ -10,7 +10,7 @@ class BookSerializer(serializers.ModelSerializer):
 
     class Meta:
         model=Book
-        fields = ('id', 'title', 'author', 'location', 'owner', 'status')
+        fields = ('id', 'title', 'author', 'location', 'owner', 'status', 'is_digital_copy')
     
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request', None)
@@ -37,15 +37,18 @@ class BookSerializer(serializers.ModelSerializer):
                 author=validated_data['author'],
                 location=validated_data['location'],
                 owner=self.request.user,
+                is_digital_copy=validated_data['is_digital_copy'],
                 status=validated_data['status'],
             )
         book.save()
     
     def update(self, instance, validated_data):
-        title = validated_data.pop('title', None)
-        author = validated_data.pop('author', None)
-        location = validated_data.pop('location', None)
-        status = validated_data.pop('status', None)
+        # import pdb; pdb.set_trace()
+        title = validated_data.get('title', None)
+        author = validated_data.get('author', None)
+        location = validated_data.get('location', None)
+        is_digital_copy = validated_data.get('is_digital_copy', None)
+        status = validated_data.get('status', None)
 
         if title is not None:
             instance.title = title
@@ -56,6 +59,9 @@ class BookSerializer(serializers.ModelSerializer):
         if location is not None:
             instance.location = location
         
+        if is_digital_copy is not None:
+            instance.is_digital_copy = is_digital_copy
+
         if status is not None:
             instance.status = status
 

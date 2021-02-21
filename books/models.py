@@ -7,19 +7,18 @@ class Book(models.Model):
     CHECKED_OUT = 'checked out'
     DAMAGED = 'damaged'
     LOST = 'lost'
-    DIGITAL_COPY = 'digital copy'
 
     STATUS_CHOICES = (
         (AVAILABLE, 'Available'),
         (CHECKED_OUT, 'Checked Out'),
         (DAMAGED, 'Damaged'),
         (LOST, 'Lost'),
-        (DIGITAL_COPY, 'Digital Copy'),
     )
     title = models.CharField(max_length=255, blank=True)
     author = models.CharField(max_length=255, blank=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     location = models.CharField(max_length=255, blank=True)
+    is_digital_copy = models.BooleanField(default=False)
     status = models.CharField(default=AVAILABLE, max_length=255, choices=STATUS_CHOICES)
 
     date_created = models.DateTimeField(auto_now_add=True)

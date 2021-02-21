@@ -29,7 +29,7 @@ class BookViewSet(ViewSet):
     def filter(self, *args, **kwargs):
         # import pdb; pdb.set_trace()
         serializer = self.serializer_class(
-            instance=Book.objects.filter(Q(status=Book.AVAILABLE) | Q(status=Book.CHECKED_OUT) | Q(status=Book.DIGITAL_COPY)), 
+            instance=Book.objects.filter(Q(status=Book.AVAILABLE) | Q(status=Book.CHECKED_OUT)), 
             many=True,
         )
 
@@ -44,6 +44,7 @@ class BookViewSet(ViewSet):
         return Response(serializer.data, status=200)
 
     def add_book(self, *args, **kwargs):
+        import pdb; pdb.set_trace()
         serializer = self.serializer_class(
             data=self.request.data, request=self.request
         )

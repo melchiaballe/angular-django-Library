@@ -25,7 +25,7 @@
                         <img src="static/scripts/fe/src/assets/images/no-cover-img.jpg" class="card-img-top mb-3" alt="...">
                         <span class="badge badge-pill text-block " 
                             [ngClass]="{'badge-danger': book.status==='checked out', 
-                            'badge-success': book.status==='available' || book.status==='digital copy'}" style="color: white;">
+                            'badge-success': book.status==='available'}" style="color: white;">
                             {{ book.status | titlecase  }}
                         </span>
                         <h5 class="card-title mb-0">

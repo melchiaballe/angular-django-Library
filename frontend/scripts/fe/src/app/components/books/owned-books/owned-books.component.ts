@@ -7,6 +7,7 @@ import { BookDetailsComponent } from '../../partials/modals/book-details/book-de
 import { SearchForm } from 'src/app/commons/forms/search.forms';
 import { SearchModel } from 'src/app/commons/models/search.model';
 import { UpdateBookComponent } from '../../partials/modals/update-book/update-book.component';
+import { ConfirmationMessageComponent } from '../../partials/modals/confirmation-message/confirmation-message.component';
 
 @Component({
   selector: 'app-owned-books',
@@ -44,8 +45,10 @@ export class OwnedBooksComponent implements OnInit {
     event.preventDefault();
     if (status === 'all') {
       this.books_list = this.all_books;
+    } else if (status === 'digital copy') {
+      this.books_list = this.all_books.filter(x => x.is_digital_copy === true);
     } else {
-      this.books_list = this.all_books.filter(x=>x.status===status);
+      this.books_list = this.all_books.filter(x => x.status === status);
     }
 
     this.form.form.controls['search_text'].setValue(null);
@@ -81,16 +84,25 @@ export class OwnedBooksComponent implements OnInit {
   updateBook(book) {
     this.simpleModalService.addModal(UpdateBookComponent, {book: book}).subscribe(
       (bookData) => {
-        this.booksService.updateBook(bookData).subscribe(
-          data => {
-            const dt = Object(bookData);
-            book.title = bookData.title;
-            book.author = bookData.author;
-            book.location = bookData.location;
-          }, error => {
-            console.log(error);
-          }
-        );
+        if (bookData) {
+          this.simpleModalService.addModal(ConfirmationMessageComponent, {has_error: false}).subscribe(
+            (isTrue) => {
+              if (isTrue) {
+                this.booksService.updateBook(bookData).subscribe(
+                  data => {
+                    const dt = Object(bookData);
+                    book.title = bookData.title;
+                    book.author = bookData.author;
+                    book.location = bookData.location;
+                    book.is_digital_copy = bookData.is_digital_copy;
+                  }, error => {
+                    console.log(error);
+                  }
+                );
+              }
+            }
+          );
+        }
       }
     );
   }

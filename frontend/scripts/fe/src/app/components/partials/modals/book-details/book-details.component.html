@@ -6,7 +6,7 @@
 
           <span class="badge badge-pill badge-sm" 
             [ngClass]="{'badge-danger': book.status==='checked out', 
-            'badge-success': book.status==='available' || book.status==='digital copy'}" style="color: white; font-size: 12px;">
+            'badge-success': book.status==='available'}" style="color: white; font-size: 12px;">
             {{ book.status | titlecase  }}
           </span>
         </b>
@@ -54,7 +54,7 @@
       </div>
     </form>
   
-    <div class="modal-footer" [hidden]="book.owner.id===this.authService.user_id">
+    <div class="modal-footer" [hidden]="book.owner.id===this.authService.user_id || book.is_digital_copy === true">
       <button type="button" class="btn btn-primary btn-block" (click)="borrowBook()" [hidden]="book.status==='checked out'">Check Out</button>
       <button type="button" class="btn btn-warning btn-block" (click)="returnBook()" [hidden]='!this.isCheckedOut'>Return Book</button>
     </div>

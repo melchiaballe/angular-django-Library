@@ -29,7 +29,7 @@ export class AddBookComponent implements OnInit {
   }
 
   onSubmit({ value, valid }: { value: Books, valid: boolean }) {
-    if(valid){
+    if (valid) {
       this.booksService.addBook(value).subscribe(
         data => {
           this.simpleModalService.addModal(AddBookMessagesComponent, {has_error:false}).subscribe();
@@ -38,13 +38,14 @@ export class AddBookComponent implements OnInit {
           this.simpleModalService.addModal(AddBookMessagesComponent, {has_error:true}).subscribe();
           this.intializeForm();
         }
-      )
+      );
     }
   }
 
-  intializeForm(){
+  intializeForm() {
     this.form = new BookForm(new Books);
     this.form.form.controls['status'].setValue(this.default_status);
+    this.form.form.controls['is_digital_copy'].setValue(false);
   }
 
 }

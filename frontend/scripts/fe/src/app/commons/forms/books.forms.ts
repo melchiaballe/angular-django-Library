@@ -10,11 +10,12 @@ export class BookForm {
     /* Initialize the form builder
      */
     this.form = new FormBuilder().group({
-      title       : new FormControl(data.title, [Validators.required]),
-      author      : new FormControl(data.author, [Validators.required]),
-      owner       : new FormControl(data.owner),
-      location    : new FormControl(data.location, [Validators.required]),
-      status      : new FormControl(data.status, [Validators.required]),
+      title           : new FormControl(data.title, [Validators.required]),
+      author          : new FormControl(data.author, [Validators.required]),
+      owner           : new FormControl(data.owner),
+      is_digital_copy : new FormControl(data.is_digital_copy),
+      location        : new FormControl(data.location, [Validators.required]),
+      status          : new FormControl(data.status, [Validators.required]),
     });
   }
 
@@ -49,10 +50,11 @@ export class UpdateBookForm {
     /* Initialize the form builder
      */
     this.form = new FormBuilder().group({
-      id          : new FormControl(data.id),
-      title       : new FormControl(data.title, [Validators.required]),
-      author      : new FormControl(data.author, [Validators.required]),
-      location    : new FormControl(data.location, [Validators.required])
+      id              : new FormControl(data.id),
+      title           : new FormControl(data.title, [Validators.required]),
+      is_digital_copy : new FormControl(data.is_digital_copy),
+      author          : new FormControl(data.author, [Validators.required]),
+      location        : new FormControl(data.location, [Validators.required])
     });
   }
 
