@@ -1,0 +1,21 @@
+.profile {
+    display: flex;
+    margin: auto;
+    &--avatar  {
+        width: torem(50);
+        padding: 2px;
+        padding-top: 12px;
+        height: torem(50);
+        border-radius: 50%;
+        font-size: 13px;
+        text-align: center;
+    }
+    &--name {
+        margin: auto 10px;
+        font-size: $paragraph;
+    }
+
+}
+.password--input{
+    display: none;
+}

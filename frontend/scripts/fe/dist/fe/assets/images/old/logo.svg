@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="116" height="116" viewBox="0 0 116 116">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#1552f0"/>
+      <stop offset="1" stop-color="#1a67ff"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_54" data-name="Group 54" transform="translate(-62 -128)">
+    <rect id="Rectangle_56" data-name="Rectangle 56" width="116" height="116" rx="20" transform="translate(62 128)" fill="url(#linear-gradient)"/>
+    <g id="Group_53" data-name="Group 53" transform="translate(1.218 -6.488)">
+      <rect id="Rectangle_57" data-name="Rectangle 57" width="74" height="8" transform="translate(81.782 204.488)" fill="#fff"/>
+      <rect id="Rectangle_58" data-name="Rectangle 58" width="10" height="7" transform="translate(87.782 212.488)" fill="#fff"/>
+      <rect id="Rectangle_59" data-name="Rectangle 59" width="10" height="7" transform="translate(139.782 212.488)" fill="#fff"/>
+      <g id="Group_52" data-name="Group 52" transform="translate(91.045 166.593)">
+        <rect id="Rectangle_60" data-name="Rectangle 60" width="8" height="23" transform="translate(-0.263 -0.105)" fill="#fff"/>
+        <rect id="Rectangle_62" data-name="Rectangle 62" width="8" height="18" transform="translate(11.737 11.895)" fill="#fff"/>
+        <rect id="Rectangle_63" data-name="Rectangle 63" width="8" height="25" transform="translate(23.737 1.895)" fill="#fff"/>
+        <rect id="Rectangle_61" data-name="Rectangle 61" width="8" height="23" transform="translate(35.737 7.895)" fill="#fff"/>
+        <rect id="Rectangle_64" data-name="Rectangle 64" width="8" height="21" transform="translate(47.737 1.895)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

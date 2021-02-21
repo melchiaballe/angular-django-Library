@@ -1,0 +1,50 @@
+
+@each $color,$value in $theme-colors {
+    .btn-ghost-#{$color} {
+        border: solid 1px $value;
+        background-color: transparent;
+        color: $value;
+        &:hover{
+        	background-color:  $value;
+        	color: $white;
+        }
+        
+    }
+}
+
+@each $color,$value in $theme-colors {
+    .circle-#{$color} {
+        background-color: $value;
+       	width: torem(10);
+       	height: torem(10);
+       	display: block;
+       	border-radius: 50%;
+    }
+}
+
+
+
+.btn{
+	font-size: $paragraph;
+	padding-left:torem(30) !important;
+	padding-right:torem(30) !important;
+	padding-top:torem(10) !important;
+	padding-bottom:torem(10) !important;
+  	letter-spacing: -0.02px;
+	&-sm{
+		padding-left:torem(10) !important;
+		padding-right:torem(10) !important;
+	}
+
+	&-custom {
+		&-lg {
+			width: torem(150);
+			  height: torem(46);
+			  border-radius: 4px;
+			  margin-top: torem(20);
+			  margin-bottom: torem(20);
+		}
+	}
+}
+
+

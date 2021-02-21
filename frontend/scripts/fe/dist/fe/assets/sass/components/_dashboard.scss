@@ -1,0 +1,113 @@
+.dashboard {
+    &--panel {
+        padding: torem(24) torem(28);
+        overflow-y: auto;
+        max-height: calc(100vh - 100px);
+        min-height: 90vh;
+        // height: 100%;
+        &--bg {
+            background: $white;
+            margin-bottom: torem(10);
+        }
+    }
+
+    &--table {
+        position: relative;
+        .table-hover{
+            tr{
+                &:hover{
+                    background: rgba($brand--primary, 0.05) !important;
+                }
+            }
+        }
+        
+        &--header {
+            padding-left: torem(28);
+            padding-right: torem(28);
+            background: $white;
+            border-bottom: solid 1px $border-light--two;
+
+            a {
+                padding-bottom: torem(20);
+                padding-top: torem(20);
+                @include flex-align-center();
+                position: relative;
+                margin-right: torem(30);
+                i{
+                    margin-right: torem(5);
+                }
+            }
+        }
+    }
+}
+
+.panel {
+
+    &--title {
+        padding-bottom: torem(20);
+        padding-top: torem(20);
+        display: inline-block;
+        position: relative;
+        font-weight: normal;
+        margin-bottom: 0;
+    }
+
+    &--content {
+        padding: torem(24) torem(28);
+    }
+
+    &--graph-content {
+        padding: torem(10) torem(10);
+    }
+
+    &--signal-content {
+        padding: torem(10) torem(20);
+    }
+
+    &--description {
+        small {
+            text-transform: uppercase;
+            font-size: $xsmall;
+        }
+    }
+}
+
+.graph {
+    height: torem(250);
+    background: $white;
+}
+
+.status {
+    border-radius: 2rem;
+    display: inline-block;
+
+    &__swiftch {}
+
+    &__name {
+        @include flexbox();
+        @include justify-content(space-between);
+        @include align-items(center);
+
+        &:before {
+            content: "";
+            width: torem(10);
+            height: torem(10);
+            display: block;
+            background: rgba($text--blue-grey, 0.5);
+            border-radius: 100%;
+            margin-right: torem(10);
+        }
+    }
+
+    &.status--active {
+        background: $bg--light;
+        padding: torem(6) torem(12);
+        margin-right: torem(15);
+
+        .status__name {
+            &:before {
+                background: $brand--primary;
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+//overrides
+
+
+/* import the necessary Bootstrap files */
+// @import "../node_modules/bootstrap/scss/bootstrap";
+
+//global
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+//overrides
+@import 'overrides/bootstrap';
+
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+//global
+@import 'global/functions';
+@import 'global/typography';
+@import 'global/variables';
+
+@import 'global/mixins/flex';
+@import 'global/mixins/responsive';
+@import 'global/mixins/components';
+
+@import 'global/utils';
+
+
+
+//components
+@import 'components/layout';
+@import 'components/buttons';
+@import 'components/sidebar';
+@import 'components/main-nav';
+@import 'components/dashboard';
+@import 'components/badges';
+@import 'components/modals';
+@import 'components/profile';
+@import 'components/tables';
+
+//other overrides
+
+@import 'overrides/tables';
+@import 'overrides/bs-components';
+
+//pages
+
+@import 'pages/invoice';
+@import 'pages/homepage';
