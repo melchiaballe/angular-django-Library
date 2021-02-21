@@ -37,10 +37,16 @@
                     </th>
                     <td><p class="mb-0 mt-3">{{ book.location | titlecase }}</p></td>
                     <td>
-                        <p class="badge badge-pill mb-0 mt-3"  
+                        <p class="badge badge-pill badge-sm text-block" 
                             [ngClass]="{'badge-danger': book.status==='checked out', 
-                            'badge-success': book.status==='available' }" style="color: white;">
+                            'badge-success': book.status==='available'}" style="color: white; font-size: 12px;"
+                            *ngIf="book.is_digital_copy !== true">
                             {{ book.status | titlecase  }}
+                        </p>
+
+                        <p class="badge badge-pill badge-sm badge-warning text-block" style="color: white; font-size: 12px;"
+                            *ngIf="book.is_digital_copy === true">
+                            Digital Copy
                         </p>
                     </td>
                     <td><p class="mb-0 mt-3">{{ book.owner.full_name | titlecase }}</p></td>
