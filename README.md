@@ -11,7 +11,7 @@ Angular CLI
 
 Backend Side
 ```
-git clone https://github.com/tmttan03/real-estate-calculator.git
+git clone https://github.com/melchiaballe/angular-django-Library.git
 virtualenv -p python3 venv
 source venv/bin/activate
 pip install -r requirements.txt
