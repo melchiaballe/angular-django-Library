@@ -6,12 +6,11 @@ table {
         tr {
             th {
                 border: none !important;
-                padding-top: 0 !important;
-                padding-bottom: 0 !important;
+                padding: 10px!important;
 
-                &:first-child {
-                    padding-left: torem(30);
-                }
+                // &:first-child {
+                //     padding-left: torem(30);
+                // }
 
                 a {
                     padding-top: torem(20);
@@ -53,9 +52,9 @@ table {
                     }
                 }
 
-                &:first-child {
-                    padding-left: torem(30);
-                }
+                // &:first-child {
+                //     padding-left: torem(30);
+                // }
 
                 &.negative {
                     * {

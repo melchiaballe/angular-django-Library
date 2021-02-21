@@ -10814,11 +10814,7 @@ table {
 }
 table thead tr th {
   border: none !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-table thead tr th:first-child {
-  padding-left: 1.875rem;
+  padding: 10px !important;
 }
 table thead tr th a {
   padding-top: 1.25rem;
@@ -10845,9 +10841,6 @@ table tbody tr td {
 }
 table tbody tr td.positive * {
   color: #6dd230;
-}
-table tbody tr td:first-child {
-  padding-left: 1.875rem;
 }
 table tbody tr td.negative * {
   color: #d0021b;

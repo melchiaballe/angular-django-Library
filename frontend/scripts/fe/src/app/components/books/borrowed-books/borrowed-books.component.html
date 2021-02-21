@@ -17,45 +17,49 @@
     </form>
 
     <div class="mt-4">
-        <ul class="responsive-table pl-0">
-          <li class="table-header">
-            <div class="col col-1 font-weight-bold">Book</div>
-            <div class="col col-2 font-weight-bold">Location</div>
-            <div class="col col-3 font-weight-bold">Status</div>
-            <div class="col col-4 font-weight-bold">Owner</div>
-            <div class="col col-5 font-weight-bold">Checkout Date</div>
-            <div class="col col-6 font-weight-bold">Return Date</div>
-          </li>
-          <li class="table-row" *ngFor="let item of books_list" (click)="rowClicked(item.book)">
-            <div class="col col-1">
-                <p class="mb-0 font-weight-bold">{{ item.book.title | titlecase }} </p>
-                <small class="text-muted">by: {{ item.book.author | titlecase }}</small>
-            </div>
-            <div class="col col-2"><p class="mb-0 mt-3">{{ item.book.location | titlecase }}</p></div>
-            <div class="col col-3">
-                <p class="badge badge-pill mb-0 mt-3 badge-info"  *ngIf="item.returned_date !== null"style="color: white;">
-                    Returned
-                </p>
-
-                <p class="badge badge-pill mb-0 mt-3 badge-danger"  *ngIf="item.returned_date === null"style="color: white;">
-                    Checked Out
-                </p>
-            </div>
-            <div class="col col-4">
-                <p class="mb-0 mt-3">{{ item.book.owner.full_name | titlecase }}</p>
-            </div>
-            <div class="col col-5">
-                <p class="mb-0 mt-3">{{ item.checked_out_date | date:"medium" }}</p>
-            </div>
-            <div class="col col-6">
-                <button type="button" 
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Book</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Owner</th>
+                    <th scope="col">Checkout Date</th>
+                    <th scope="col">Return Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of books_list" (click)="rowClicked(book)">
+                    <th scope="row">
+                        <p class="mb-0 font-weight-bold">{{ item.book.title | titlecase }} </p>
+                        <small class="text-muted">by: {{ item.book.author | titlecase }}</small>
+                    </th>
+                    <td><p class="mb-0 mt-3">{{ item.book.location | titlecase }}</p></td>
+                    <td>
+                        <p class="badge badge-pill mb-0 mt-3 badge-info"  *ngIf="item.returned_date !== null"style="color: white;">
+                            Returned
+                        </p>
+        
+                        <p class="badge badge-pill mb-0 mt-3 badge-danger"  *ngIf="item.returned_date === null"style="color: white;">
+                            Checked Out
+                        </p>
+                    </td>
+                    <td><p class="mb-0 mt-3"><p class="mb-0 mt-3">{{ item.book.owner.full_name | titlecase }}</p></td>
+                    <td><p class="mb-0 mt-3">{{ item.checked_out_date | date:"medium" }}</p></td>
+                    <td>
+                        <button type="button" 
                         class="btn btn-secondary btn-sm"  
                         [hidden]="item.returned_date !== null" 
-                        (click)="returnBook(item)">Return Book</button> 
-                <p class="mb-0 mt-3" [hidden]="item.returned_date === null">{{ item.returned_date | date:"medium" }}</p>
-            </div>
-          </li>
-          
-        </ul>
+                        (click)="returnBook(item)">
+                            Return Book
+                        </button> 
+
+                        <p class="mb-0 mt-3" [hidden]="item.returned_date === null">{{ item.returned_date | date:"medium" }}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
