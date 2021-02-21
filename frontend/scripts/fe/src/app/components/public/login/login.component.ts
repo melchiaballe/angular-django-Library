@@ -26,17 +26,17 @@ export class LoginComponent implements OnInit {
     this.form = new LoginForm(new Login);
     if (this.auth.authenticated()) return this.state.go('dashboard');
 
-    if(this.state.params.new === 'true') {
+    if (this.state.params.new === 'true') {
       this.new = true;
 
       setTimeout(() => {
         this.new = false;
-      }, 3000)
+      }, 3000);
     }
   }
 
   inputChange(value) {
-    if(this.hasError === true) {
+    if (this.hasError === true) {
       this.hasError = false;
     }
   }
@@ -53,16 +53,18 @@ export class LoginComponent implements OnInit {
           try {
             // gets the first matched url
             const prevState = this.state.get().filter(state => state.$$state().url.exec(this.state.params.next));
+            console.log(prevState)
             if (prevState.length !== 0) {
               const redirectUrl = prevState.shift().name;
-              if (redirectUrl != 'login')
-              {
-                if(redirectUrl === 'forgot-password' || redirectUrl === 'reset-password' || redirectUrl === 'register-login' )
-                {
+              console.log(redirectUrl)
+              if (redirectUrl !== 'login') {
+                if (redirectUrl === 'register-login' ) {
                   this.state.go('dashboard');
-                }else{
+                } else {
                   this.state.go(redirectUrl);
                 }
+              } else {
+                this.state.go('dashboard');
               }
             } else {
               this.state.go('dashboard');
@@ -77,11 +79,8 @@ export class LoginComponent implements OnInit {
       }
     }
 
-    // forgotPassword(){
-    //   this.state.go('forgot-password')
-    // }
-
-    register(){ 
-      this.state.go('register')
+    register(event) {
+      event.preventDefault();
+      this.state.go('register');
     }
 }

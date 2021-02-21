@@ -78,7 +78,6 @@ export class BookDetailsComponent extends SimpleModalComponent<ConfirmModel, boo
   }
 
   returnBook() {
-    // ADD SIMPLEMODAL SERVICE CONFIRMATION BEFORE CALL
     this.simpleModalService.addModal(ConfirmationMessageComponent, {has_error: false}).subscribe(
       (isTrue) => {
         if (isTrue) {

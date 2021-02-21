@@ -4,7 +4,7 @@ import { LoginRequired } from "src/app/commons/utils/security.utils";
 import { SettingsComponent } from "./settings/settings.component";
 
 
-export const USER_STATES : Object[] = [
+export const USER_STATES: Object[] = [
     {
         name : 'dashboard',
         url  : '/dashboard/',

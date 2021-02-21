@@ -1,6 +1,0 @@
-Howdy, {{ full_name }}!
-
-You have changed your {{ old_plan }} Plan into {{ new_plan }} Plan!
-You're {{ old_plan }} Plan has {{ remaining_days }} remaining days before it will expire.
-
-If you've changed or upgraded your plan and you current plan is not yet expired, Admin will manually add your new subscription and cancel your old subscription.

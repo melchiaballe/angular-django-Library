@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SimpleModalComponent } from "ngx-simple-modal";
 
 export interface ConfirmModel {
-  has_error:boolean,
+  has_error: boolean,
 }
 
 

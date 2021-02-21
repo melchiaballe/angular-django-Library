@@ -163,7 +163,7 @@ var AppModule = /** @class */ (function () {
 /*!****************************************************!*\
   !*** ./src/app/commons/constants/api.constants.ts ***!
   \****************************************************/
-/*! exports provided: USERS, AUTH_USER, AUTH_USER_ID, CHANGE_PASSWORD, CHANGE_EMAIL, AUTH_LOGIN, AUTH_REGISTER, NEW_USER, FORGOT_PASSWORD, RESET_PASSWORD, BOOKS, OWNED_BOOKS, ADD_BOOK, UPDATE_BOOK, CHECKOUT_BOOK, IS_CHECKED_OUT, RETURN_BOOK, BORROWED_BOOKS, COMMENTS, ADD_COMMENT, DELETE_COMMENT */
+/*! exports provided: USERS, AUTH_USER, AUTH_USER_ID, CHANGE_EMAIL, AUTH_LOGIN, AUTH_REGISTER, NEW_USER, BOOKS, OWNED_BOOKS, ADD_BOOK, UPDATE_BOOK, CHECKOUT_BOOK, IS_CHECKED_OUT, RETURN_BOOK, BORROWED_BOOKS, COMMENTS, ADD_COMMENT, DELETE_COMMENT */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -171,13 +171,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USERS", function() { return USERS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AUTH_USER", function() { return AUTH_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AUTH_USER_ID", function() { return AUTH_USER_ID; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHANGE_PASSWORD", function() { return CHANGE_PASSWORD; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHANGE_EMAIL", function() { return CHANGE_EMAIL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AUTH_LOGIN", function() { return AUTH_LOGIN; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AUTH_REGISTER", function() { return AUTH_REGISTER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NEW_USER", function() { return NEW_USER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORGOT_PASSWORD", function() { return FORGOT_PASSWORD; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET_PASSWORD", function() { return RESET_PASSWORD; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BOOKS", function() { return BOOKS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OWNED_BOOKS", function() { return OWNED_BOOKS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_BOOK", function() { return ADD_BOOK; });
@@ -198,13 +195,10 @@ var USERS = '/api/users/';
  */
 var AUTH_USER = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(USERS, 'auth');
 var AUTH_USER_ID = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(USERS, 'auth-user');
-var CHANGE_PASSWORD = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(AUTH_USER, 'password');
 var CHANGE_EMAIL = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(AUTH_USER, 'email');
 var AUTH_LOGIN = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(AUTH_USER, 'login');
 var AUTH_REGISTER = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(AUTH_USER, 'register');
 var NEW_USER = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(AUTH_USER, 'new-user');
-var FORGOT_PASSWORD = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(AUTH_USER, 'forgot-password');
-var RESET_PASSWORD = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(AUTH_USER, 'reset-password');
 /* BOOKS ENDPOINTS */
 var BOOKS = '/api/books/';
 var OWNED_BOOKS = Object(_utils_http_utils__WEBPACK_IMPORTED_MODULE_0__["urlsafe"])(BOOKS, 'owned-books');
@@ -446,126 +440,6 @@ var LoginForm = /** @class */ (function () {
         return this.form.get(f).hasError(e) && (this.form.get(f).touched || this.submitted);
     };
     return LoginForm;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/commons/forms/password.forms.ts":
-/*!*************************************************!*\
-  !*** ./src/app/commons/forms/password.forms.ts ***!
-  \*************************************************/
-/*! exports provided: EditPasswordForm, AddPasswordForm, ForgotPasswordForm, ResetPasswordForm */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditPasswordForm", function() { return EditPasswordForm; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddPasswordForm", function() { return AddPasswordForm; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForgotPasswordForm", function() { return ForgotPasswordForm; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResetPasswordForm", function() { return ResetPasswordForm; });
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-
-// Class for edit password form
-var EditPasswordForm = /** @class */ (function () {
-    //Validators.pattern(this.pattern)
-    function EditPasswordForm(data) {
-        /* Initialize the form builder
-         */
-        this.err = null;
-        this.submitted = false;
-        // Password must contain at least one letter, one number, and one symbol.. 
-        this.pattern = "[^\w\d]*(([0-9]+.*[A-Za-z]+.*[#$@!%&*?_]+.*)|[A-Za-z]+.*([0-9]+.*)[#$@!%&*?_]+.*|[A-Za-z]+.*[#$@!%&*?_]+.*([0-9]+.*)|[#$@!%&*?_]+.*([0-9]+.*)[A-Za-z]+.*)";
-        this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"]().group({
-            old_password: new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]),
-            new_password: new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].minLength(8),]),
-            confirm_new_password: new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].minLength(8),])
-        });
-    }
-    /* Check if form field is valid
-     */
-    EditPasswordForm.prototype.valid = function (f) {
-        return !(!this.form.get(f).valid && (this.form.get(f).touched || this.submitted));
-    };
-    /* Check if the form field has an error
-     */
-    EditPasswordForm.prototype.hasError = function (f, e) {
-        return this.form.get(f).hasError(e) && (this.form.get(f).touched || this.submitted);
-    };
-    return EditPasswordForm;
-}());
-
-// Class for add password form
-var AddPasswordForm = /** @class */ (function () {
-    function AddPasswordForm(data) {
-        this.err = null;
-        this.submitted = false;
-        /* Initialize the form builder
-         */
-        this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"]().group({
-            new_password: new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]),
-            confirm_new_password: new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required])
-        });
-    }
-    /* Check if form field is valid
-     */
-    AddPasswordForm.prototype.valid = function (f) {
-        return !(!this.form.get(f).valid && (this.form.get(f).touched || this.submitted));
-    };
-    /* Check if the form field has an error
-     */
-    AddPasswordForm.prototype.hasError = function (f, e) {
-        return this.form.get(f).hasError(e) && (this.form.get(f).touched || this.submitted);
-    };
-    return AddPasswordForm;
-}());
-
-var ForgotPasswordForm = /** @class */ (function () {
-    function ForgotPasswordForm(data) {
-        this.err = null;
-        this.submitted = false;
-        /* Initialize the form builder
-         */
-        this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"]().group({
-            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].email]),
-        });
-    }
-    /* Check if form field is valid
-     */
-    ForgotPasswordForm.prototype.valid = function (f) {
-        return !(!this.form.get(f).valid && (this.form.get(f).touched || this.submitted));
-    };
-    /* Check if the form field has an error
-     */
-    ForgotPasswordForm.prototype.hasError = function (f, e) {
-        return this.form.get(f).hasError(e) && (this.form.get(f).touched || this.submitted);
-    };
-    return ForgotPasswordForm;
-}());
-
-var ResetPasswordForm = /** @class */ (function () {
-    function ResetPasswordForm(data) {
-        this.err = null;
-        this.submitted = false;
-        /* Initialize the form builder
-         */
-        this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"]().group({
-            new_password: new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]),
-            confirm_new_password: new _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]),
-        });
-    }
-    /* Check if form field is valid
-     */
-    ResetPasswordForm.prototype.valid = function (f) {
-        return !(!this.form.get(f).valid && (this.form.get(f).touched || this.submitted));
-    };
-    /* Check if the form field has an error
-     */
-    ResetPasswordForm.prototype.hasError = function (f, e) {
-        return this.form.get(f).hasError(e) && (this.form.get(f).touched || this.submitted);
-    };
-    return ResetPasswordForm;
 }());
 
 
@@ -820,31 +694,6 @@ var EditPasswordModel = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/commons/models/forgot-password.model.ts":
-/*!*********************************************************!*\
-  !*** ./src/app/commons/models/forgot-password.model.ts ***!
-  \*********************************************************/
-/*! exports provided: ForgotPasswordModel */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForgotPasswordModel", function() { return ForgotPasswordModel; });
-/* Model class for editPassword
- */
-var ForgotPasswordModel = /** @class */ (function () {
-    function ForgotPasswordModel(data) {
-        if (data === void 0) { data = {}; }
-        this.email = null;
-        Object.assign(this, data);
-    }
-    return ForgotPasswordModel;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/commons/models/login.model.ts":
 /*!***********************************************!*\
   !*** ./src/app/commons/models/login.model.ts ***!
@@ -895,33 +744,6 @@ var Register = /** @class */ (function () {
         Object.assign(this, data);
     }
     return Register;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/commons/models/reset-password.model.ts":
-/*!********************************************************!*\
-  !*** ./src/app/commons/models/reset-password.model.ts ***!
-  \********************************************************/
-/*! exports provided: ResetPasswordModel */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResetPasswordModel", function() { return ResetPasswordModel; });
-/* Model class for editPassword
- */
-var ResetPasswordModel = /** @class */ (function () {
-    function ResetPasswordModel(data) {
-        if (data === void 0) { data = {}; }
-        this.token = null;
-        this.new_password = null;
-        this.confirm_new_password = null;
-        Object.assign(this, data);
-    }
-    return ResetPasswordModel;
 }());
 
 
@@ -1048,20 +870,6 @@ var AuthService = /** @class */ (function () {
             .then(function (resp) { _this.setToken(resp); _this.authUser(Object(resp).user_id); return resp; })
             .catch(function (err) { console.log(err); return Promise.reject(err); });
     };
-    /* Forgot Password */
-    AuthService.prototype.forgotPassword = function (data) {
-        return this.http.post(_constants_api_constants__WEBPACK_IMPORTED_MODULE_2__["FORGOT_PASSWORD"], data)
-            .toPromise()
-            .then(function (resp) { return resp; })
-            .catch(function (err) { return Promise.reject(err); });
-    };
-    /* Forgot Password */
-    AuthService.prototype.resetPassword = function (data) {
-        return this.http.post(_constants_api_constants__WEBPACK_IMPORTED_MODULE_2__["RESET_PASSWORD"], data)
-            .toPromise()
-            .then(function (resp) { return resp; })
-            .catch(function (err) { return Promise.reject(err); });
-    };
     /**REGISTER USER */
     AuthService.prototype.register = function (creds) {
         return this.http.post(_constants_api_constants__WEBPACK_IMPORTED_MODULE_2__["AUTH_REGISTER"], creds)
@@ -1095,7 +903,7 @@ var AuthService = /** @class */ (function () {
     };
     AuthService.prototype.getUser = function () {
         this.user_id = this.getToken().user_id;
-        if (this.user.id === "") {
+        if (this.user.id === '') {
             this.authUser(this.user_id);
         }
     };
@@ -1193,20 +1001,8 @@ var UserService = /** @class */ (function () {
             .then(function (resp) { _this.auth.user = new _models_user_model__WEBPACK_IMPORTED_MODULE_4__["User"](resp); return resp; })
             .catch(function (err) { return Promise.reject(err); });
     };
-    UserService.prototype.updatePassword = function (data) {
-        return this.http.put(_constants_api_constants__WEBPACK_IMPORTED_MODULE_3__["CHANGE_PASSWORD"], data)
-            .toPromise()
-            .then(function (resp) { return resp; })
-            .catch(function (err) { return Promise.reject(err); });
-    };
     UserService.prototype.updateEmail = function (data) {
         return this.http.put(_constants_api_constants__WEBPACK_IMPORTED_MODULE_3__["CHANGE_EMAIL"], data)
-            .toPromise()
-            .then(function (resp) { return resp; })
-            .catch(function (err) { return Promise.reject(err); });
-    };
-    UserService.prototype.addPassword = function (data) {
-        return this.http.post(_constants_api_constants__WEBPACK_IMPORTED_MODULE_3__["CHANGE_PASSWORD"], data)
             .toPromise()
             .then(function (resp) { return resp; })
             .catch(function (err) { return Promise.reject(err); });
@@ -1273,7 +1069,7 @@ var BooksService = /** @class */ (function () {
         return this.http.post(_constants_api_constants__WEBPACK_IMPORTED_MODULE_2__["CHECKOUT_BOOK"], data);
     };
     BooksService.prototype.getAllComments = function (book_id) {
-        return this.http.get(_constants_api_constants__WEBPACK_IMPORTED_MODULE_2__["COMMENTS"], { params: { "book_id": book_id } });
+        return this.http.get(_constants_api_constants__WEBPACK_IMPORTED_MODULE_2__["COMMENTS"], { params: { 'book_id': book_id } });
     };
     BooksService.prototype.addComment = function (data) {
         return this.http.post(_constants_api_constants__WEBPACK_IMPORTED_MODULE_2__["ADD_COMMENT"], data);
@@ -1282,7 +1078,7 @@ var BooksService = /** @class */ (function () {
         return this.http.post(_constants_api_constants__WEBPACK_IMPORTED_MODULE_2__["DELETE_COMMENT"], data);
     };
     BooksService.prototype.isCheckedOut = function (book_id) {
-        return this.http.get(_constants_api_constants__WEBPACK_IMPORTED_MODULE_2__["IS_CHECKED_OUT"], { params: { "book_id": book_id } });
+        return this.http.get(_constants_api_constants__WEBPACK_IMPORTED_MODULE_2__["IS_CHECKED_OUT"], { params: { 'book_id': book_id } });
     };
     BooksService.prototype.returnBook = function (data) {
         return this.http.post(_constants_api_constants__WEBPACK_IMPORTED_MODULE_2__["RETURN_BOOK"], data);
@@ -1338,16 +1134,6 @@ var TokenService = /** @class */ (function () {
         this.cookie = cookie;
     }
     TokenService.prototype.intercept = function (r, n) {
-        // const exclude_link = ['/api/users/subscriptions/', '/api/users/auth/forgot-password/',
-        //                      '/api/users/auth/reset-password/', '/api/users/auth/activate-account/'];
-        // if (exclude_link.indexOf(r.url) === -1) {
-        //   r = r.clone({
-        //     setHeaders: {
-        //       'X-CSRFToken'   : this.csrfToken(),
-        //       'Authorization' : this.token(),
-        //     }
-        //   });
-        // }
         var token = this.auth.getToken();
         if (token == null) {
             r = r.clone({
@@ -1372,11 +1158,6 @@ var TokenService = /** @class */ (function () {
                     return resp;
             }));
         }
-        // return n.handle(r).pipe(tap(
-        //   resp => {
-        //     if (resp instanceof HttpResponse) return resp;
-        //   }
-        // ));
     };
     // Get user token from the local storage
     // and format if to be placed into the request header.
@@ -1596,7 +1377,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"dashboard--panel\">\r\n  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non dictum libero. Vestibulum sit amet varius nunc. Sed luctus nisl sed auctor fermentum. Fusce porttitor, orci pharetra dictum laoreet, leo nulla malesuada odio, non dictum ante leo vel magna. Nullam sed dignissim quam. </p>\r\n  <form [formGroup]=\"form.form\" (ngSubmit)=\"onSubmit(form.form)\">\r\n      <div>\r\n          <label>Title:</label>\r\n          <input class=\"form-control\" formControlName=\"title\" type=\"text\">\r\n          <!-- <span [hidden]=\"form.valid('title')\" class=\"text-danger\"><p><small>First name is required.</small></p></span> -->\r\n      </div>\r\n\r\n      <div>\r\n          <label>Author:</label>\r\n          <input class=\"form-control\" formControlName=\"author\" type=\"text\">\r\n          <!-- <span [hidden]=\"form.valid('last_name')\" class=\"text-danger\"><p><small>Last name is required.</small></p></span> -->\r\n      </div>\r\n\r\n      <div>\r\n        <label>Location:</label>\r\n        <input class=\"form-control\" formControlName=\"location\" type=\"text\">\r\n        <!-- <span [hidden]=\"form.valid('last_name')\" class=\"text-danger\"><p><small>Last name is required.</small></p></span> -->\r\n      </div>\r\n\r\n      <div>\r\n        <div>\r\n          <input type=\"checkbox\" formControlName=\"is_digital_copy\">\r\n          Is Digital Copy\r\n        </div>\r\n      </div>\r\n\r\n      <br>\r\n      <button class=\"btn btn-primary\" type=\"submit\" [disabled]=\"this.disable\">Save</button>\r\n  </form>\r\n</div>"
+module.exports = "<div class=\"dashboard--panel\">\r\n  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non dictum libero. Vestibulum sit amet varius nunc. Sed luctus nisl sed auctor fermentum. Fusce porttitor, orci pharetra dictum laoreet, leo nulla malesuada odio, non dictum ante leo vel magna. Nullam sed dignissim quam. </p>\r\n  <form [formGroup]=\"form.form\" (ngSubmit)=\"onSubmit(form.form)\">\r\n      <div>\r\n          <label>Title:</label>\r\n          <input class=\"form-control\" formControlName=\"title\" type=\"text\">\r\n      </div>\r\n\r\n      <div>\r\n          <label>Author:</label>\r\n          <input class=\"form-control\" formControlName=\"author\" type=\"text\">\r\n      </div>\r\n\r\n      <div>\r\n        <label>Location:</label>\r\n        <input class=\"form-control\" formControlName=\"location\" type=\"text\">\r\n      </div>\r\n\r\n      <div>\r\n        <div>\r\n          <input type=\"checkbox\" formControlName=\"is_digital_copy\">\r\n          Is Digital Copy\r\n        </div>\r\n      </div>\r\n\r\n      <br>\r\n      <button class=\"btn btn-primary\" type=\"submit\" [disabled]=\"this.disable\">Save</button>\r\n  </form>\r\n</div>"
 
 /***/ }),
 
@@ -1865,7 +1646,6 @@ var BorrowedBooksComponent = /** @class */ (function () {
     BorrowedBooksComponent.prototype.returnBook = function (event, item) {
         var _this = this;
         event.stopPropagation();
-        // ADD SIMPLEMODAL SERVICE CONFIRMATION BEFORE CALL
         this.simpleModalService.addModal(_partials_modals_confirmation_message_confirmation_message_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmationMessageComponent"], { has_error: false }).subscribe(function (isTrue) {
             if (isTrue) {
                 _this.booksService.returnBook({ book_id: item.book.id }).subscribe(function (data) {
@@ -2027,6 +1807,7 @@ var OwnedBooksComponent = /** @class */ (function () {
         event.stopPropagation();
         this.simpleModalService.addModal(_partials_modals_update_book_update_book_component__WEBPACK_IMPORTED_MODULE_7__["UpdateBookComponent"], { book: book }).subscribe(function (bookData) {
             if (bookData) {
+                console.log(bookData);
                 _this.simpleModalService.addModal(_partials_modals_confirmation_message_confirmation_message_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmationMessageComponent"], { has_error: false }).subscribe(function (isTrue) {
                     if (isTrue) {
                         _this.booksService.updateBook(bookData).subscribe(function (data) {
@@ -2034,7 +1815,6 @@ var OwnedBooksComponent = /** @class */ (function () {
                             book.title = bookData.title;
                             book.author = bookData.author;
                             book.location = bookData.location;
-                            book.is_digital_copy = bookData.is_digital_copy;
                         }, function (error) {
                             console.log(error);
                         });
@@ -2315,7 +2095,6 @@ var BookDetailsComponent = /** @class */ (function (_super) {
     };
     BookDetailsComponent.prototype.returnBook = function () {
         var _this = this;
-        // ADD SIMPLEMODAL SERVICE CONFIRMATION BEFORE CALL
         this.simpleModalService.addModal(_modals_confirmation_message_confirmation_message_component__WEBPACK_IMPORTED_MODULE_6__["ConfirmationMessageComponent"], { has_error: false }).subscribe(function (isTrue) {
             if (isTrue) {
                 _this.booksService.returnBook({ book_id: _this.book.id }).subscribe(function (data) {
@@ -2388,7 +2167,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"modal-dialog modal-dialog-centered\">\r\n  <div class=\"modal-content\">\r\n    <div class=\"modal-header\">\r\n      <h3 class=\"modal-title\" style=\"line-height: 0.9\">\r\n        <i class=\"la la-question-circle\"></i> Action Confirmation\r\n      </h3>\r\n    </div>\r\n    <div class=\"modal-body\">\r\n      <p>Are you sure?</p>\r\n    </div>\r\n    <div class=\"modal-footer\">\r\n      <button type=\"button\" class=\"btn btn-secondary\"  (click)=\"cancel()\">Decline</button>\r\n      <button type=\"button\" class=\"btn btn-danger\" (click)=\"confirm()\">Accept</button>\r\n      \r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"modal-dialog modal-dialog-centered\">\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <h3 class=\"modal-title\" style=\"line-height: 0.9\">\n        <i class=\"la la-question-circle\"></i> Action Confirmation\n      </h3>\n    </div>\n    <div class=\"modal-body\">\n      <p>Are you sure?</p>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-secondary\"  (click)=\"cancel()\">Decline</button>\n      <button type=\"button\" class=\"btn btn-danger\" (click)=\"confirm()\">Accept</button>\n      \n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -2473,7 +2252,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"modal-dialog modal-dialog-centered\">\r\n  <div class=\"modal-content\">\r\n    <div class=\"modal-header\">\r\n      Update Book\r\n      <button type=\"button\" class=\"close\" (click)=\"close()\" >&times;</button>\r\n    </div>\r\n    <div class=\"modal-body\">\r\n      <div>\r\n        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non dictum libero. Vestibulum sit amet varius nunc. Sed luctus nisl sed auctor fermentum. Fusce porttitor, orci pharetra dictum laoreet, leo nulla malesuada odio, non dictum ante leo vel magna. Nullam sed dignissim quam. </p>\r\n        <form [formGroup]=\"form.form\" (ngSubmit)=\"onSubmit(form.form)\">\r\n            <div>\r\n                <label>Title:</label>\r\n                <input class=\"form-control\" formControlName=\"title\" type=\"text\">\r\n                <!-- <span [hidden]=\"form.valid('title')\" class=\"text-danger\"><p><small>First name is required.</small></p></span> -->\r\n            </div>\r\n      \r\n            <div>\r\n                <label>Author:</label>\r\n                <input class=\"form-control\" formControlName=\"author\" type=\"text\">\r\n                <!-- <span [hidden]=\"form.valid('last_name')\" class=\"text-danger\"><p><small>Last name is required.</small></p></span> -->\r\n            </div>\r\n      \r\n            <div>\r\n              <label>Location:</label>\r\n              <input class=\"form-control\" formControlName=\"location\" type=\"text\">\r\n              <!-- <span [hidden]=\"form.valid('last_name')\" class=\"text-danger\"><p><small>Last name is required.</small></p></span> -->\r\n            </div>\r\n            \r\n            <br>\r\n            <button class=\"btn btn-primary\" type=\"submit\" [disabled]=\"this.disable\">Save</button>\r\n        </form>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"modal-dialog modal-dialog-centered\">\r\n  <div class=\"modal-content\">\r\n    <div class=\"modal-header\">\r\n      Update Book\r\n      <button type=\"button\" class=\"close\" (click)=\"close()\" >&times;</button>\r\n    </div>\r\n    <div class=\"modal-body\">\r\n      <div>\r\n        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non dictum libero. Vestibulum sit amet varius nunc. Sed luctus nisl sed auctor fermentum. Fusce porttitor, orci pharetra dictum laoreet, leo nulla malesuada odio, non dictum ante leo vel magna. Nullam sed dignissim quam. </p>\r\n        <form [formGroup]=\"form.form\" (ngSubmit)=\"onSubmit(form.form)\">\r\n            <div>\r\n                <label>Title:</label>\r\n                <input class=\"form-control\" formControlName=\"title\" type=\"text\">\r\n            </div>\r\n      \r\n            <div>\r\n                <label>Author:</label>\r\n                <input class=\"form-control\" formControlName=\"author\" type=\"text\">\r\n            </div>\r\n      \r\n            <div>\r\n              <label>Location:</label>\r\n              <input class=\"form-control\" formControlName=\"location\" type=\"text\">\r\n            </div>\r\n            \r\n            <br>\r\n            <button class=\"btn btn-primary\" type=\"submit\" [disabled]=\"this.disable\">Save</button>\r\n        </form>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -2568,7 +2347,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg main-nav\">\r\n  <div>\r\n    <ul class=\"navbar-nav \">\r\n        <li class=\"nav-item\">\r\n          <a class=\"nav-link nav-link-active\">{{ this.nav.headerTitle }}</a>\r\n        </li>\r\n      </ul>\r\n  </div>\r\n\r\n  <div class=\"nav-right\">\r\n    <div class=\"profile\">\r\n      <div class=\"profile--avatar no-photo-{{ auth.user.color }}\">{{ auth.user.username }}</div>\r\n    </div>\r\n  </div>\r\n\r\n</nav>\r\n\r\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg main-nav\">\n  <div>\n    <ul class=\"navbar-nav \">\n        <li class=\"nav-item\">\n          <a class=\"nav-link nav-link-active\">{{ this.nav.headerTitle }}</a>\n        </li>\n      </ul>\n  </div>\n\n  <div class=\"nav-right\">\n    <div class=\"profile\">\n      <div class=\"profile--avatar no-photo-{{ auth.user.color }}\">{{ auth.user.username }}</div>\n    </div>\n  </div>\n\n</nav>\n\n"
 
 /***/ }),
 
@@ -2639,8 +2418,6 @@ var NavigationComponent = /** @class */ (function () {
         this.state = state;
         this.nav = nav;
         this.auth = auth;
-        this.backtestLimit = 0;
-        this.liveCount = 0;
     }
     NavigationComponent.prototype.ngOnInit = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -2823,123 +2600,6 @@ var SideMenuComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/components/public/forgot-password/forgot-password.component.css":
-/*!*********************************************************************************!*\
-  !*** ./src/app/components/public/forgot-password/forgot-password.component.css ***!
-  \*********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/components/public/forgot-password/forgot-password.component.html":
-/*!**********************************************************************************!*\
-  !*** ./src/app/components/public/forgot-password/forgot-password.component.html ***!
-  \**********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<br>\r\n<div class=\"container p-5\">\r\n\r\n    <div>\r\n      <div class=\"text-center mb-5\">\r\n        <h4 class=\"section-title mb-3\">Forgot Password</h4>\r\n        <div *ngIf=\"successForgotPassword\" class=\"alert alert-success\">\r\n          <span>We have sent you an email with the reset password link. Please check your email.</span>\r\n        </div>\r\n         <p class=\"help-text w-75 m-auto\">Please enter your account's email address. We will send you a reset password link to your email address.</p>\r\n      </div>\r\n      <div class=\"form-container m-auto\">\r\n          <form [formGroup]=\"form.form\" (ngSubmit)=\"onSubmit(form.form)\">\r\n              <span [hidden]=\"!this.hasError\" class=\"text-danger\"><p>{{ form.err }}</p></span>\r\n              <div class=\"form-group\">\r\n                <label>Email</label>\r\n                <input class=\"form-control\" formControlName=\"email\" (input)=\"inputChange($event.target.value)\" type=\"text\">\r\n                <span [hidden]=\"!form.hasError('email', 'required')\" class=\"text-danger\"><p><small>This field is required.</small></p></span>\r\n                <span [hidden]=\"!form.hasError('email', 'email')\" class=\"text-danger\"><p><small>Invalid email format.</small></p></span>\r\n              </div>\r\n\r\n              <div class=\"form-group text-center\">\r\n                <button [disabled]=\"this.sending\" type=\"submit\" class=\"btn btn-primary\">Send Link</button>\r\n              </div>\r\n              <br/>\r\n              <div class=\"form-group text-center\">\r\n              <a (click)='redirectLogin()'>Back to Home</a>\r\n            </div>\r\n          </form>\r\n      </div>\r\n  </div>"
-
-/***/ }),
-
-/***/ "./src/app/components/public/forgot-password/forgot-password.component.ts":
-/*!********************************************************************************!*\
-  !*** ./src/app/components/public/forgot-password/forgot-password.component.ts ***!
-  \********************************************************************************/
-/*! exports provided: ForgotPasswordComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForgotPasswordComponent", function() { return ForgotPasswordComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var src_app_commons_models_forgot_password_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/commons/models/forgot-password.model */ "./src/app/commons/models/forgot-password.model.ts");
-/* harmony import */ var src_app_commons_forms_password_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/commons/forms/password.forms */ "./src/app/commons/forms/password.forms.ts");
-/* harmony import */ var src_app_commons_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/commons/services/auth/auth.service */ "./src/app/commons/services/auth/auth.service.ts");
-/* harmony import */ var _uirouter_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @uirouter/core */ "./node_modules/@uirouter/core/lib-esm/index.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var ForgotPasswordComponent = /** @class */ (function () {
-    function ForgotPasswordComponent(auth, state) {
-        this.auth = auth;
-        this.state = state;
-        this.successForgotPassword = false;
-        this.sending = false;
-        this.errors = {};
-        this.hasError = false;
-    }
-    ForgotPasswordComponent.prototype.ngOnInit = function () {
-        this.state.go('login');
-        this.form = new src_app_commons_forms_password_forms__WEBPACK_IMPORTED_MODULE_2__["ForgotPasswordForm"](new src_app_commons_models_forgot_password_model__WEBPACK_IMPORTED_MODULE_1__["ForgotPasswordModel"]);
-    };
-    ForgotPasswordComponent.prototype.onSubmit = function (_a) {
-        var _this = this;
-        var value = _a.value, valid = _a.valid;
-        // send the form data to the backend if the value
-        // format are valid.
-        this.form.submitted = true;
-        this.form.err = "";
-        if (valid) {
-            this.sending = true;
-            this.auth.forgotPassword(value)
-                .then(function (resp) {
-                _this.successForgotPassword = true;
-            })
-                .catch(function (err) {
-                console.log(err.error);
-                _this.form.err = err.error.email;
-                _this.hasError = true;
-                _this.sending = false;
-            });
-        }
-    };
-    ForgotPasswordComponent.prototype.inputChange = function (value) {
-        if (this.hasError === true) {
-            this.hasError = false;
-        }
-        if (this.sending === true) {
-            this.sending = false;
-        }
-    };
-    ForgotPasswordComponent.prototype.redirectLogin = function () {
-        if (this.auth.authenticated()) {
-            this.state.go('logout');
-        }
-        else {
-            this.state.go('login');
-        }
-    };
-    ForgotPasswordComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-forgot-password',
-            template: __webpack_require__(/*! ./forgot-password.component.html */ "./src/app/components/public/forgot-password/forgot-password.component.html"),
-            styles: [__webpack_require__(/*! ./forgot-password.component.css */ "./src/app/components/public/forgot-password/forgot-password.component.css")]
-        }),
-        __metadata("design:paramtypes", [src_app_commons_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
-            _uirouter_core__WEBPACK_IMPORTED_MODULE_4__["StateService"]])
-    ], ForgotPasswordComponent);
-    return ForgotPasswordComponent;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/components/public/login/login.component.css":
 /*!*************************************************************!*\
   !*** ./src/app/components/public/login/login.component.css ***!
@@ -2958,7 +2618,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container p-5\">\r\n\r\n    <h3 class=\"section-title mb-3\">Login</h3>\r\n\r\n    <div *ngIf=\"hasDeactivated\" class=\"alert alert-warning\">\r\n        <p>Your account has been deactivated. Your personal data will be deleted within 48 hours.</p>\r\n    </div>\r\n    <div *ngIf=\"new\" class=\"alert alert-success\">\r\n        <p>Successfully created your account</p>\r\n    </div>\r\n    <form [formGroup]=\"form.form\" (ngSubmit)=\"onSubmit(form.form)\">\r\n        <span [hidden]=\"!form.err\" class=\"text-danger\">Invalid Email/Password. Please try again.</span>\r\n        <!-- <span *ngIf=\"hasError\" class=\"text-danger\"><p>Invalid Email/Password. Please try again.</p></span> -->\r\n        <div>\r\n            <label>Email:</label>\r\n            <input class=\"form-control\" formControlName=\"email\" (input)=\"inputChange($event.target.value)\" type=\"text\">\r\n            <span *ngIf=\"form.hasError('email', 'required')\" class=\"text-danger\"><p><small>Email is required.</small></p></span>\r\n            <span *ngIf=\"form.hasError('email', 'email')\" class=\"text-danger\"><p><small>Invalid email format.</small></p></span>\r\n        </div>\r\n        <div>\r\n            <label>Password:</label>\r\n            <input class=\"form-control\" formControlName=\"password\" (input)=\"inputChange($event.target.value)\" type=\"password\">\r\n            <span *ngIf=\"form.hasError('password', 'required')\" class=\"text-danger\"><p><small>Password is required.</small></p></span>\r\n        </div>\r\n        <br>\r\n        <button class=\"btn btn-primary\" type=\"submit\">Login</button>\r\n    </form><br>\r\n    \r\n\r\n    <div class=\"form-group\">\r\n        <!-- <p><a (click)='forgotPassword()' class=\"mb-1\">Forgot Password</a></p> -->\r\n        <p><a (click)='register()'>Don't have an account?</a></p>\r\n    </div>\r\n\r\n</div>\r\n"
+module.exports = "<div class=\"container p-5\">\r\n\r\n    <h3 class=\"section-title mb-3\">Login</h3>\r\n\r\n    <div *ngIf=\"hasDeactivated\" class=\"alert alert-warning\">\r\n        <p>Your account has been deactivated. Your personal data will be deleted within 48 hours.</p>\r\n    </div>\r\n    <div *ngIf=\"new\" class=\"alert alert-success\">\r\n        <p>Successfully created your account</p>\r\n    </div>\r\n    <form [formGroup]=\"form.form\" (ngSubmit)=\"onSubmit(form.form)\">\r\n        <span [hidden]=\"!form.err\" class=\"text-danger\">Invalid Email/Password. Please try again.</span>\r\n        <div>\r\n            <label>Email:</label>\r\n            <input class=\"form-control\" formControlName=\"email\" (input)=\"inputChange($event.target.value)\" type=\"text\">\r\n            <span *ngIf=\"form.hasError('email', 'required')\" class=\"text-danger\"><p><small>Email is required.</small></p></span>\r\n            <span *ngIf=\"form.hasError('email', 'email')\" class=\"text-danger\"><p><small>Invalid email format.</small></p></span>\r\n        </div>\r\n        <div>\r\n            <label>Password:</label>\r\n            <input class=\"form-control\" formControlName=\"password\" (input)=\"inputChange($event.target.value)\" type=\"password\">\r\n            <span *ngIf=\"form.hasError('password', 'required')\" class=\"text-danger\"><p><small>Password is required.</small></p></span>\r\n        </div>\r\n        <br>\r\n        <button class=\"btn btn-primary\" type=\"submit\">Login</button>\r\n    </form><br>\r\n    \r\n\r\n    <div class=\"form-group\">\r\n        <p><a href='.' (click)='register($event)'>Don't have an account?</a></p>\r\n    </div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -3031,15 +2691,20 @@ var LoginComponent = /** @class */ (function () {
                 try {
                     // gets the first matched url
                     var prevState = _this.state.get().filter(function (state) { return state.$$state().url.exec(_this.state.params.next); });
+                    console.log(prevState);
                     if (prevState.length !== 0) {
                         var redirectUrl = prevState.shift().name;
-                        if (redirectUrl != 'login') {
-                            if (redirectUrl === 'forgot-password' || redirectUrl === 'reset-password' || redirectUrl === 'register-login') {
+                        console.log(redirectUrl);
+                        if (redirectUrl !== 'login') {
+                            if (redirectUrl === 'register-login') {
                                 _this.state.go('dashboard');
                             }
                             else {
                                 _this.state.go(redirectUrl);
                             }
+                        }
+                        else {
+                            _this.state.go('dashboard');
                         }
                     }
                     else {
@@ -3055,10 +2720,8 @@ var LoginComponent = /** @class */ (function () {
             });
         }
     };
-    // forgotPassword(){
-    //   this.state.go('forgot-password')
-    // }
-    LoginComponent.prototype.register = function () {
+    LoginComponent.prototype.register = function (event) {
+        event.preventDefault();
         this.state.go('register');
     };
     LoginComponent = __decorate([
@@ -3093,16 +2756,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./register/register.component */ "./src/app/components/public/register/register.component.ts");
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./forgot-password/forgot-password.component */ "./src/app/components/public/forgot-password/forgot-password.component.ts");
-/* harmony import */ var _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./reset-password/reset-password.component */ "./src/app/components/public/reset-password/reset-password.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
-
 
 
 
@@ -3119,7 +2778,7 @@ var PublicModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__["NgbModule"]
             ],
-            declarations: [_login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"], _register_register_component__WEBPACK_IMPORTED_MODULE_3__["RegisterComponent"], _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_6__["ForgotPasswordComponent"], _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_7__["ResetPasswordComponent"],]
+            declarations: [_login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"], _register_register_component__WEBPACK_IMPORTED_MODULE_3__["RegisterComponent"]]
         })
     ], PublicModule);
     return PublicModule;
@@ -3143,10 +2802,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login/login.component */ "./src/app/components/public/login/login.component.ts");
 /* harmony import */ var src_app_commons_utils_security_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/commons/utils/security.utils */ "./src/app/commons/utils/security.utils.ts");
 /* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./register/register.component */ "./src/app/components/public/register/register.component.ts");
-/* harmony import */ var _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./forgot-password/forgot-password.component */ "./src/app/components/public/forgot-password/forgot-password.component.ts");
-/* harmony import */ var _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./reset-password/reset-password.component */ "./src/app/components/public/reset-password/reset-password.component.ts");
-
-
 
 
 
@@ -3186,16 +2841,6 @@ var PUBLIC_STATES = [
         views: Object(src_app_commons_utils_layout_utils__WEBPACK_IMPORTED_MODULE_0__["ContentOnly"])(_register_register_component__WEBPACK_IMPORTED_MODULE_3__["RegisterComponent"]),
         params: { next: window.location.pathname }
     },
-    {
-        name: 'forgot-password',
-        url: '/forgot-password/',
-        views: Object(src_app_commons_utils_layout_utils__WEBPACK_IMPORTED_MODULE_0__["ContentOnly"])(_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_4__["ForgotPasswordComponent"]),
-    },
-    {
-        name: 'reset-password',
-        url: '/reset-password/:token',
-        views: Object(src_app_commons_utils_layout_utils__WEBPACK_IMPORTED_MODULE_0__["ContentOnly"])(_reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_5__["ResetPasswordComponent"]),
-    },
 ];
 
 
@@ -3219,7 +2864,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<div class=\"container p-5\">\r\n    <h3 class=\"section-title mb-3\">Register</h3>\r\n\r\n    <form [formGroup]=\"form.form\" (ngSubmit)=\"onSubmit(form.form)\">\r\n        <div>\r\n            <label>First Name:</label>\r\n            <input class=\"form-control\" formControlName=\"first_name\" type=\"text\">\r\n            <span [hidden]=\"form.valid('first_name')\" class=\"text-danger\"><p><small>First name is required.</small></p></span>\r\n        </div>\r\n\r\n        <div>\r\n            <label>Last Name:</label>\r\n            <input class=\"form-control\" formControlName=\"last_name\" type=\"text\">\r\n            <span [hidden]=\"form.valid('last_name')\" class=\"text-danger\"><p><small>Last name is required.</small></p></span>\r\n        </div>\r\n\r\n        <div>\r\n          <label>Username:</label>\r\n          <br>\r\n          <small>Please note that you cannot change your username after sign up.</small>\r\n          <input class=\"form-control\" formControlName=\"username\" (input)=\"usernameInputChange($event.target.value)\" type=\"text\">\r\n          <span [hidden]=\"form.valid('username')\" class=\"text-danger\"><p><small>Username is required.</small></p></span>\r\n          <span *ngIf=\"this.hasUsernameError\" class=\"text-danger\"><p><small>{{ this.usernameErr }}</small></p></span>\r\n          <!-- <span [hidden]=\"!form.err\" class=\"text-danger\"><p><small>{{ this.usernameErr }}</small></p></span> -->\r\n        </div>\r\n\r\n        <div>\r\n            <label>Email:</label>\r\n            <input class=\"form-control\" formControlName=\"email\" (input)=\"emailInputChange($event.target.value)\" type=\"text\">\r\n            <span *ngIf=\"form.hasError('email', 'required')\" class=\"text-danger\"><p><small>Email is required.</small></p></span>\r\n            <span *ngIf=\"form.hasError('email', 'email')\" class=\"text-danger\"><p><small>Invalid email format.</small></p></span>\r\n            <span *ngIf=\"this.hasEmailError\" class=\"text-danger\"><p><small>{{ this.emailErr }}</small></p></span>\r\n        </div>\r\n\r\n        <div>\r\n            <label>Password:</label>\r\n            <input class=\"form-control\" formControlName=\"password\" (input)=\"passwordInputChange($event.target.value)\" type=\"password\">\r\n            <span *ngIf=\"this.mismatchedPassword\" class=\"text-danger\"><p><small>{{ this.passwordErr }}</small></p></span>\r\n            <span [hidden]=\"form.valid('password')\" class=\"text-danger\"><p><small>Password is required.</small></p></span>\r\n        </div>\r\n        <div>\r\n            <label>Confirm Password:</label>\r\n            <input class=\"form-control\" formControlName=\"confirm_password\" (input)=\"passwordInputChange($event.target.value)\" type=\"password\">\r\n            <span *ngIf=\"this.mismatchedPassword\" class=\"text-danger\"><p><small>{{ this.passwordErr }}</small></p></span>\r\n            <span [hidden]=\"form.valid('confirm_password')\" class=\"text-danger\"><p><small>Password is required.</small></p></span>\r\n      </div>\r\n        <br>\r\n        <button class=\"btn btn-primary\" type=\"submit\" [disabled]=\"this.disable\">Register</button>\r\n    </form>\r\n\r\n    <div class=\"form-group text-center mt-5\">\r\n        <p><a (click)='redirectLogin()'>Back to Home</a></p>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<br>\n<div class=\"container p-5\">\n    <h3 class=\"section-title mb-3\">Register</h3>\n\n    <form [formGroup]=\"form.form\" (ngSubmit)=\"onSubmit(form.form)\">\n        <div>\n            <label>First Name:</label>\n            <input class=\"form-control\" formControlName=\"first_name\" type=\"text\">\n            <span [hidden]=\"form.valid('first_name')\" class=\"text-danger\"><p><small>First name is required.</small></p></span>\n        </div>\n\n        <div>\n            <label>Last Name:</label>\n            <input class=\"form-control\" formControlName=\"last_name\" type=\"text\">\n            <span [hidden]=\"form.valid('last_name')\" class=\"text-danger\"><p><small>Last name is required.</small></p></span>\n        </div>\n\n        <div>\n          <label>Username:</label>\n          <br>\n          <small>Please note that you cannot change your username after sign up.</small>\n          <input class=\"form-control\" formControlName=\"username\" (input)=\"usernameInputChange($event.target.value)\" type=\"text\">\n          <span [hidden]=\"form.valid('username')\" class=\"text-danger\"><p><small>Username is required.</small></p></span>\n          <span *ngIf=\"this.hasUsernameError\" class=\"text-danger\"><p><small>{{ this.usernameErr }}</small></p></span>\n        </div>\n\n        <div>\n            <label>Email:</label>\n            <input class=\"form-control\" formControlName=\"email\" (input)=\"emailInputChange($event.target.value)\" type=\"text\">\n            <span *ngIf=\"form.hasError('email', 'required')\" class=\"text-danger\"><p><small>Email is required.</small></p></span>\n            <span *ngIf=\"form.hasError('email', 'email')\" class=\"text-danger\"><p><small>Invalid email format.</small></p></span>\n            <span *ngIf=\"this.hasEmailError\" class=\"text-danger\"><p><small>{{ this.emailErr }}</small></p></span>\n        </div>\n\n        <div>\n            <label>Password:</label>\n            <input class=\"form-control\" formControlName=\"password\" (input)=\"passwordInputChange($event.target.value)\" type=\"password\">\n            <span *ngIf=\"this.mismatchedPassword\" class=\"text-danger\"><p><small>{{ this.passwordErr }}</small></p></span>\n            <span [hidden]=\"form.valid('password')\" class=\"text-danger\"><p><small>Password is required.</small></p></span>\n        </div>\n        <div>\n            <label>Confirm Password:</label>\n            <input class=\"form-control\" formControlName=\"confirm_password\" (input)=\"passwordInputChange($event.target.value)\" type=\"password\">\n            <span *ngIf=\"this.mismatchedPassword\" class=\"text-danger\"><p><small>{{ this.passwordErr }}</small></p></span>\n            <span [hidden]=\"form.valid('confirm_password')\" class=\"text-danger\"><p><small>Password is required.</small></p></span>\n      </div>\n        <br>\n        <button class=\"btn btn-primary\" type=\"submit\" [disabled]=\"this.disable\">Register</button>\n    </form>\n\n    <div class=\"form-group text-center mt-5\">\n        <p><a (click)='redirectLogin()'>Back to Home</a></p>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -3256,9 +2901,9 @@ var RegisterComponent = /** @class */ (function () {
     function RegisterComponent(auth, state) {
         this.auth = auth;
         this.state = state;
-        this.usernameErr = "";
-        this.emailErr = "";
-        this.passwordErr = "";
+        this.usernameErr = '';
+        this.emailErr = '';
+        this.passwordErr = '';
         this.hasEmailError = false;
         this.hasUsernameError = false;
         this.mismatchedPassword = false;
@@ -3292,14 +2937,11 @@ var RegisterComponent = /** @class */ (function () {
             this.disable = true;
             this.auth.register(value)
                 .then(function (resp) {
-                //this.state.go('dashboard');
                 _this.state.go('register-login', { 'new': true });
             })
                 .catch(function (err) {
                 _this.form.err = err.error;
                 _this.disable = false;
-                // this.usernameErr = err.error.username;
-                // this.emailErr = err.error.email;
                 if (err.error.email) {
                     _this.emailErr = err.error.email;
                     _this.hasEmailError = true;
@@ -3316,7 +2958,7 @@ var RegisterComponent = /** @class */ (function () {
         }
         else {
             this.disable = false;
-            this.form.err = "";
+            this.form.err = '';
         }
     };
     RegisterComponent.prototype.redirectLogin = function () {
@@ -3343,123 +2985,6 @@ var RegisterComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/components/public/reset-password/reset-password.component.css":
-/*!*******************************************************************************!*\
-  !*** ./src/app/components/public/reset-password/reset-password.component.css ***!
-  \*******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/components/public/reset-password/reset-password.component.html":
-/*!********************************************************************************!*\
-  !*** ./src/app/components/public/reset-password/reset-password.component.html ***!
-  \********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<br>\r\n<div class=\"container\">\r\n    <div>\r\n      <div class=\"text-center mb-5\">\r\n        <h4 class=\"section-title mb-3\">Reset Password</h4>\r\n        <div *ngIf=\"this.successResetPassword\" class=\"alert alert-success\">\r\n          <span>You have successfully reset your password. Please try to <a (click)='redirectLogin()'>login</a>.</span>\r\n        </div>\r\n        <p class=\"help-text w-75 m-auto\">Enter the new password on the fields below.</p>\r\n      </div>\r\n      <div class=\"form-container m-auto\">\r\n          <form [formGroup]=\"form.form\" (ngSubmit)=\"onSubmit(form.form)\">\r\n            <span [hidden]=\"!hasError\" class=\"text-danger\"><p>{{ form.err }}</p></span>\r\n            <div class=\"form-group\">\r\n              <label>New Password</label>\r\n              <input type=\"password\" formControlName=\"new_password\" (input)=\"inputChange($event.target.value)\" class=\"form-control\">\r\n              <span [hidden]=\"!form.hasError('new_password', 'required')\" class=\"text-danger\"><p><small>This field is required.</small></p></span>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label>Confirm Password</label>\r\n              <input type=\"password\" formControlName=\"confirm_new_password\" (input)=\"inputChange($event.target.value)\" class=\"form-control\">\r\n              <span [hidden]=\"!form.hasError('confirm_new_password', 'required')\" class=\"text-danger\"><p><small>This field is required.</small></p></span>\r\n            </div>\r\n            <div class=\"form-group text-center\">\r\n              <button type=\"submit\" class=\"btn btn-primary form-control\" [disabled]='this.disable'>Submit</button>\r\n            </div>\r\n            <br/>\r\n          </form>\r\n          <a (click)='redirectLogin()'>Back to Home</a>\r\n      </div>\r\n    </div>\r\n  </div>"
-
-/***/ }),
-
-/***/ "./src/app/components/public/reset-password/reset-password.component.ts":
-/*!******************************************************************************!*\
-  !*** ./src/app/components/public/reset-password/reset-password.component.ts ***!
-  \******************************************************************************/
-/*! exports provided: ResetPasswordComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResetPasswordComponent", function() { return ResetPasswordComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _uirouter_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @uirouter/core */ "./node_modules/@uirouter/core/lib-esm/index.js");
-/* harmony import */ var src_app_commons_forms_password_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/commons/forms/password.forms */ "./src/app/commons/forms/password.forms.ts");
-/* harmony import */ var src_app_commons_models_reset_password_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/commons/models/reset-password.model */ "./src/app/commons/models/reset-password.model.ts");
-/* harmony import */ var src_app_commons_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/commons/services/auth/auth.service */ "./src/app/commons/services/auth/auth.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var ResetPasswordComponent = /** @class */ (function () {
-    function ResetPasswordComponent(auth, state) {
-        this.auth = auth;
-        this.state = state;
-        this.hasError = false;
-        this.disable = false;
-        this.errors = {};
-        this.successResetPassword = false;
-    }
-    ResetPasswordComponent.prototype.ngOnInit = function () {
-        this.form = new src_app_commons_forms_password_forms__WEBPACK_IMPORTED_MODULE_2__["ResetPasswordForm"](new src_app_commons_models_reset_password_model__WEBPACK_IMPORTED_MODULE_3__["ResetPasswordModel"]);
-        this.token = this.state.params['token'];
-    };
-    ResetPasswordComponent.prototype.onSubmit = function (_a) {
-        var _this = this;
-        var value = _a.value, valid = _a.valid;
-        // send the form data to the backend if the value
-        // format are valid.
-        this.form.submitted = true;
-        this.form.err = "";
-        value.token = this.token;
-        if (valid) {
-            this.disable = true;
-            this.auth.resetPassword(value)
-                .then(function (resp) {
-                _this.successResetPassword = true;
-            })
-                .catch(function (err) {
-                _this.form.err = err.error.non_field_errors;
-                _this.hasError = true;
-                _this.disable = false;
-            });
-        }
-    };
-    ResetPasswordComponent.prototype.inputChange = function (value) {
-        if (this.hasError === true) {
-            this.hasError = false;
-        }
-        if (this.disable === true) {
-            this.disable = false;
-        }
-    };
-    ResetPasswordComponent.prototype.redirectLogin = function () {
-        if (this.auth.authenticated()) {
-            this.state.go('logout');
-        }
-        else {
-            this.state.go('login');
-        }
-    };
-    ResetPasswordComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-reset-password',
-            template: __webpack_require__(/*! ./reset-password.component.html */ "./src/app/components/public/reset-password/reset-password.component.html"),
-            styles: [__webpack_require__(/*! ./reset-password.component.css */ "./src/app/components/public/reset-password/reset-password.component.css")]
-        }),
-        __metadata("design:paramtypes", [src_app_commons_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"],
-            _uirouter_core__WEBPACK_IMPORTED_MODULE_1__["StateService"]])
-    ], ResetPasswordComponent);
-    return ResetPasswordComponent;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/components/users/dashboard/dashboard.component.css":
 /*!********************************************************************!*\
   !*** ./src/app/components/users/dashboard/dashboard.component.css ***!
@@ -3467,7 +2992,7 @@ var ResetPasswordComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* .table{\r\n    margin-top: 1rem;\r\n}\r\n\r\n.dashboard--panel{\r\n    height: 100%;\r\n} */\r\n\r\n.text-block {\r\n    position: absolute;\r\n    bottom: 90px;\r\n    right: 30px;\r\n}"
+module.exports = ".text-block {\r\n    position: absolute;\r\n    bottom: 90px;\r\n    right: 30px;\r\n}"
 
 /***/ }),
 
@@ -3478,7 +3003,7 @@ module.exports = "/* .table{\r\n    margin-top: 1rem;\r\n}\r\n\r\n.dashboard--pa
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"dashboard--panel\">\r\n    <form class=\"form-group\" [formGroup]=\"form.form\" (ngSubmit)=\"onSubmit(form.form)\">\r\n        <div class=\"input-group mb-3\">\r\n            <input type=\"text\" formControlName=\"search_text\" class=\"form-control\" placeholder=\"Search Title\" aria-label=\"Search\" aria-describedby=\"basic-addon2\">\r\n            <div class=\"input-group-append\">\r\n                <button class=\"btn btn-outline-secondary\" type=\"submit\"><i class=\"la la-search\"></i></button>\r\n            </div>\r\n            <div class=\"input-group-append\" ngbDropdown>\r\n                <button class=\"btn btn-primary\" id=\"dropdownBasic1\" ngbDropdownToggle><i class=\"la la-filter\"></i> Filter</button>\r\n                <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\" >\r\n                    <a class=\"dropdown-item\" href=\".\" ngbDropdownItem (click)=\"filterClick($event, 'all')\">All</a>\r\n                    <a class=\"dropdown-item\" href=\"#\" ngbDropdownItem (click)=\"filterClick($event, 'available')\">Available</a>\r\n                    <a class=\"dropdown-item\" href=\"#\" ngbDropdownItem (click)=\"filterClick($event, 'checked out')\">Checked Out</a>\r\n                    <a class=\"dropdown-item\" href=\"#\" ngbDropdownItem (click)=\"filterClick($event, 'digital copy')\">Digital Copy</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </form>\r\n\r\n    <div class=\"mt-5\">\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-3\" *ngFor=\"let book of books_list\" (click)=\"rowClicked(book)\">\r\n                <div class=\"card mb-5\">\r\n                    <div class=\"card-body\">\r\n                        <img src=\"static/scripts/fe/src/assets/images/no-cover-img.jpg\" class=\"card-img-top mb-3\" alt=\"...\">\r\n\r\n                        <span class=\"badge badge-pill badge-sm text-block\" \r\n                            [ngClass]=\"{'badge-danger': book.status==='checked out', \r\n                            'badge-success': book.status==='available'}\" style=\"color: white; font-size: 12px;\"\r\n                            *ngIf=\"book.is_digital_copy !== true\">\r\n                            {{ book.status | titlecase  }}\r\n                        </span>\r\n\r\n                        <span class=\"badge badge-pill badge-sm badge-warning text-block\" style=\"color: white; font-size: 12px;\"\r\n                            *ngIf=\"book.is_digital_copy === true\">\r\n                            Digital Copy\r\n                        </span>\r\n\r\n\r\n                        \r\n                        <h5 class=\"card-title mb-0\">\r\n                            {{ book.title | titlecase }}\r\n                        </h5>\r\n                        <small class=\"text-muted mt-0\">by: {{ book.author | titlecase }} </small>\r\n\r\n                        \r\n                        <!-- <p class=\"card-text\">\r\n                            <b>Book Description: </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br>\r\n                            <b>Location: </b>{{ book.location | titlecase }}\r\n                        </p>\r\n        \r\n                        <p class=\"card-text\"><small class=\"text-muted\">Property of: {{ book.owner.full_name | titlecase }}</small></p> -->\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        \r\n    </div>\r\n</div>"
+module.exports = "<div class=\"dashboard--panel\">\r\n    <form class=\"form-group\" [formGroup]=\"form.form\" (ngSubmit)=\"onSubmit(form.form)\">\r\n        <div class=\"input-group mb-3\">\r\n            <input type=\"text\" formControlName=\"search_text\" class=\"form-control\" placeholder=\"Search Title\" aria-label=\"Search\" aria-describedby=\"basic-addon2\">\r\n            <div class=\"input-group-append\">\r\n                <button class=\"btn btn-outline-secondary\" type=\"submit\"><i class=\"la la-search\"></i></button>\r\n            </div>\r\n            <div class=\"input-group-append\" ngbDropdown>\r\n                <button class=\"btn btn-primary\" id=\"dropdownBasic1\" ngbDropdownToggle><i class=\"la la-filter\"></i> Filter</button>\r\n                <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\" >\r\n                    <a class=\"dropdown-item\" href=\".\" ngbDropdownItem (click)=\"filterClick($event, 'all')\">All</a>\r\n                    <a class=\"dropdown-item\" href=\"#\" ngbDropdownItem (click)=\"filterClick($event, 'available')\">Available</a>\r\n                    <a class=\"dropdown-item\" href=\"#\" ngbDropdownItem (click)=\"filterClick($event, 'checked out')\">Checked Out</a>\r\n                    <a class=\"dropdown-item\" href=\"#\" ngbDropdownItem (click)=\"filterClick($event, 'digital copy')\">Digital Copy</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </form>\r\n\r\n    <div class=\"mt-5\">\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-3\" *ngFor=\"let book of books_list\" (click)=\"rowClicked(book)\">\r\n                <div class=\"card mb-5\">\r\n                    <div class=\"card-body\">\r\n                        <img src=\"static/scripts/fe/src/assets/images/no-cover-img.jpg\" class=\"card-img-top mb-3\" alt=\"...\">\r\n\r\n                        <span class=\"badge badge-pill badge-sm text-block\" \r\n                            [ngClass]=\"{'badge-danger': book.status==='checked out', \r\n                            'badge-success': book.status==='available'}\" style=\"color: white; font-size: 12px;\"\r\n                            *ngIf=\"book.is_digital_copy !== true\">\r\n                            {{ book.status | titlecase  }}\r\n                        </span>\r\n\r\n                        <span class=\"badge badge-pill badge-sm badge-warning text-block\" style=\"color: white; font-size: 12px;\"\r\n                            *ngIf=\"book.is_digital_copy === true\">\r\n                            Digital Copy\r\n                        </span>\r\n\r\n                        <h5 class=\"card-title mb-0\">\r\n                            {{ book.title | titlecase }}\r\n                        </h5>\r\n                        <small class=\"text-muted mt-0\">by: {{ book.author | titlecase }} </small>\r\n\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        \r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -3610,13 +3135,6 @@ var DashboardComponent = /** @class */ (function () {
             book: book
         })
             .subscribe(function (isConfirmed) {
-            //We get modal result
-            // if(isConfirmed) {
-            //     alert('accepted');
-            // }
-            // else {
-            //     alert('declined');
-            // }
         });
     };
     DashboardComponent.prototype.filterClick = function (event, status) {
@@ -3669,7 +3187,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"dashboard--panel\">\r\n  <div class=\"row\">\r\n      <div class=\"col-md-8\">\r\n          <div class=\"panel--white\">\r\n              <div class=\"panel__header\">\r\n                <div class=\"panel-label\"><i class=\"fa fa-newspaper-o m-1\"></i>Profile</div>\r\n              </div>\r\n              <div class=\"panel__content\">\r\n                  <form [formGroup]=\"form.form\" (ngSubmit)=\"onSubmit(form.form)\" class=\"form\" enctype=\"multipart/form-data\">\r\n                    <div [hidden]=\"!this.editSuccessMessage\" class=\"alert alert-success\"><p>You have successfully updated your info!</p></div>\r\n                    <div *ngIf=\"!this.ProfNoChanges\" class=\"alert alert-info\"><p>No Changes!</p></div>\r\n                    <div class=\"row\">\r\n                        <div class=\"col mb-5\">\r\n                            <label>First Name</label>\r\n                            <input type=\"text\" class=\"form-control\" formControlName=\"first_name\"  placeholder=\"First name\">\r\n                            <span [hidden]=\"form.valid('first_name')\" class=\"text-danger\"><p><small>This field is required.</small></p></span>\r\n                            <label>Username</label>\r\n                            <input type=\"text\" class=\"form-control\" formControlName=\"username\" (input)=\"usernameInputChange($event.target.value)\" placeholder=\"Username\" disabled>\r\n                            <small class='text-muted'>Please note that you cannot change your username after sign up.</small><br><br>\r\n\r\n                            <!--\r\n                            <div [ngSwitch]=\"switchExpression\" class=\"password-field\">\r\n                                !-- CHANGE PASSWORD FORM --\r\n                                <div *ngSwitchCase=\"'change_password'\">\r\n                                    <form [formGroup]=\"edit_password_form.form\" (ngSubmit)=\"onEditPasswordSubmit(edit_password_form.form)\">\r\n                                        <p>Change Password</p>\r\n                                        <span *ngIf=\"passwordHasError\" class=\"text-danger\">{{ edit_password_form.err }}</span>\r\n                                        <div class=\"form-group\">\r\n                                            <label>Old Password</label>\r\n                                            <input type=\"password\" formControlName=\"old_password\" (input)=\"passwordInputChange($event.target.value)\" class=\"form-control\">\r\n                                            <span *ngIf=\"edit_password_form.hasError('old_password', 'required')\" class=\"text-danger\"><small>This field is required</small></span>\r\n                                        </div>\r\n                                        <div class=\"form-group\">\r\n                                            <label>New Password</label>\r\n                                            <input type=\"password\" formControlName=\"new_password\" (input)=\"passwordInputChange($event.target.value)\" class=\"form-control\">\r\n                                            <span *ngIf=\"edit_password_form.hasError('new_password', 'required')\" class=\"text-danger\"><p><small>This field is required</small></p></span>\r\n                                            <span *ngIf=\"edit_password_form.hasError('new_password', 'minlength')\" class=\"text-danger\"><p><small>Password should consist of 8 characters</small></p></span>\r\n                                            <span *ngIf=\"edit_password_form.hasError('new_password', 'pattern')\" class=\"text-danger\"><p><small>Password must contain a number and symbol (#$@!%&*?_)</small></p></span>\r\n                                        </div>\r\n                                        <div class=\"form-group\">\r\n                                            <label>Confirm Password</label>\r\n                                            <input type=\"password\" formControlName=\"confirm_new_password\" (input)=\"passwordInputChange($event.target.value)\" class=\"form-control\">\r\n                                            <span *ngIf=\"edit_password_form.hasError('confirm_new_password', 'required')\" class=\"text-danger\"><p><small>This field is required</small></p></span>\r\n                                            <span *ngIf=\"edit_password_form.hasError('confirm_new_password', 'minlength')\" class=\"text-danger\"><p><small>Password should consist of 8 characters.</small></p></span>\r\n                                            <span *ngIf=\"edit_password_form.hasError('confirm_new_password', 'pattern')\" class=\"text-danger\"><p><small>Password must contain a number and symbol (#$@!%&*?_)</small></p></span>\r\n                                        </div>\r\n                                        <div class=\"d-flex justify-content-between\">\r\n                                            <button (click)=\"cancelPasswordEvent()\" class=\"btn-sm btn-light\">Cancel</button>\r\n                                            <button class=\"btn-sm btn-primary\" [disabled]=\"this.passbtn_disable\">Update Password</button>\r\n                                        </div>\r\n                                    </form>\r\n                                </div>\r\n\r\n                                !-- CHANGE/CREATE PASSWORD -- SUCCESS --\r\n                                <div *ngSwitchCase=\"'success'\">\r\n                                  <p>Congratulations! You’ve successfully updated your password.</p>\r\n                                  <div class=\"text-right\">\r\n                                      <a href=\"\" (click)=\"changePassClick($event)\" class=\"text-right bold changePw\">Change Password</a>\r\n                                  </div>\r\n                                </div>\r\n\r\n                                <div *ngSwitchDefault>\r\n                                    !-- PASSWORD ALREADY CREATED --\r\n                                    <div class=\"text-left\">\r\n                                        <a href=\"\" (click)=\"changePassClick($event)\" class=\"bold changePw\">Change Password</a>\r\n                                    </div>\r\n                                    !-- CPASSWORD ALREADY CREATED--\r\n                                </div>\r\n                            </div>\r\n                            -->\r\n                        </div>\r\n                        <div class=\"col\">\r\n                            <label>Last Name</label>\r\n                            <input type=\"text\" class=\"form-control\" formControlName=\"last_name\" placeholder=\"Last name\">\r\n                            <span [hidden]=\"form.valid('last_name')\" class=\"text-danger\"><p><small>This field is required.</small></p></span>\r\n\r\n                            <label>E-mail</label>\r\n\r\n                            <div [ngSwitch]=\"switchExpression\" class=\"email-field\">\r\n                                <div *ngSwitchDefault>\r\n                                  <div>\r\n                                    <div class=\"bold mt-2\"><p>{{ form.form.value.email }} <a href=\"\" (click)=\"changeEmailClick($event)\" class=\"text-right bold text-muted\"><small>Change Email</small></a></p></div>\r\n                                  </div>\r\n                                </div>\r\n\r\n\r\n                                <div *ngSwitchCase=\"'change_email'\">\r\n                                  <div class=\"bold mt-2\"><p>{{ form.form.value.email }}</p></div>\r\n\r\n                                  <form [formGroup]=\"edit_email_form.form\" (ngSubmit)=\"onEditEmailSubmit(edit_email_form.form)\">\r\n                                    <p>Change Email</p>\r\n                                    <span *ngIf=\"this.emailHasError\" class=\"text-danger\"><p>This email is already used.</p></span>\r\n                                    <span *ngIf=\"this.emailNoChanges\" class=\"text-danger\"><p>Nothing Changed</p></span>\r\n\r\n                                    <div class=\"form-group\">\r\n                                      <label>New Email</label>\r\n                                      <input class=\"form-control\" formControlName=\"email\" (input)=\"emailInputChange($event.target.value)\" type=\"text\">\r\n                                      <span *ngIf=\"edit_email_form.form.hasError('email', 'required')\" class=\"text-danger\"><p><small>This field is required.</small></p></span>\r\n                                      <span *ngIf=\"edit_email_form.form.hasError('email', 'email')\" class=\"text-danger\"><p><small>Invalid email format.</small></p></span>\r\n                                      <span *ngIf=\"edit_email_form.form.hasEmailError\" class=\"text-danger\"><p><small>{{ this.emailErr }}</small></p></span>\r\n                                    </div>\r\n\r\n                                    <div class=\"d-flex justify-content-between\">\r\n                                      <button (click)=\"cancelEmailEvent()\" class=\"btn-sm btn-light\">Cancel</button>\r\n                                      <button class=\"btn-sm btn-primary\" [disabled]=\"this.emailbtn_disabled\">Update Email</button>\r\n                                    </div>\r\n                                  </form>\r\n                                </div>\r\n\r\n                                <!-- CHANGE EMAIL -- SUCCESS -->\r\n                                <div *ngSwitchCase=\"'edit_email_success'\">\r\n                                  <p>Congratulations! You’ve successfully updated your email.</p>\r\n                                  <div class=\"text-right\">\r\n                                    <a href=\"\" (click)=\"changeEmailClick($event)\" class=\"text-right bold changePw\">Change Email</a>\r\n                                  </div>\r\n                                </div>\r\n                              </div>\r\n                        </div>\r\n                    </div>\r\n\r\n                    <button class=\"btn-custom-lg btn-primary\">Update Profile</button>\r\n                    <button class=\"btn-custom-lg btn-light\">Cancel</button>\r\n\r\n                </form>\r\n              </div>\r\n\r\n          </div>\r\n      </div>\r\n  </div>\r\n</div>\r\n\r\n"
+module.exports = "<div class=\"dashboard--panel\">\r\n  <div class=\"row\">\r\n      <div class=\"col-md-8\">\r\n          <div class=\"panel--white\">\r\n              <div class=\"panel__header\">\r\n                <div class=\"panel-label\"><i class=\"fa fa-newspaper-o m-1\"></i>Profile</div>\r\n              </div>\r\n              <div class=\"panel__content\">\r\n                  <form [formGroup]=\"form.form\" (ngSubmit)=\"onSubmit(form.form)\" class=\"form\" enctype=\"multipart/form-data\">\r\n                    <div [hidden]=\"!this.editSuccessMessage\" class=\"alert alert-success\"><p>You have successfully updated your info!</p></div>\r\n                    <div *ngIf=\"!this.ProfNoChanges\" class=\"alert alert-info\"><p>No Changes!</p></div>\r\n                    <div class=\"row\">\r\n                        <div class=\"col mb-5\">\r\n                            <label>First Name</label>\r\n                            <input type=\"text\" class=\"form-control\" formControlName=\"first_name\"  placeholder=\"First name\">\r\n                            <span [hidden]=\"form.valid('first_name')\" class=\"text-danger\"><p><small>This field is required.</small></p></span>\r\n                            <label>Username</label>\r\n                            <input type=\"text\" class=\"form-control\" formControlName=\"username\" (input)=\"usernameInputChange($event.target.value)\" placeholder=\"Username\" disabled>\r\n                            <small class='text-muted'>Please note that you cannot change your username after sign up.</small><br><br>\r\n                        </div>\r\n                        <div class=\"col\">\r\n                            <label>Last Name</label>\r\n                            <input type=\"text\" class=\"form-control\" formControlName=\"last_name\" placeholder=\"Last name\">\r\n                            <span [hidden]=\"form.valid('last_name')\" class=\"text-danger\"><p><small>This field is required.</small></p></span>\r\n\r\n                            <label>E-mail</label>\r\n\r\n                            <div [ngSwitch]=\"switchExpression\" class=\"email-field\">\r\n                                <div *ngSwitchDefault>\r\n                                  <div>\r\n                                    <div class=\"bold mt-2\"><p>{{ form.form.value.email }} <a href=\"\" (click)=\"changeEmailClick($event)\" class=\"text-right bold text-muted\"><small>Change Email</small></a></p></div>\r\n                                  </div>\r\n                                </div>\r\n\r\n\r\n                                <div *ngSwitchCase=\"'change_email'\">\r\n                                  <div class=\"bold mt-2\"><p>{{ form.form.value.email }}</p></div>\r\n\r\n                                  <form [formGroup]=\"edit_email_form.form\" (ngSubmit)=\"onEditEmailSubmit(edit_email_form.form)\">\r\n                                    <p>Change Email</p>\r\n                                    <span *ngIf=\"this.emailHasError\" class=\"text-danger\"><p>This email is already used.</p></span>\r\n                                    <span *ngIf=\"this.emailNoChanges\" class=\"text-danger\"><p>Nothing Changed</p></span>\r\n\r\n                                    <div class=\"form-group\">\r\n                                      <label>New Email</label>\r\n                                      <input class=\"form-control\" formControlName=\"email\" (input)=\"emailInputChange($event.target.value)\" type=\"text\">\r\n                                      <span *ngIf=\"edit_email_form.form.hasError('email', 'required')\" class=\"text-danger\"><p><small>This field is required.</small></p></span>\r\n                                      <span *ngIf=\"edit_email_form.form.hasError('email', 'email')\" class=\"text-danger\"><p><small>Invalid email format.</small></p></span>\r\n                                      <span *ngIf=\"edit_email_form.form.hasEmailError\" class=\"text-danger\"><p><small>{{ this.emailErr }}</small></p></span>\r\n                                    </div>\r\n\r\n                                    <div class=\"d-flex justify-content-between\">\r\n                                      <button (click)=\"cancelEmailEvent()\" class=\"btn-sm btn-light\">Cancel</button>\r\n                                      <button class=\"btn-sm btn-primary\" [disabled]=\"this.emailbtn_disabled\">Update Email</button>\r\n                                    </div>\r\n                                  </form>\r\n                                </div>\r\n\r\n                                <!-- CHANGE EMAIL -- SUCCESS -->\r\n                                <div *ngSwitchCase=\"'edit_email_success'\">\r\n                                  <p>Congratulations! You’ve successfully updated your email.</p>\r\n                                  <div class=\"text-right\">\r\n                                    <a href=\"\" (click)=\"changeEmailClick($event)\" class=\"text-right bold changePw\">Change Email</a>\r\n                                  </div>\r\n                                </div>\r\n                              </div>\r\n                        </div>\r\n                    </div>\r\n\r\n                    <button class=\"btn-custom-lg btn-primary\">Update Profile</button>\r\n                    <button class=\"btn-custom-lg btn-light\">Cancel</button>\r\n\r\n                </form>\r\n              </div>\r\n\r\n          </div>\r\n      </div>\r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -3686,14 +3204,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var src_app_commons_services_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/commons/services/navigation/navigation.service */ "./src/app/commons/services/navigation/navigation.service.ts");
 /* harmony import */ var src_app_commons_forms_user_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/commons/forms/user.forms */ "./src/app/commons/forms/user.forms.ts");
-/* harmony import */ var src_app_commons_forms_password_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/commons/forms/password.forms */ "./src/app/commons/forms/password.forms.ts");
-/* harmony import */ var src_app_commons_forms_email_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/commons/forms/email.forms */ "./src/app/commons/forms/email.forms.ts");
-/* harmony import */ var src_app_commons_models_user_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/commons/models/user.model */ "./src/app/commons/models/user.model.ts");
-/* harmony import */ var src_app_commons_models_edit_password_model__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/commons/models/edit-password.model */ "./src/app/commons/models/edit-password.model.ts");
-/* harmony import */ var src_app_commons_models_edit_email_model__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/commons/models/edit-email.model */ "./src/app/commons/models/edit-email.model.ts");
-/* harmony import */ var src_app_commons_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/commons/services/auth/auth.service */ "./src/app/commons/services/auth/auth.service.ts");
-/* harmony import */ var _uirouter_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @uirouter/core */ "./node_modules/@uirouter/core/lib-esm/index.js");
-/* harmony import */ var src_app_commons_services_auth_user_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/commons/services/auth/user.service */ "./src/app/commons/services/auth/user.service.ts");
+/* harmony import */ var src_app_commons_forms_email_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/commons/forms/email.forms */ "./src/app/commons/forms/email.forms.ts");
+/* harmony import */ var src_app_commons_models_user_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/commons/models/user.model */ "./src/app/commons/models/user.model.ts");
+/* harmony import */ var src_app_commons_models_edit_password_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/commons/models/edit-password.model */ "./src/app/commons/models/edit-password.model.ts");
+/* harmony import */ var src_app_commons_models_edit_email_model__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/commons/models/edit-email.model */ "./src/app/commons/models/edit-email.model.ts");
+/* harmony import */ var src_app_commons_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/commons/services/auth/auth.service */ "./src/app/commons/services/auth/auth.service.ts");
+/* harmony import */ var _uirouter_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @uirouter/core */ "./node_modules/@uirouter/core/lib-esm/index.js");
+/* harmony import */ var src_app_commons_services_auth_user_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/commons/services/auth/user.service */ "./src/app/commons/services/auth/user.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3748,21 +3265,16 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
-
 var SettingsComponent = /** @class */ (function () {
     function SettingsComponent(auth, state, user, nav) {
         this.auth = auth;
         this.state = state;
         this.user = user;
         this.nav = nav;
-        //private add_password_form: AddPasswordForm;
         this.file = null;
         this.date = new Date;
-        this.checkDeact = true;
         this.editSuccessMessage = false;
         this.usernameHasError = false;
-        this.passwordHasError = false;
-        this.deactPassHasErr = false;
         this.emailNoChanges = false;
         this.emailHasError = false;
         this.passbtn_disable = false;
@@ -3778,10 +3290,8 @@ var SettingsComponent = /** @class */ (function () {
                     case 0:
                         // initialize the form.
                         this.switchExpression = null;
-                        this.form = new src_app_commons_forms_user_forms__WEBPACK_IMPORTED_MODULE_2__["UserForm"](new src_app_commons_models_user_model__WEBPACK_IMPORTED_MODULE_5__["User"]);
-                        this.edit_password_form = new src_app_commons_forms_password_forms__WEBPACK_IMPORTED_MODULE_3__["EditPasswordForm"](new src_app_commons_models_edit_password_model__WEBPACK_IMPORTED_MODULE_6__["EditPasswordModel"]);
-                        this.edit_email_form = new src_app_commons_forms_email_forms__WEBPACK_IMPORTED_MODULE_4__["EditEmailForm"](new src_app_commons_models_edit_email_model__WEBPACK_IMPORTED_MODULE_7__["EditEmailModel"]);
-                        //this.add_password_form = new AddPasswordForm(new AddPasswordModel);
+                        this.form = new src_app_commons_forms_user_forms__WEBPACK_IMPORTED_MODULE_2__["UserForm"](new src_app_commons_models_user_model__WEBPACK_IMPORTED_MODULE_4__["User"]);
+                        this.edit_email_form = new src_app_commons_forms_email_forms__WEBPACK_IMPORTED_MODULE_3__["EditEmailForm"](new src_app_commons_models_edit_email_model__WEBPACK_IMPORTED_MODULE_6__["EditEmailModel"]);
                         setTimeout(function () {
                             _this.nav.hasLoaded = false;
                         }, 100);
@@ -3811,11 +3321,6 @@ var SettingsComponent = /** @class */ (function () {
             return this.emailNoChanges = false;
         }
     };
-    SettingsComponent.prototype.passwordInputChange = function (value) {
-        if (this.passwordHasError === true) {
-            this.passwordHasError = false;
-        }
-    };
     SettingsComponent.prototype.usernameInputChange = function (value) {
         if (this.usernameHasError === true) {
             this.usernameHasError = false;
@@ -3836,7 +3341,7 @@ var SettingsComponent = /** @class */ (function () {
             if (this.form.form.dirty) {
                 this.user.update(value)
                     .then(function (resp) {
-                    _this.form.err = "";
+                    _this.form.err = '';
                     _this.state.go('user-settings');
                     _this.editSuccessMessage = true;
                     _this.ProfNoChanges = true;
@@ -3854,39 +3359,6 @@ var SettingsComponent = /** @class */ (function () {
             else {
                 this.ProfNoChanges = false;
             }
-        }
-    };
-    SettingsComponent.prototype.onEditPasswordSubmit = function (_a) {
-        var _this = this;
-        var value = _a.value, valid = _a.valid;
-        // initiate submission of form.
-        this.edit_password_form.submitted = true;
-        // send the form data to the backend if the value
-        // format are valid.
-        if (valid) {
-            this.passbtn_disable = true;
-            this.user.updatePassword(value)
-                // initialize switchExpression to redirect to success view
-                // re initialize edit password form to empty fields
-                .then(function (resp) { _this.switchExpression = 'success'; _this.edit_password_form = new src_app_commons_forms_password_forms__WEBPACK_IMPORTED_MODULE_3__["EditPasswordForm"](new src_app_commons_models_edit_password_model__WEBPACK_IMPORTED_MODULE_6__["EditPasswordModel"]); })
-                .catch(function (err) {
-                if (err.error.new_password) {
-                    _this.edit_password_form.err = "This password is entirely numeric or too common.";
-                }
-                else if (err.error.non_field_errors) {
-                    _this.edit_password_form.err = err.error.non_field_errors;
-                }
-                else {
-                    _this.edit_password_form.err = "Invalid Input. Please re-type New and Confirm Password.";
-                }
-                if (err) {
-                    _this.passwordHasError = true;
-                    _this.passbtn_disable = false;
-                }
-            });
-        }
-        else {
-            this.passbtn_disable = false;
         }
     };
     SettingsComponent.prototype.onEditEmailSubmit = function (_a) {
@@ -3908,7 +3380,7 @@ var SettingsComponent = /** @class */ (function () {
                     // re initialize edit password form to empty fields
                     .then(function (resp) {
                     _this.switchExpression = 'edit_email_success';
-                    _this.edit_email_form = new src_app_commons_forms_email_forms__WEBPACK_IMPORTED_MODULE_4__["EditEmailForm"](new src_app_commons_models_edit_password_model__WEBPACK_IMPORTED_MODULE_6__["EditPasswordModel"]);
+                    _this.edit_email_form = new src_app_commons_forms_email_forms__WEBPACK_IMPORTED_MODULE_3__["EditEmailForm"](new src_app_commons_models_edit_password_model__WEBPACK_IMPORTED_MODULE_5__["EditPasswordModel"]);
                     _this.form.form.value.email = value['email'];
                     _this.auth.user.email = _this.form.form.value.email;
                 })
@@ -3922,32 +3394,6 @@ var SettingsComponent = /** @class */ (function () {
             }
         }
     };
-    // onAddPasswordSubmit({value, valid}: {value: AddPasswordModel, valid:boolean}){
-    //   // initiate submission of form.
-    //   this.add_password_form.submitted = true;
-    //   // send the form data to the backend if the value
-    //   // format are valid.
-    //   if(valid){
-    //     this.user.addPassword(value)
-    //       // initialize switchExpression to redirect to success view
-    //       // re initialize edit password form to empty fields
-    //       .then(resp => { this.switchExpression = 'success'; this.add_password_form = new AddPasswordForm(new AddPasswordModel); this.checkPass = true; })
-    //       .catch(err => { this.add_password_form.err = err.error.non_field_errors; });
-    //   }
-    // }
-    SettingsComponent.prototype.changeProfilePic = function ($event) {
-        $event.preventDefault();
-        this.changePic = !this.changePic;
-    };
-    SettingsComponent.prototype.changePassClick = function ($event) {
-        // prevent href default behavior
-        $event.preventDefault();
-        // initialize switchExpression to redirect to change password form
-        this.switchExpression = 'change_password';
-        if (this.passbtn_disable === true) {
-            this.passbtn_disable = false;
-        }
-    };
     SettingsComponent.prototype.changeEmailClick = function ($event) {
         // prevent href default behavior
         $event.preventDefault();
@@ -3959,25 +3405,9 @@ var SettingsComponent = /** @class */ (function () {
     };
     SettingsComponent.prototype.cancelEmailEvent = function () {
         // re initialize edit email and add email form to empty fields
-        this.edit_email_form = new src_app_commons_forms_email_forms__WEBPACK_IMPORTED_MODULE_4__["EditEmailForm"](new src_app_commons_models_edit_email_model__WEBPACK_IMPORTED_MODULE_7__["EditEmailModel"]);
+        this.edit_email_form = new src_app_commons_forms_email_forms__WEBPACK_IMPORTED_MODULE_3__["EditEmailForm"](new src_app_commons_models_edit_email_model__WEBPACK_IMPORTED_MODULE_6__["EditEmailModel"]);
         // initialize switchExpression to redirect to default view
         this.switchExpression = '';
-    };
-    SettingsComponent.prototype.cancelPasswordEvent = function () {
-        // re initialize edit password and add password form to empty fields
-        this.edit_password_form = new src_app_commons_forms_password_forms__WEBPACK_IMPORTED_MODULE_3__["EditPasswordForm"](new src_app_commons_models_edit_password_model__WEBPACK_IMPORTED_MODULE_6__["EditPasswordModel"]);
-        //this.add_password_form = new AddPasswordForm(new AddPasswordModel);
-        // initialize switchExpression to redirect to default view
-        this.switchExpression = '';
-    };
-    SettingsComponent.prototype.deacPassInputChange = function (value) {
-        if (this.deactPassHasErr === true) {
-            this.deactPassHasErr = false;
-        }
-    };
-    SettingsComponent.prototype.createPassClick = function () {
-        // initialize switchExpression to redirect to create password form
-        this.switchExpression = 'create_password';
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('change', ['$event.target.files']),
@@ -3991,9 +3421,9 @@ var SettingsComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./settings.component.html */ "./src/app/components/users/settings/settings.component.html"),
             styles: [__webpack_require__(/*! ./settings.component.css */ "./src/app/components/users/settings/settings.component.css")]
         }),
-        __metadata("design:paramtypes", [src_app_commons_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_8__["AuthService"],
-            _uirouter_core__WEBPACK_IMPORTED_MODULE_9__["StateService"],
-            src_app_commons_services_auth_user_service__WEBPACK_IMPORTED_MODULE_10__["UserService"],
+        __metadata("design:paramtypes", [src_app_commons_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_7__["AuthService"],
+            _uirouter_core__WEBPACK_IMPORTED_MODULE_8__["StateService"],
+            src_app_commons_services_auth_user_service__WEBPACK_IMPORTED_MODULE_9__["UserService"],
             src_app_commons_services_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_1__["NavigationService"]])
     ], SettingsComponent);
     return SettingsComponent;
@@ -4161,7 +3591,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Files\Work\Freelance\angular-django-Library\frontend\scripts\fe\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Asus\Desktop\Projects\angular-django-Library\frontend\scripts\fe\src\main.ts */"./src/main.ts");
 
 
 /***/ })

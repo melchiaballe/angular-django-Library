@@ -14,10 +14,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework.validators import UniqueValidator
 
 
-from .models import (
-    User,
-    ForgotPassword,
-)
+from .models import User
 
 from utils.mixins import get_object_or_None
 
@@ -44,14 +41,7 @@ class AuthTokenSerializer(serializers.Serializer):
             raise serializers.ValidationError(msg, code='authorization')
 
         self.user = authenticate(request=self.request, email=email, password=password)
-        #CHEAT CODE
-        # CHECK IF USER WITH EMAIL EXIST
-        # IF EXIST CHECK IF PASSWORD MATCHES
-        # IF PASSWORD MATCHES THEN RETURN USER
-        # OTHERWISE SET USER TO NONE
 
-
-        # TODO: Fix Interceptor Error
         login(self.request, self.user)
 
         if not self.user:
@@ -109,9 +99,6 @@ class UserSerializer(serializers.ModelSerializer):
     """
     has_usable_pass = serializers.SerializerMethodField(read_only=True)
     full_name = serializers.SerializerMethodField(read_only=True)
-    # permission = serializers.SerializerMethodField(read_only=True)
-    # live_count = serializers.SerializerMethodField(read_only=True)
-    # backtest_count = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
         model = User
@@ -125,7 +112,6 @@ class UserSerializer(serializers.ModelSerializer):
             'has_usable_pass',
             'date_joined',
             'date_updated',
-            # 'permission',
         )
 
     def __init__(self, *args, **kwargs):
@@ -266,50 +252,6 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.is_active = True
         user.save()
         return user
-
-
-class ForgotPasswordSerializer(serializers.ModelSerializer):
-    """
-    Serializer for user password reset
-    """
-    email = serializers.EmailField(write_only=True, required=True)
-
-    class Meta:
-        model = ForgotPassword
-        fields = ('email', )
-
-    def validate_email(self, value):
-        user = User.objects.filter(email=value).exists()
-        if not user:
-            raise serializers.ValidationError("Invalid email address.")
-        return value
-
-    def create(self, validated_data):
-        email = validated_data['email']
-        del validated_data['email']
-
-        user = User.objects.get(email=email)
-        forgot_pass = ForgotPassword.objects.create(user=user)
-
-        return forgot_pass
-
-
-class ResetPasswordSerializer(serializers.Serializer):
-    """
-    Serializer for resetting user password
-    """
-    password = serializers.CharField(required=True)
-    confirm_password = serializers.CharField(required=True)
-
-    def validate(self, attrs):
-        if attrs.get('password') != attrs.get('confirm_password'):
-            raise serializers.ValidationError("Your passwords do not match.")
-
-        return attrs
-
-    def validate_new_password(self, value):
-        validate_password(value)
-        return value
 
 
 class TokenSerializer(serializers.ModelSerializer):

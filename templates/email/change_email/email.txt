@@ -1,3 +1,0 @@
-Howdy, {{ full_name }}!
-
-You have changed your email.

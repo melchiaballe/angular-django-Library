@@ -24,22 +24,11 @@ import { CookieService } from 'ngx-cookie-service';
 export class TokenService {
 
   constructor(
-    private auth  : AuthService,
+    private auth: AuthService,
     private cookie: CookieService
   ) { }
 
   intercept (r: HttpRequest<any>, n: HttpHandler) : Observable <HttpEvent <any>> {
-
-    // const exclude_link = ['/api/users/subscriptions/', '/api/users/auth/forgot-password/',
-    //                      '/api/users/auth/reset-password/', '/api/users/auth/activate-account/'];
-    // if (exclude_link.indexOf(r.url) === -1) {
-    //   r = r.clone({
-    //     setHeaders: {
-    //       'X-CSRFToken'   : this.csrfToken(),
-    //       'Authorization' : this.token(),
-    //     }
-    //   });
-    // }
     const token = this.auth.getToken();
     if (token == null) {
       r = r.clone({
@@ -65,12 +54,6 @@ export class TokenService {
             }
           ));
     }
-
-    // return n.handle(r).pipe(tap(
-    //   resp => {
-    //     if (resp instanceof HttpResponse) return resp;
-    //   }
-    // ));
   }
 
   // Get user token from the local storage
@@ -80,7 +63,7 @@ export class TokenService {
     return `Token ${t}`;
   }
 
-  csrfToken(){
+  csrfToken() {
     const xtoken = this.cookie.get('csrftoken');
     return xtoken;
   }

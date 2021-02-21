@@ -12,9 +12,9 @@ import { Register } from 'src/app/commons/models/register.model';
 export class RegisterComponent implements OnInit {
 
   private form: RegisterForm;
-  private usernameErr: string = "";
-  private emailErr:string = "";
-  private passwordErr:string = "";
+  private usernameErr = '';
+  private emailErr = '';
+  private passwordErr = '';
   private hasEmailError = false;
   private hasUsernameError = false;
   private mismatchedPassword = false;
@@ -31,19 +31,19 @@ export class RegisterComponent implements OnInit {
   }
 
   usernameInputChange(value) {
-    if(this.hasUsernameError === true) {
+    if (this.hasUsernameError === true) {
       return this.hasUsernameError = false;
     }
   }
 
   emailInputChange(value) {
-    if(this.hasEmailError === true) {
+    if (this.hasEmailError === true) {
       return this.hasEmailError = false;
     }
   }
 
   passwordInputChange(value) {
-    if(this.mismatchedPassword === true) {
+    if (this.mismatchedPassword === true) {
       return this.mismatchedPassword = false;
     }
   }
@@ -56,43 +56,38 @@ export class RegisterComponent implements OnInit {
       this.disable = true;
       this.auth.register(value)
         .then(resp => {
-            //this.state.go('dashboard');
-            this.state.go('register-login',{'new': true});
+          this.state.go('register-login', {'new': true});
         })
         .catch(err => {
           this.form.err = err.error;
           this.disable = false;
-          // this.usernameErr = err.error.username;
-          // this.emailErr = err.error.email;
-          if(err.error.email) {
+          if (err.error.email) {
             this.emailErr = err.error.email;
             this.hasEmailError = true;
           }
 
-          if(err.error.username) {
+          if (err.error.username) {
             this.usernameErr = err.error.username;
             this.hasUsernameError = true;
           }
 
-          if(err.error.non_field_errors) {
+          if (err.error.non_field_errors) {
             this.passwordErr = err.error.non_field_errors;
             this.mismatchedPassword = true;
           }
         })
       ;
-    }else{
+    } else {
       this.disable = false;
-      this.form.err = "";
+      this.form.err = '';
     }
   }
 
-  redirectLogin(){
-    if (this.auth.authenticated())
-    {
-      this.state.go('logout')
-
-    }else{
-      this.state.go('login')
+  redirectLogin() {
+    if (this.auth.authenticated()) {
+      this.state.go('logout');
+    } else {
+      this.state.go('login');
     }
   }
 }

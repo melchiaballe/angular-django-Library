@@ -21,8 +21,6 @@ import { BookDetailsComponent } from '../../partials/modals/book-details/book-de
 })
 export class DashboardComponent implements OnInit {
 
-  // private pipe = new DatePipe('en-US');
-
   books_list: any;
   all_books: any;
   private form: SearchForm;
@@ -78,13 +76,6 @@ export class DashboardComponent implements OnInit {
       book: book
     })
     .subscribe((isConfirmed) => {
-        //We get modal result
-        // if(isConfirmed) {
-        //     alert('accepted');
-        // }
-        // else {
-        //     alert('declined');
-        // }
     });
   }
 

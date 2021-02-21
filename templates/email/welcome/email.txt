@@ -1,3 +1,0 @@
-Welcome, {{ full_name }}!
-
-You can start your experience with OnlineLibrary...

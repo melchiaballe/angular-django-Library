@@ -5,13 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class NavigationService {
 
-  public headerTitle:string = 'Dashboard'
-  public hasLoaded:boolean = false;
-  public isLoading: boolean = false;
+  public headerTitle = 'Dashboard';
+  public hasLoaded = false;
+  public isLoading = false;
 
   constructor() { }
 
-  changeHeaderTitle(title){
-    this.headerTitle = title
+  changeHeaderTitle(title) {
+    this.headerTitle = title;
   }
 }

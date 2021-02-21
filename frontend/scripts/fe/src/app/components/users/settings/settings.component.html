@@ -17,57 +17,6 @@
                             <label>Username</label>
                             <input type="text" class="form-control" formControlName="username" (input)="usernameInputChange($event.target.value)" placeholder="Username" disabled>
                             <small class='text-muted'>Please note that you cannot change your username after sign up.</small><br><br>
-
-                            <!--
-                            <div [ngSwitch]="switchExpression" class="password-field">
-                                !-- CHANGE PASSWORD FORM --
-                                <div *ngSwitchCase="'change_password'">
-                                    <form [formGroup]="edit_password_form.form" (ngSubmit)="onEditPasswordSubmit(edit_password_form.form)">
-                                        <p>Change Password</p>
-                                        <span *ngIf="passwordHasError" class="text-danger">{{ edit_password_form.err }}</span>
-                                        <div class="form-group">
-                                            <label>Old Password</label>
-                                            <input type="password" formControlName="old_password" (input)="passwordInputChange($event.target.value)" class="form-control">
-                                            <span *ngIf="edit_password_form.hasError('old_password', 'required')" class="text-danger"><small>This field is required</small></span>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>New Password</label>
-                                            <input type="password" formControlName="new_password" (input)="passwordInputChange($event.target.value)" class="form-control">
-                                            <span *ngIf="edit_password_form.hasError('new_password', 'required')" class="text-danger"><p><small>This field is required</small></p></span>
-                                            <span *ngIf="edit_password_form.hasError('new_password', 'minlength')" class="text-danger"><p><small>Password should consist of 8 characters</small></p></span>
-                                            <span *ngIf="edit_password_form.hasError('new_password', 'pattern')" class="text-danger"><p><small>Password must contain a number and symbol (#$@!%&*?_)</small></p></span>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Confirm Password</label>
-                                            <input type="password" formControlName="confirm_new_password" (input)="passwordInputChange($event.target.value)" class="form-control">
-                                            <span *ngIf="edit_password_form.hasError('confirm_new_password', 'required')" class="text-danger"><p><small>This field is required</small></p></span>
-                                            <span *ngIf="edit_password_form.hasError('confirm_new_password', 'minlength')" class="text-danger"><p><small>Password should consist of 8 characters.</small></p></span>
-                                            <span *ngIf="edit_password_form.hasError('confirm_new_password', 'pattern')" class="text-danger"><p><small>Password must contain a number and symbol (#$@!%&*?_)</small></p></span>
-                                        </div>
-                                        <div class="d-flex justify-content-between">
-                                            <button (click)="cancelPasswordEvent()" class="btn-sm btn-light">Cancel</button>
-                                            <button class="btn-sm btn-primary" [disabled]="this.passbtn_disable">Update Password</button>
-                                        </div>
-                                    </form>
-                                </div>
-
-                                !-- CHANGE/CREATE PASSWORD -- SUCCESS --
-                                <div *ngSwitchCase="'success'">
-                                  <p>Congratulations! You’ve successfully updated your password.</p>
-                                  <div class="text-right">
-                                      <a href="" (click)="changePassClick($event)" class="text-right bold changePw">Change Password</a>
-                                  </div>
-                                </div>
-
-                                <div *ngSwitchDefault>
-                                    !-- PASSWORD ALREADY CREATED --
-                                    <div class="text-left">
-                                        <a href="" (click)="changePassClick($event)" class="bold changePw">Change Password</a>
-                                    </div>
-                                    !-- CPASSWORD ALREADY CREATED--
-                                </div>
-                            </div>
-                            -->
                         </div>
                         <div class="col">
                             <label>Last Name</label>

@@ -1,7 +1,7 @@
 from django.db import models
 from users.models import User
 
-# Create your models here.
+
 class Book(models.Model):
     AVAILABLE = 'available'
     CHECKED_OUT = 'checked out'

@@ -22,7 +22,6 @@
           <input class="form-control" formControlName="username" (input)="usernameInputChange($event.target.value)" type="text">
           <span [hidden]="form.valid('username')" class="text-danger"><p><small>Username is required.</small></p></span>
           <span *ngIf="this.hasUsernameError" class="text-danger"><p><small>{{ this.usernameErr }}</small></p></span>
-          <!-- <span [hidden]="!form.err" class="text-danger"><p><small>{{ this.usernameErr }}</small></p></span> -->
         </div>
 
         <div>

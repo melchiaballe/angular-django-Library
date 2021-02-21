@@ -10,7 +10,6 @@
     </div>
     <form [formGroup]="form.form" (ngSubmit)="onSubmit(form.form)">
         <span [hidden]="!form.err" class="text-danger">Invalid Email/Password. Please try again.</span>
-        <!-- <span *ngIf="hasError" class="text-danger"><p>Invalid Email/Password. Please try again.</p></span> -->
         <div>
             <label>Email:</label>
             <input class="form-control" formControlName="email" (input)="inputChange($event.target.value)" type="text">
@@ -28,8 +27,7 @@
     
 
     <div class="form-group">
-        <!-- <p><a (click)='forgotPassword()' class="mb-1">Forgot Password</a></p> -->
-        <p><a (click)='register()'>Don't have an account?</a></p>
+        <p><a href='.' (click)='register($event)'>Don't have an account?</a></p>
     </div>
 
 </div>

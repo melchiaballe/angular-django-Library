@@ -161,10 +161,6 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
 
-# Webapp Related Settings
-WEBAPP_RESET_PASSWORD_PATH = 'reset-password'
-WEBAPP_ACTIVATE_ACCOUNT_PATH = 'activate-account'
-
 #Base URL
 PROTOCOL = os.environ.get('PROTOCOL', 'http://')
 DOMAIN_NAME = os.environ.get('DOMAIN_NAME')

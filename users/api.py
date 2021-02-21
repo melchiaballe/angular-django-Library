@@ -24,19 +24,13 @@ from .serializers import (
     UserSerializer,
     PasswordSerializer,
     RegisterSerializer,
-    ForgotPasswordSerializer,
-    ResetPasswordSerializer,
     EmailSerializer,
     TokenSerializer,
-    # RegisterwSubscriptionSerializer
 )
 
 # Had to set an alias because of conflict with
 # existing ViewSet named User
-from .models import(
-    User as UserModel,
-    ForgotPassword as ForgotPasswordModel,
-)
+from .models import User as UserModel
 
 from utils.mixins import get_object_or_None
 
@@ -94,71 +88,6 @@ class Register(APIView):
         return Response(serializer.errors, status=400)
 
 
-# class RegisterSubscription(APIView):
-#     """ Register User with Subscription endpoint
-#     """
-#     authentication_classes = ()
-#     permission_classes = (AllowAny,)
-#     serializer_class = RegisterwSubscriptionSerializer
-
-#     def post(self, *args, **kwargs):
-#         serializer = self.serializer_class(data=self.request.data)
-#         if serializer.is_valid():
-#             user = serializer.save()
-#             token, created = Token.objects.get_or_create(user=user)
-#             return Response({
-#                 'token': token.key,
-#                 'user_id': user.pk,
-#                 'email': user.email
-#             }, status=200)
-#         return Response(serializer.errors, status=400)
-
-
-class ChangePassword(APIView):
-    """
-        User Password EndPoint
-    """
-    permission_classes = (AllowAny,)
-
-    def post(self, *args, **kwargs):
-        """
-            Create User Password
-        """
-        serializer = PasswordSerializer(
-            data=self.request.data, request=self.request)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(status=204)
-
-    def put(self, *args, **kwargs):
-        """
-            Update User Password
-        """
-        serializer = PasswordSerializer(
-            data=self.request.data,
-            request=self.request)
-        if serializer.is_valid():
-            serializer.save()
-
-            email_context = {
-                'full_name': self.request.user.get_full_name()
-            }
-
-            # Email Templates
-            email_plain = render_to_string('email/change_password/email.txt')
-            email_html = render_to_string('email/change_password/email.html')
-
-            send_mail(
-                'OnlineLibrary - Change Password',
-                email_plain,
-                settings.DEFAULT_FROM_EMAIL,
-                [self.request.user.email],
-                html_message=email_html,
-            )
-            return Response(status=204)
-        return Response(serializer.errors, status=400)
-
-
 class ChangeEmail(APIView):
     """
         User Email EndPoint
@@ -175,23 +104,6 @@ class ChangeEmail(APIView):
 
         if serializer.is_valid():
             serializer.save()
-
-            email_context = {
-                'full_name': self.request.user.get_full_name()
-            }
-
-            # Email Templates
-            email_plain = render_to_string('email/change_email/email.txt', email_context)
-            email_html = render_to_string('email/change_email/email.html', email_context)
-
-            send_mail(
-                'OnlineLibrary - Change Email',
-                email_plain,
-                settings.DEFAULT_FROM_EMAIL,
-                [self.request.user.email],
-                html_message=email_html,
-            )
-
             return Response(status=204)
         return Response(serializer.errors, status=400)
 
@@ -235,74 +147,5 @@ class User(ViewSet):
         return Response(serializer.data, status=200)
 
 
-class ForgotPassword(APIView):
-    """ Forgot Password Endpoint
-    """
-    permission_classes = (AllowAny,)
-
-    @method_decorator(csrf_exempt)
-    def dispatch(self, request, *args, **kwargs):
-        return super(ForgotPassword, self).dispatch(request, *args, **kwargs)
-
-    def post(self, request, *args, **kwargs):
-        serializer = ForgotPasswordSerializer(
-            data=self.request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(status=204)
-
-
-class ResetPassword(APIView):
-    """
-    View for users to reset their forgotten password
-    """
-
-    permission_classes = (AllowAny,)
-
-    @method_decorator(csrf_exempt)
-    def dispatch(self, request, *args, **kwargs):
-        return super(ResetPassword, self).dispatch(request, *args, **kwargs)
-
-    def post(self, request, *args, **kwargs):
-        token = self.request.data.get('token')
-        token_obj = ForgotPasswordModel.objects.filter(token=token,
-                                                       status=ForgotPasswordModel.PENDING)
-
-        if not token_obj.exists():
-            token_msg = 'Your token is invalid. Please request another.'
-            return Response({'non_field_errors': [token_msg]}, status=400)
-
-        data = {
-            'password': self.request.data.get('new_password'),
-            'confirm_password': self.request.data.get('confirm_new_password')
-        }
-        serializer = ResetPasswordSerializer(data=data)
-        if serializer.is_valid():
-            user_token = token_obj[0]
-            user = user_token.user
-            user.password = make_password(serializer.data['password'])
-            user.save()
-
-            user_token.status = ForgotPasswordModel.USED
-            user_token.save()
-
-            email_context = {
-                'full_name': user.get_full_name()
-            }
-
-            # Email Templates
-            email_plain = render_to_string('email/change_password/email.txt', email_context)
-            email_html = render_to_string('email/change_password/email.html', email_context)
-
-            send_mail(
-                'OnlineLibrary - Change Password',
-                email_plain,
-                settings.DEFAULT_FROM_EMAIL,
-                [user.email],
-                html_message=email_html,
-            )
-
-            return Response(status=200)
-        return Response(serializer.errors, status=400)
 
 

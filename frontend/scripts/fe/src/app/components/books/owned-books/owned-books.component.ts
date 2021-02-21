@@ -16,8 +16,8 @@ import { ConfirmationMessageComponent } from '../../partials/modals/confirmation
 })
 export class OwnedBooksComponent implements OnInit {
 
-  books_list:any;
-  all_books:any;
+  books_list: any;
+  all_books: any;
   private form: SearchForm;
 
   constructor(
@@ -35,12 +35,12 @@ export class OwnedBooksComponent implements OnInit {
         this.all_books = data;
         this.books_list = this.all_books;
       }, error => {
-        console.log(error)
+        console.log(error);
       }
-    )
+    );
   }
 
-  filterClick(event, status){
+  filterClick(event, status) {
     event.preventDefault();
     if (status === 'all') {
       this.books_list = this.all_books;
@@ -53,12 +53,12 @@ export class OwnedBooksComponent implements OnInit {
     this.form.form.controls['search_text'].setValue(null);
   }
 
-  rowClicked(book){
+  rowClicked(book) {
     this.simpleModalService.addModal(BookDetailsComponent, {
       has_error: false,
-      book:book
+      book: book
     })
-    .subscribe((isConfirmed)=>{
+    .subscribe((isConfirmed) => {
     });
   }
 
@@ -77,6 +77,7 @@ export class OwnedBooksComponent implements OnInit {
     this.simpleModalService.addModal(UpdateBookComponent, {book: book}).subscribe(
       (bookData) => {
         if (bookData) {
+          console.log(bookData)
           this.simpleModalService.addModal(ConfirmationMessageComponent, {has_error: false}).subscribe(
             (isTrue) => {
               if (isTrue) {
@@ -86,7 +87,6 @@ export class OwnedBooksComponent implements OnInit {
                     book.title = bookData.title;
                     book.author = bookData.author;
                     book.location = bookData.location;
-                    book.is_digital_copy = bookData.is_digital_copy;
                   }, error => {
                     console.log(error);
                   }

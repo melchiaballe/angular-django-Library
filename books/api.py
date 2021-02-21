@@ -20,16 +20,10 @@ class BookViewSet(ViewSet):
     serializer_class = BookSerializer
     permission_classes = (IsAuthenticated,)
 
-    # def get(self, *args, **kwargs):
-        # serializer = self.serializer_class(
-        #     instance=self._get(self._model, **kwargs)
-        # )
-        # return Response(serializer.data, status=200)
 
     def filter(self, *args, **kwargs):
-        # import pdb; pdb.set_trace()
         serializer = self.serializer_class(
-            instance=Book.objects.filter(Q(status=Book.AVAILABLE) | Q(status=Book.CHECKED_OUT)), 
+            instance=Book.objects.filter(Q(status=Book.AVAILABLE) | Q(status=Book.CHECKED_OUT)).order_by('-date_created'), 
             many=True,
         )
 
@@ -47,7 +41,6 @@ class BookViewSet(ViewSet):
             data=self.request.data, request=self.request
         )
         if serializer.is_valid(raise_exception=True):
-            # serializer.object.owner = self.request.user 
             serializer.save() 
         return Response({}, status=200)
 
@@ -58,7 +51,6 @@ class BookViewSet(ViewSet):
             request=self.request
         )
         if serializer.is_valid(raise_exception=True):
-            # serializer.object.owner = self.request.user 
             serializer.save() 
         return Response({}, status=200)
 

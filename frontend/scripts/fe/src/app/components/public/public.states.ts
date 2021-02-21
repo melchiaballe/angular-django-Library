@@ -2,8 +2,6 @@ import { ContentOnly } from "src/app/commons/utils/layout.utils";
 import { LoginComponent } from "./login/login.component";
 import { Disconnect, Deactivate } from "src/app/commons/utils/security.utils";
 import { RegisterComponent } from "./register/register.component";
-import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
-import { ResetPasswordComponent } from "./reset-password/reset-password.component";
 
 
 export const PUBLIC_STATES: Object[] = [
@@ -41,14 +39,4 @@ export const PUBLIC_STATES: Object[] = [
         views: ContentOnly(RegisterComponent),
         params: { next: window.location.pathname }
     },
-    {
-        name    : 'forgot-password',
-        url     : '/forgot-password/',
-        views: ContentOnly(ForgotPasswordComponent),
-    },
-    {
-        name    : 'reset-password',
-        url     : '/reset-password/:token',
-        views: ContentOnly(ResetPasswordComponent),
-    },
-]
+];

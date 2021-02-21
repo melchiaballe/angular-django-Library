@@ -43,18 +43,17 @@ export class BorrowedBooksComponent implements OnInit {
   }
 
   onSubmit({ value, valid }: { value: SearchModel, valid: boolean }) {
-    if(valid){
+    if (valid) {
       this.books_list = this.all_books.filter(x => x.book.title.toLowerCase().includes(value.search_text.toLowerCase()));
-    }else{
+    } else {
       if (value.search_text === '') {
         this.books_list = this.all_books;
       }
     }
   }
 
-  returnBook(event, item){
+  returnBook(event, item) {
     event.stopPropagation();
-    // ADD SIMPLEMODAL SERVICE CONFIRMATION BEFORE CALL
     this.simpleModalService.addModal(ConfirmationMessageComponent, {has_error: false}).subscribe(
       (isTrue) => {
         if (isTrue) {
@@ -71,7 +70,7 @@ export class BorrowedBooksComponent implements OnInit {
     );
   }
 
-  filterClick(event, status){
+  filterClick(event, status) {
     event.preventDefault();
     if (status === 'all') {
       this.books_list = this.all_books;

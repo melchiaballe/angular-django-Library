@@ -3,7 +3,7 @@ import * as _ from 'lodash';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { AUTH_LOGIN, AUTH_USER, AUTH_REGISTER, FORGOT_PASSWORD, RESET_PASSWORD, NEW_USER, AUTH_USER_ID } from '../../constants/api.constants';
+import { AUTH_LOGIN, AUTH_USER, AUTH_REGISTER, NEW_USER, AUTH_USER_ID } from '../../constants/api.constants';
 import { AUTH_KEY } from '../../constants/conf.constants';
 import { User } from '../../models/user.model';
 
@@ -15,7 +15,7 @@ import { User } from '../../models/user.model';
 export class AuthService {
 
   public user = new User;
-  public user_id:any;
+  public user_id: any;
 
   constructor(
     private http: HttpClient,
@@ -34,37 +34,22 @@ export class AuthService {
       .catch(err => { console.log(err); return Promise.reject(err); })
     ;
   }
-  /* Forgot Password */
-  forgotPassword(data){
-    return this.http.post(FORGOT_PASSWORD, data)
-      .toPromise()
-      .then(resp=>{ return resp; })
-      .catch(err=> { return Promise.reject(err); })
-  }
-
-  /* Forgot Password */
-  resetPassword(data){
-    return this.http.post(RESET_PASSWORD, data)
-      .toPromise()
-      .then(resp=>{ return resp; })
-      .catch(err=> { return Promise.reject(err); })
-  }
 
   /**REGISTER USER */
-  register(creds){
+  register(creds) {
     return this.http.post(AUTH_REGISTER, creds)
     .toPromise()
-    .then(resp=>{ return resp; })
-    .catch(err=>{ return Promise.reject(err); });
+    .then(resp => { return resp; })
+    .catch(err => { return Promise.reject(err); });
 
   }
 
   /**NEW USER */
-  newUser(creds){
+  newUser(creds) {
     return this.http.post(NEW_USER, creds)
     .toPromise()
-    .then(resp=>{ this.setToken(resp); this.authUser(Object(resp).user_id); return resp; })
-    .catch(err=>{ return Promise.reject(err); });
+    .then(resp => { this.setToken(resp); this.authUser(Object(resp).user_id); return resp; })
+    .catch(err => { return Promise.reject(err); });
   }
 
   /* MANAGE USER TOKEN
@@ -79,15 +64,14 @@ export class AuthService {
 
   getToken() {
     // fetch the generated token from the storage
-    let d = (<any>window).localStorage[AUTH_KEY];
+    const d = (<any>window).localStorage[AUTH_KEY];
     if (!d) return null;
-
     return JSON.parse(d);
   }
 
-  getUser(){
+  getUser() {
     this.user_id = this.getToken().user_id;
-    if(this.user.id === ""){
+    if(this.user.id === '') {
       this.authUser(this.user_id);
     }
   }
@@ -109,8 +93,8 @@ export class AuthService {
     // save the user's instance
     return this.http.get(AUTH_USER)
       .toPromise()
-      .then(resp => { this.user=new User(resp); })
-      .catch(err=> { return Promise.reject(err); })
+      .then(resp => { this.user = new User(resp); })
+      .catch(err => { return Promise.reject(err); })
     ;
   }
 
@@ -124,15 +108,15 @@ export class AuthService {
     return this.user;
   }
 
-  authUser(id){
+  authUser(id) {
    this.http.get(AUTH_USER_ID, {params: {'id': id}}).subscribe(
-      result=>{
+      result => {
         this.user = new User(result);
       },
-      error=>{
+      error => {
         console.log(error);
       }
-    )
+    );
   }
 
 }

@@ -19,7 +19,7 @@ export class SideMenuComponent implements OnInit {
 
   }
 
-  onStateChange(event, state, header){
+  onStateChange(event, state, header) {
     event.preventDefault();
     this.state.go(state);
     this.nav.changeHeaderTitle(header);
