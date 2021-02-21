@@ -37,14 +37,13 @@
                   {{ comment.user.full_name | titlecase }} 
                 </div>
                 <div class="col-sm-5 text-muted pl-3 pr-0" style="font-size: 10px; margin-top: 2px;">
-                  {{ comment.date_created | date:'medium' }}
+                  {{ comment.date_created | date:'short' }}
                 </div>
-                <div class="col-sm-2"><button type="button" class="close" (click)="deleteClick(comment.id)" >&times;</button></div>
+                <div class="col-sm-2"><button type="button" class="close" (click)="deleteClick(comment.id)" [hidden]="comment.user.id!==this.authService.user_id">&times;</button></div>
               </div>
             </h6>
             <small class="text-muted mb-0">{{ comment.message }}</small> <br>
           </div>
-
         </div>
       </div>
     </div>
