@@ -8,7 +8,8 @@ import {
   DELETE_COMMENT,
   IS_CHECKED_OUT,
   BORROWED_BOOKS,
-  RETURN_BOOK} from '../../constants/api.constants'
+  RETURN_BOOK,
+  UPDATE_BOOK} from '../../constants/api.constants'
 import { Books } from '../../models/book.model'
 
 @Injectable({
@@ -37,6 +38,10 @@ export class BooksService {
     return this.http.post(ADD_BOOK, data);
   }
 
+  updateBook(data: Books){
+    return this.http.put(UPDATE_BOOK, data);
+  }
+
   checkoutBook(data){
     return this.http.post(CHECKOUT_BOOK, data);
   }
@@ -60,4 +65,5 @@ export class BooksService {
   returnBook(data){
     return this.http.post(RETURN_BOOK, data);
   }
+
 }

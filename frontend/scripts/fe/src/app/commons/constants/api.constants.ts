@@ -20,6 +20,7 @@ export const RESET_PASSWORD = urlsafe(AUTH_USER, 'reset-password');
 export const BOOKS = '/api/books/';
 export const OWNED_BOOKS = urlsafe(BOOKS, 'owned-books');
 export const ADD_BOOK = urlsafe(BOOKS, 'add-book');
+export const UPDATE_BOOK = urlsafe(BOOKS, 'update-book');
 export const CHECKOUT_BOOK = urlsafe(BOOKS, 'checkout-book');
 export const IS_CHECKED_OUT = urlsafe(BOOKS, 'is-checked-out');
 export const RETURN_BOOK = urlsafe(BOOKS, 'return-book');

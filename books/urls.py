@@ -25,6 +25,10 @@ urlpatterns = [
         'post': 'add_book',
     }), name="add-book"),
 
+    path('update-book/', BookViewSet.as_view({
+        'put': 'update_book',
+    }), name="update_book"),
+
     path('checkout-book/', CheckoutViewSet.as_view({
         'post': 'checkout_book'
     }), name='checkout_book'),

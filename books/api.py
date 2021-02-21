@@ -52,6 +52,16 @@ class BookViewSet(ViewSet):
             serializer.save() 
         return Response({}, status=200)
 
+    def update_book(self, *args, **kwargs):
+        serializer = self.serializer_class(
+            data=self.request.data, request=self.request
+        )
+        if serializer.is_valid(raise_exception=True):
+            # serializer.object.owner = self.request.user 
+            serializer.save() 
+        return Response({}, status=200)
+
+
 
 class CheckoutViewSet(ViewSet):
 
