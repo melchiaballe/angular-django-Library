@@ -26,7 +26,11 @@ class Book(models.Model):
 
     class Meta:
         unique_together = ('title', 'author', 'owner', 'is_digital_copy'),
-        sa das das das
+        dasd asd
+        sa das das das das dasd asssss
+        dasdasd as
+        d asd *args
+        sdsss
 
     def __str__(self):
         return "{}".format(self.title)
